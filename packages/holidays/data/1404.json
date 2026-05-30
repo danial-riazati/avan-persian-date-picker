@@ -1,0 +1,158 @@
+[
+  {
+    "date": "1404-01-01",
+    "title": "جشن نوروز/جشن سال نو",
+    "titleEn": "Nowruz",
+    "type": "public"
+  },
+  {
+    "date": "1404-01-02",
+    "title": "عید نوروز / شهادت حضرت علی علیه السلام",
+    "titleEn": "Nowruz / Martyrdom of Imam Ali",
+    "type": "public"
+  },
+  {
+    "date": "1404-01-03",
+    "title": "عید نوروز",
+    "titleEn": "Nowruz",
+    "type": "public"
+  },
+  {
+    "date": "1404-01-04",
+    "title": "عید نوروز",
+    "titleEn": "Nowruz",
+    "type": "public"
+  },
+  {
+    "date": "1404-01-11",
+    "title": "عید سعید فطر",
+    "titleEn": "Eid al-Fitr",
+    "type": "religious"
+  },
+  {
+    "date": "1404-01-12",
+    "title": "روز جمهوری اسلامی / تعطیل به مناسبت عید سعید فطر",
+    "titleEn": "Eid al-Fitr holiday / Islamic Republic Day",
+    "type": "public"
+  },
+  {
+    "date": "1404-01-13",
+    "title": "جشن سیزده به در",
+    "titleEn": "Nature Day (Sizdah Bedar)",
+    "type": "public"
+  },
+  {
+    "date": "1404-02-04",
+    "title": "شهادت امام جعفر صادق علیه السلام",
+    "titleEn": "Martyrdom of Imam Jafar Sadegh",
+    "type": "religious"
+  },
+  {
+    "date": "1404-03-14",
+    "title": "رحلت حضرت امام خمینی",
+    "titleEn": "Demise of Imam Khomeini",
+    "type": "public"
+  },
+  {
+    "date": "1404-03-15",
+    "title": "قیام 15 خرداد",
+    "titleEn": "15 Khordad Uprising",
+    "type": "public"
+  },
+  {
+    "date": "1404-03-16",
+    "title": "عید سعید قربان",
+    "titleEn": "Eid al-Adha",
+    "type": "religious"
+  },
+  {
+    "date": "1404-03-24",
+    "title": "عید سعید غدیر خم",
+    "titleEn": "Eid al-Ghadir",
+    "type": "religious"
+  },
+  {
+    "date": "1404-04-14",
+    "title": "تاسوعای حسینی",
+    "titleEn": "Tasu'a",
+    "type": "religious"
+  },
+  {
+    "date": "1404-04-15",
+    "title": "عاشورای حسینی",
+    "titleEn": "Ashura",
+    "type": "religious"
+  },
+  {
+    "date": "1404-05-23",
+    "title": "اربعین حسینی",
+    "titleEn": "Arba'een",
+    "type": "religious"
+  },
+  {
+    "date": "1404-05-31",
+    "title": "رحلت رسول اکرم / شهادت امام حسن مجتبی علیه السلام",
+    "titleEn": "Demise of Prophet Muhammad / Martyrdom of Imam Hassan",
+    "type": "religious"
+  },
+  {
+    "date": "1404-06-02",
+    "title": "شهادت امام رضا علیه السلام",
+    "titleEn": "Martyrdom of Imam Reza",
+    "type": "religious"
+  },
+  {
+    "date": "1404-06-10",
+    "title": "شهادت امام حسن عسکری علیه السلام",
+    "titleEn": "Martyrdom of Imam Hassan Askari",
+    "type": "religious"
+  },
+  {
+    "date": "1404-06-19",
+    "title": "میلاد رسول اکرم و امام جعفر صادق علیه السلام",
+    "titleEn": "Birth of Prophet Muhammad / Birth of Imam Jafar Sadegh",
+    "type": "religious"
+  },
+  {
+    "date": "1404-09-03",
+    "title": "شهادت حضرت فاطمه زهرا سلام الله علیها",
+    "titleEn": "Martyrdom of Hazrat Fatemeh Zahra",
+    "type": "religious"
+  },
+  {
+    "date": "1404-10-13",
+    "title": "ولادت امام علی علیه السلام و روز پدر",
+    "titleEn": "Birth of Imam Ali / Father's Day",
+    "type": "religious"
+  },
+  {
+    "date": "1404-10-27",
+    "title": "مبعث رسول اکرم (ص)",
+    "titleEn": "Mab'ath of Prophet Muhammad",
+    "type": "religious"
+  },
+  {
+    "date": "1404-11-15",
+    "title": "ولادت حضرت قائم عجل الله تعالی فرجه و جشن نیمه شعبان",
+    "titleEn": "Birth of Imam Mahdi",
+    "type": "religious"
+  },
+  {
+    "date": "1404-11-22",
+    "title": "پیروزی انقلاب اسلامی",
+    "titleEn": "Anniversary of Islamic Revolution",
+    "type": "public"
+  },
+  {
+    "date": "1404-12-20",
+    "title": "شهادت حضرت علی علیه السلام",
+    "titleEn": "Martyrdom of Imam Ali",
+    "type": "religious"
+  },
+  {
+    "date": "1404-12-29",
+    "title": "روز ملی شدن صنعت نفت ایران",
+    "titleEn": "Nationalization of Oil Industry",
+    "type": "public"
+  }
+]

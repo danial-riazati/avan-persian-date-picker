@@ -25,7 +25,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./1405": "./data/1405.json"
+    "./1405": "./data/1405.json",
+    "./fixed-solar": "./data/fixed-solar.json"
   },
   "files": [
     "dist",

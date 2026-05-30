@@ -4,14 +4,6 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        screenshots: path.resolve(__dirname, 'screenshots.html'),
-      },
-    },
-  },
   resolve: {
     alias: {
       '@avan/core': path.resolve(__dirname, '../../packages/core/src'),

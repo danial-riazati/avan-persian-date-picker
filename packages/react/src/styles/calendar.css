@@ -1,0 +1,516 @@
+.avan-calendar {
+  container-type: inline-size;
+  container-name: avan-calendar;
+  width: min(100%, var(--avan-calendar-max-width, 24rem));
+  padding: var(--avan-calendar-padding, 1rem);
+  border: 1px solid var(--avan-border);
+  border-radius: calc(var(--avan-day-radius) + 0.35rem);
+  box-shadow: var(--avan-shadow);
+  background: var(--avan-background);
+  font-size: var(--avan-calendar-font-size, 1rem);
+  overflow: visible;
+}
+
+.avan-calendar--2-months {
+  width: min(100%, var(--avan-calendar-2-max-width, 42rem));
+}
+
+.avan-calendar__months {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--avan-calendar-padding, 1rem);
+}
+
+.avan-calendar__month-panel {
+  min-width: 0;
+}
+
+.avan-calendar__month-header {
+  margin-bottom: 0.625rem;
+}
+
+.avan-calendar__month-header .avan-calendar__caption {
+  width: 100%;
+}
+
+.avan-calendar__header-spacer {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .avan-calendar--2-months .avan-calendar__months {
+    grid-template-columns: 1fr;
+  }
+}
+
+@container avan-calendar (max-width: 22rem) {
+  .avan-calendar {
+    --avan-day-size: min(var(--avan-day-size, 2.5rem), 2.125rem);
+    --avan-calendar-grid-gap: 0.3rem;
+    --avan-calendar-nav-size: 1.875rem;
+    --avan-holiday-dot-size: 0.28rem;
+  }
+}
+
+@container avan-calendar (max-width: 18rem) {
+  .avan-calendar {
+    --avan-day-size: min(var(--avan-day-size, 2.5rem), 1.875rem);
+    --avan-calendar-grid-gap: 0.25rem;
+    --avan-calendar-nav-size: 1.75rem;
+    --avan-calendar-font-size: 0.875rem;
+    --avan-holiday-dot-size: 0.22rem;
+    --avan-day-inner-padding: 0.0625rem;
+  }
+}
+
+.avan-calendar__header {
+  margin-bottom: 0.875rem;
+}
+
+.avan-calendar__header-nav,
+.avan-calendar__picker-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.avan-calendar__header-center,
+.avan-calendar__picker-range-wrap {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.avan-calendar__header-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.625rem;
+}
+
+.avan-calendar__caption {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-width: 0;
+}
+
+.avan-calendar__caption-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(var(--avan-calendar-nav-size, 2rem) * 0.95);
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--avan-border);
+  border-radius: 999px;
+  background: var(--avan-muted);
+  color: var(--avan-foreground);
+  font: inherit;
+  font-size: var(--avan-calendar-text-md, 0.875rem);
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.avan-calendar__caption-chip:hover {
+  border-color: color-mix(in srgb, var(--avan-accent) 45%, var(--avan-border));
+  background: color-mix(in srgb, var(--avan-accent) 8%, var(--avan-muted));
+}
+
+.avan-calendar__caption-chip--active,
+.avan-calendar__caption-chip:focus-visible {
+  border-color: var(--avan-accent);
+  background: color-mix(in srgb, var(--avan-accent) 12%, var(--avan-background));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--avan-accent) 18%, transparent);
+  outline: none;
+}
+
+.avan-calendar__back-btn {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: transparent;
+  color: var(--avan-muted-foreground);
+  font: inherit;
+  font-size: var(--avan-calendar-text-sm, 0.8125rem);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.avan-calendar__back-btn:hover {
+  border-color: var(--avan-accent);
+  color: var(--avan-accent);
+}
+
+.avan-calendar__nav,
+.avan-calendar__picker-nav {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--avan-calendar-nav-size, 2rem);
+  height: var(--avan-calendar-nav-size, 2rem);
+  padding: 0;
+  border: 1px solid var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-muted);
+  color: var(--avan-foreground);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.avan-calendar__nav-icon {
+  display: block;
+  flex-shrink: 0;
+  width: calc(var(--avan-calendar-nav-size, 2rem) * 0.5);
+  height: calc(var(--avan-calendar-nav-size, 2rem) * 0.5);
+}
+
+.avan-calendar__nav:hover:not(:disabled),
+.avan-calendar__picker-nav:hover:not(:disabled) {
+  border-color: var(--avan-accent);
+  color: var(--avan-accent);
+}
+
+.avan-calendar__nav:disabled,
+.avan-calendar__picker-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.avan-calendar__picker {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--avan-border);
+  border-radius: calc(var(--avan-day-radius) + 0.15rem);
+  background: color-mix(in srgb, var(--avan-muted) 55%, var(--avan-background));
+}
+
+.avan-calendar__picker-title {
+  font-size: var(--avan-calendar-text-sm, 0.8125rem);
+  font-weight: 700;
+  color: var(--avan-muted-foreground);
+  text-align: center;
+}
+
+.avan-calendar__picker-toolbar {
+  margin-bottom: 0.25rem;
+}
+
+.avan-calendar__picker-range {
+  flex: 1;
+  font-size: var(--avan-calendar-text-md, 0.875rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--avan-foreground);
+}
+
+.avan-calendar__picker-pages {
+  font-size: var(--avan-calendar-text-xs, 0.75rem);
+  font-weight: 600;
+  text-align: center;
+  color: var(--avan-muted-foreground);
+}
+
+.avan-calendar__picker-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.avan-calendar__picker-grid--months {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.avan-calendar__picker-grid--years {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.avan-calendar__picker-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--avan-day-size, 2.5rem);
+  padding: 0.5rem 0.375rem;
+  border: 1px solid transparent;
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-background);
+  color: var(--avan-foreground);
+  font: inherit;
+  font-size: var(--avan-calendar-text-sm, 0.8125rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.avan-calendar__picker-cell:hover {
+  border-color: color-mix(in srgb, var(--avan-accent) 35%, var(--avan-border));
+  background: color-mix(in srgb, var(--avan-accent) 8%, var(--avan-background));
+}
+
+.avan-calendar__picker-cell--selected {
+  border-color: var(--avan-accent);
+  background: var(--avan-accent);
+  color: var(--avan-accent-foreground);
+}
+
+.avan-calendar__picker-cell--empty {
+  min-height: var(--avan-day-size, 2.5rem);
+}
+
+.avan-calendar__weekdays,
+.avan-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--avan-calendar-grid-gap, 0.35rem);
+  align-items: stretch;
+}
+
+.avan-calendar__weekdays {
+  margin-bottom: 0.5rem;
+}
+
+.avan-calendar__weekday {
+  text-align: center;
+  font-size: var(--avan-calendar-text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--avan-muted-foreground);
+}
+
+.avan-calendar__day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  container-type: size;
+  container-name: avan-day;
+  width: 100%;
+  max-width: var(--avan-day-size, 2.5rem);
+  min-height: 0;
+  aspect-ratio: 1;
+  height: auto;
+  margin: 0 auto;
+  padding: var(--avan-day-inner-padding, 0.125rem);
+  border: 0;
+  border-radius: var(--avan-day-radius);
+  background: transparent;
+  color: var(--avan-foreground);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.avan-calendar__day:has(.avan-calendar__holiday-dot) {
+  justify-content: space-between;
+  padding-block-end: calc(var(--avan-day-inner-padding, 0.125rem) + 0.0625rem);
+}
+
+.avan-calendar__day--outside {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.avan-calendar__day--empty {
+  width: 100%;
+  max-width: var(--avan-day-size, 2.5rem);
+  aspect-ratio: 1;
+  height: auto;
+  margin: 0 auto;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.avan-calendar__day--weekend {
+  background: var(--avan-weekend-muted);
+}
+
+.avan-calendar__day--today {
+  outline: 1.5px solid var(--avan-accent);
+  outline-offset: -1px;
+}
+
+.avan-calendar__day--selected,
+.avan-calendar__day--range-start,
+.avan-calendar__day--range-end {
+  background: var(--avan-accent);
+  color: var(--avan-accent-foreground);
+}
+
+.avan-calendar__day--selected:not(.avan-calendar__day--range-start):not(
+    .avan-calendar__day--range-end
+  ) {
+  background: var(--avan-range-middle);
+  color: var(--avan-foreground);
+}
+
+.avan-calendar__day--disabled {
+  opacity: var(--avan-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.avan-calendar__day-number {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  font-size: clamp(0.625rem, 52cqmin, var(--avan-calendar-text-md, 0.875rem));
+  font-weight: 600;
+  line-height: 1;
+}
+
+.avan-calendar__holiday-dot {
+  position: static;
+  flex-shrink: 0;
+  width: var(--avan-holiday-dot-size, 0.35rem);
+  height: var(--avan-holiday-dot-size, 0.35rem);
+  border-radius: 999px;
+  background: var(--avan-holiday-dot);
+  pointer-events: none;
+}
+
+.avan-range-picker,
+.avan-date-picker {
+  display: grid;
+  gap: var(--avan-calendar-padding, 1rem);
+  width: min(100%, var(--avan-calendar-max-width, 24rem));
+}
+
+.avan-date-picker--popover,
+.avan-range-picker--popover {
+  position: relative;
+  display: block;
+  width: min(100%, var(--avan-calendar-max-width, 24rem));
+}
+
+.avan-date-picker--popover.avan-date-picker--2-months,
+.avan-range-picker--popover.avan-range-picker--2-months {
+  width: min(100%, var(--avan-calendar-2-max-width, 42rem));
+}
+
+.avan-date-picker--popover.avan-picker--open,
+.avan-range-picker--popover.avan-picker--open {
+  z-index: var(--avan-popover-z-index, 1000);
+}
+
+.avan-date-picker__trigger,
+.avan-range-picker__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-muted);
+  color: var(--avan-foreground);
+  font: inherit;
+  font-size: var(--avan-calendar-text-md, 0.875rem);
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.avan-date-picker__trigger:hover,
+.avan-range-picker__trigger:hover,
+.avan-date-picker__trigger:focus-visible,
+.avan-range-picker__trigger:focus-visible {
+  border-color: var(--avan-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--avan-accent) 16%, transparent);
+  outline: none;
+}
+
+.avan-date-picker__trigger--placeholder,
+.avan-range-picker__trigger--placeholder,
+.avan-date-picker__input--placeholder {
+  color: var(--avan-muted-foreground);
+  font-weight: 500;
+}
+
+.avan-date-picker__popover,
+.avan-range-picker__popover,
+.avan-picker__popover {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  inset-inline-start: 0;
+  z-index: calc(var(--avan-popover-z-index, 1000) + 1);
+  width: max-content;
+  min-width: 100%;
+  max-width: min(calc(100vw - 2rem), var(--avan-calendar-max-width, 24rem));
+}
+
+.avan-date-picker--2-months .avan-picker__popover,
+.avan-range-picker--2-months .avan-picker__popover {
+  max-width: min(calc(100vw - 2rem), var(--avan-calendar-2-max-width, 42rem));
+}
+
+.avan-picker__popover .avan-calendar {
+  width: min(var(--avan-calendar-max-width, 24rem), calc(100vw - 2rem));
+  max-width: 100%;
+}
+
+.avan-picker__popover .avan-calendar--2-months {
+  width: min(var(--avan-calendar-2-max-width, 42rem), calc(100vw - 2rem));
+}
+
+.avan-range-picker__popover {
+  display: grid;
+  gap: var(--avan-calendar-padding, 1rem);
+}
+
+.avan-range-picker:has(.avan-calendar--2-months),
+.avan-date-picker:has(.avan-calendar--2-months) {
+  width: min(100%, var(--avan-calendar-2-max-width, 42rem));
+}
+
+.avan-range-picker__summary,
+.avan-date-picker__input {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-muted);
+  font-size: var(--avan-calendar-text-md, 0.875rem);
+}
+
+.avan-date-picker__input {
+  font-weight: 600;
+}
+
+.avan-range-picker__summary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.avan-range-picker__label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: var(--avan-calendar-text-xs, 0.75rem);
+  color: var(--avan-muted-foreground);
+}

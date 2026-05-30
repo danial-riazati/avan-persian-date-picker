@@ -31,3 +31,4 @@ export type JalaliISO = `${number}-${string}-${string}`;
 
 export * from './convert';
 export * from './grid';
+export * from './digits';

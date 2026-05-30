@@ -1,0 +1,48 @@
+[
+  { "month": 1, "day": 1, "title": "عید نوروز", "titleEn": "Nowruz", "type": "public" },
+  { "month": 1, "day": 2, "title": "عید نوروز", "titleEn": "Nowruz holiday", "type": "public" },
+  { "month": 1, "day": 3, "title": "عید نوروز", "titleEn": "Nowruz holiday", "type": "public" },
+  { "month": 1, "day": 4, "title": "عید نوروز", "titleEn": "Nowruz holiday", "type": "public" },
+  {
+    "month": 1,
+    "day": 12,
+    "title": "روز جمهوری اسلامی",
+    "titleEn": "Islamic Republic Day",
+    "type": "public"
+  },
+  {
+    "month": 1,
+    "day": 13,
+    "title": "روز طبیعت (سیزده‌به‌در)",
+    "titleEn": "Nature Day (Sizdah Bedar)",
+    "type": "public"
+  },
+  {
+    "month": 3,
+    "day": 14,
+    "title": "رحلت امام خمینی (ره)",
+    "titleEn": "Demise of Imam Khomeini",
+    "type": "public"
+  },
+  {
+    "month": 3,
+    "day": 15,
+    "title": "قیام ۱۵ خرداد",
+    "titleEn": "15 Khordad Uprising",
+    "type": "public"
+  },
+  {
+    "month": 11,
+    "day": 22,
+    "title": "پیروزی انقلاب اسلامی",
+    "titleEn": "Anniversary of Islamic Revolution",
+    "type": "public"
+  },
+  {
+    "month": 12,
+    "day": 29,
+    "title": "روز ملی شدن صنعت نفت",
+    "titleEn": "Nationalization of Oil Industry",
+    "type": "public"
+  }
+]

@@ -48,7 +48,8 @@
   },
   "dependencies": {
     "@avan/core": "workspace:*",
-    "@avan/holidays": "workspace:*"
+    "@avan/holidays": "workspace:*",
+    "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {
     "@types/react": "^19.0.2",

@@ -22,11 +22,9 @@
     "clean": "turbo run clean && rimraf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build && changeset publish",
-    "screenshots": "node scripts/capture-readme-screenshots.mjs"
+    "release": "turbo run build && changeset publish"
   },
   "devDependencies": {
-    "playwright": "^1.49.1",
     "@changesets/cli": "^2.27.11",
     "@types/node": "^22.10.2",
     "prettier": "^3.4.2",

@@ -21,11 +21,13 @@
     "url": "https://github.com/danial-riazati/avan-persian-date-picker/issues"
   },
   "exports": {
+    "./fonts.css": "./src/fonts.css",
     "./default.css": "./src/default.css",
     "./dark.css": "./src/dark.css",
     "./tailwind": "./src/tailwind.preset.ts"
   },
   "files": [
+    "fonts",
     "src"
   ],
   "scripts": {

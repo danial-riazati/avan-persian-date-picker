@@ -1,0 +1,12 @@
+/**
+ * Estedad — bundled Persian UI font (SIL Open Font License).
+ * Import before default.css: import '@avan/themes/fonts.css';
+ */
+
+@font-face {
+  font-family: 'Estedad';
+  src: url('../fonts/Estedad/Estedad-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

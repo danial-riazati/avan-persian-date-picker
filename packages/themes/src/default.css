@@ -2,8 +2,10 @@
  * Avan Persian Date Picker — default theme tokens
  * Import in app root: import '@avan/themes/default.css';
  */
+@import './fonts.css';
+
 .avan-root {
-  --avan-font-family: 'Vazirmatn', 'IRANSans', system-ui, sans-serif;
+  --avan-font-family: 'Estedad', system-ui, sans-serif;
   --avan-accent: hsl(210 90% 50%);
   --avan-accent-foreground: hsl(0 0% 100%);
   --avan-muted: hsl(210 20% 96%);
@@ -13,11 +15,23 @@
   --avan-foreground: hsl(210 20% 10%);
   --avan-day-radius: 0.5rem;
   --avan-day-size: 2.5rem;
+  --avan-calendar-max-width: 24rem;
+  --avan-calendar-2-max-width: 42rem;
+  --avan-calendar-padding: 1rem;
+  --avan-calendar-grid-gap: 0.35rem;
+  --avan-calendar-nav-size: 2rem;
+  --avan-calendar-font-size: 1rem;
+  --avan-calendar-text-xs: 0.75rem;
+  --avan-calendar-text-sm: 0.8125rem;
+  --avan-calendar-text-md: 0.875rem;
   --avan-holiday-dot: hsl(0 72% 51%);
+  --avan-holiday-dot-size: 0.35rem;
+  --avan-day-inner-padding: 0.125rem;
   --avan-weekend-muted: hsl(210 15% 94%);
   --avan-range-middle: hsl(210 90% 95%);
   --avan-disabled-opacity: 0.4;
   --avan-shadow: 0 8px 30px hsl(210 20% 10% / 0.08);
+  --avan-popover-z-index: 1000;
   font-family: var(--avan-font-family);
   color: var(--avan-foreground);
   background: var(--avan-background);
@@ -29,4 +43,42 @@
 
 .avan-root[dir='ltr'] {
   direction: ltr;
+}
+
+/* Tablet — slightly smaller calendar for mid-width viewports */
+@media (max-width: 1024px) {
+  .avan-root {
+    --avan-day-size: 2.125rem;
+    --avan-day-radius: 0.4375rem;
+    --avan-calendar-max-width: 22rem;
+    --avan-calendar-2-max-width: 36rem;
+    --avan-calendar-padding: 0.875rem;
+    --avan-calendar-grid-gap: 0.3rem;
+    --avan-calendar-nav-size: 1.875rem;
+    --avan-calendar-font-size: 0.9375rem;
+    --avan-calendar-text-xs: 0.6875rem;
+    --avan-calendar-text-sm: 0.78125rem;
+    --avan-calendar-text-md: 0.8125rem;
+    --avan-holiday-dot-size: 0.28rem;
+    --avan-day-inner-padding: 0.1rem;
+  }
+}
+
+/* Mobile — compact calendar that fits narrow screens */
+@media (max-width: 640px) {
+  .avan-root {
+    --avan-day-size: 1.875rem;
+    --avan-day-radius: 0.375rem;
+    --avan-calendar-max-width: 100%;
+    --avan-calendar-2-max-width: 100%;
+    --avan-calendar-padding: 0.75rem;
+    --avan-calendar-grid-gap: 0.25rem;
+    --avan-calendar-nav-size: 1.75rem;
+    --avan-calendar-font-size: 0.875rem;
+    --avan-calendar-text-xs: 0.625rem;
+    --avan-calendar-text-sm: 0.71875rem;
+    --avan-calendar-text-md: 0.75rem;
+    --avan-holiday-dot-size: 0.22rem;
+    --avan-day-inner-padding: 0.0625rem;
+  }
 }

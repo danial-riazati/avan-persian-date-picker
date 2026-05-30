@@ -39,32 +39,6 @@ In classical Persian poetry and prose, _avan_ evokes the passage of moments — 
 
 ---
 
-## Screenshots
-
-Farvardin 1404 — Persian RTL with official holiday markers (red dots), range highlighting, and month/year pickers.
-
-| Single calendar | Inline date picker |
-| --- | --- |
-| ![Single calendar — Farvardin 1404 with Nowruz selected](./docs/screenshots/single-calendar.png) | ![Inline date picker with calendar always visible](./docs/screenshots/inline-picker.png) |
-
-| Popover · two months | Two-month range |
-| --- | --- |
-| ![Popover date picker showing two consecutive months](./docs/screenshots/popover-picker.png) | ![Two-month inline range picker with selected span](./docs/screenshots/two-month-range.png) |
-
-| Range picker (inline) | English / LTR |
-| --- | --- |
-| ![Single-month inline range picker](./docs/screenshots/range-inline.png) | ![LTR calendar with Western digits](./docs/screenshots/ltr-calendar.png) |
-
-Regenerate screenshots after UI changes:
-
-```bash
-corepack pnpm install
-corepack pnpm exec playwright install chromium
-corepack pnpm screenshots
-```
-
----
-
 ## Packages
 
 | Package | Purpose |
