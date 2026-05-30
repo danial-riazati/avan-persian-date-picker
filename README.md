@@ -65,8 +65,9 @@ Import components from `@avan/react/client` in Client Components only.
 
 Run locally: `corepack pnpm dev:playground` → [localhost:5173](http://localhost:5173)
 
-GitHub Pages serves the built app from **`playground/`** on `main`.  
-**Settings → Pages → branch `main` → folder `/playground`**
+GitHub Pages only allows **`/`** or **`/docs`**. CI deploys the built playground into **`docs/`** (the React app, not this README).
+
+**Settings → Pages → branch `main` → folder `/docs`**
 
 ---
 

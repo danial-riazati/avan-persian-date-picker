@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - 'playground/**'
+      - 'docs/**'
   pull_request:
     branches: [main]
 
@@ -49,6 +49,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: examples/playground/dist
           publish_branch: main
-          destination_dir: playground
+          destination_dir: docs
           enable_jekyll: false
-          commit_message: 'deploy: playground'
+          commit_message: 'deploy: playground to docs/'
