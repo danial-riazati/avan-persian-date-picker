@@ -24,5 +24,5 @@ export interface RangePriceSummary {
 
 /** Phase 5 */
 export function computeRangePrice(): RangePriceSummary {
-  throw new Error('@avan/travel: not implemented yet — see docs/PHASES.md Phase 5');
+  throw new Error('@avan/travel: not implemented yet');
 }

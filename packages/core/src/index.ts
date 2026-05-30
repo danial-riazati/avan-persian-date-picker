@@ -1,6 +1,6 @@
 /**
  * @avan/core — Public types (Phase 1 implementation target)
- * @see docs/PHASES.md#phase-1--avancore-headless-engine
+ * @see README.md
  */
 
 export interface JalaliDate {
