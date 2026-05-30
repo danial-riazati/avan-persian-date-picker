@@ -61,13 +61,7 @@ export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
     }
 
     return panels;
-  }, [
-    visibleMonth.year,
-    visibleMonth.month,
-    numberOfMonths,
-    today,
-    options.isDateDisabled,
-  ]);
+  }, [visibleMonth.year, visibleMonth.month, numberOfMonths, today, options.isDateDisabled]);
 
   function goToPreviousMonth() {
     setVisibleMonth(addJalaliMonths(visibleMonth, -1));

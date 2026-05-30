@@ -22,32 +22,32 @@ In classical Persian poetry and prose, _avan_ evokes the passage of moments — 
 
 ## Features
 
-| Feature | Status |
-| --- | --- |
-| Headless Jalali convert / grid / digits (`@avan/core`) | ✅ |
-| Iran public holidays 1404–1406 + fixed solar fallback (`@avan/holidays`) | ✅ |
-| `AvanCalendar`, `AvanDatePicker`, `AvanDateRangePicker` | ✅ |
-| Single & range selection | ✅ |
-| Inline & popover display modes | ✅ |
-| One- or two-month layouts (`numberOfMonths={1 \| 2}`) | ✅ |
-| RTL-first navigation; LTR + `en-IR` locale | ✅ |
-| Built-in holiday markers (auto-loaded; pass `holidays={[]}` to disable) | ✅ |
-| CSS-variable theming + bundled Estedad font (`@avan/themes`) | ✅ |
-| Responsive sizing (viewport + container queries) | ✅ |
-| Travel pricing & booking rules (`@avan/travel`) | 🚧 Planned |
-| npm publish | 🚧 Planned |
+| Feature                                                                  | Status     |
+| ------------------------------------------------------------------------ | ---------- |
+| Headless Jalali convert / grid / digits (`@avan/core`)                   | ✅         |
+| Iran public holidays 1404–1406 + fixed solar fallback (`@avan/holidays`) | ✅         |
+| `AvanCalendar`, `AvanDatePicker`, `AvanDateRangePicker`                  | ✅         |
+| Single & range selection                                                 | ✅         |
+| Inline & popover display modes                                           | ✅         |
+| One- or two-month layouts (`numberOfMonths={1 \| 2}`)                    | ✅         |
+| RTL-first navigation; LTR + `en-IR` locale                               | ✅         |
+| Built-in holiday markers (auto-loaded; pass `holidays={[]}` to disable)  | ✅         |
+| CSS-variable theming + bundled Estedad font (`@avan/themes`)             | ✅         |
+| Responsive sizing (viewport + container queries)                         | ✅         |
+| Travel pricing & booking rules (`@avan/travel`)                          | 🚧 Planned |
+| npm publish                                                              | 🚧 Planned |
 
 ---
 
 ## Packages
 
-| Package | Purpose |
-| --- | --- |
-| [`@avan/react`](./packages/react) | Calendar, date picker, range picker, `AvanProvider` |
-| [`@avan/core`](./packages/core) | Headless Jalali conversion, month grid, Persian digits |
-| [`@avan/holidays`](./packages/holidays) | Iran official holidays by Jalali year |
-| [`@avan/themes`](./packages/themes) | Default CSS tokens, fonts, Tailwind preset |
-| [`@avan/travel`](./packages/travel) | Pricing & booking rules *(stub — Phase 5)* |
+| Package                                 | Purpose                                                |
+| --------------------------------------- | ------------------------------------------------------ |
+| [`@avan/react`](./packages/react)       | Calendar, date picker, range picker, `AvanProvider`    |
+| [`@avan/core`](./packages/core)         | Headless Jalali conversion, month grid, Persian digits |
+| [`@avan/holidays`](./packages/holidays) | Iran official holidays by Jalali year                  |
+| [`@avan/themes`](./packages/themes)     | Default CSS tokens, fonts, Tailwind preset             |
+| [`@avan/travel`](./packages/travel)     | Pricing & booking rules _(stub — Phase 5)_             |
 
 ---
 
@@ -116,39 +116,29 @@ Inline month grid — single or range selection.
 ```tsx
 import { AvanCalendar } from '@avan/react/client';
 
-<AvanCalendar
-  value={date}
-  onChange={setDate}
-  numberOfMonths={2}
-  dir="rtl"
-  locale="fa-IR"
-/>;
+<AvanCalendar value={date} onChange={setDate} numberOfMonths={2} dir="rtl" locale="fa-IR" />;
 ```
 
 Range mode:
 
 ```tsx
-<AvanCalendar
-  mode="range"
-  rangeValue={range}
-  onRangeChange={setRange}
-/>
+<AvanCalendar mode="range" rangeValue={range} onRangeChange={setRange} />
 ```
 
 ### `AvanDatePicker` / `AvanDateRangePicker`
 
 Input + calendar. `display="inline"` keeps the calendar visible; `display="popover"` opens it from the trigger.
 
-| Prop | Description |
-| --- | --- |
-| `display` | `'inline'` (default) or `'popover'` |
-| `numberOfMonths` | `1` (default) or `2` |
-| `open` / `defaultOpen` / `onOpenChange` | Controlled popover state |
-| `closeOnSelect` | Close popover after selection (default: `true`) |
-| `holidays` | Custom list; omitted = auto; `[]` = none |
-| `minYear` / `maxYear` | Limit year dropdown |
-| `isDateDisabled` | `(date: Date) => boolean` |
-| `theme` | Inline token overrides (`fontFamily`, `accent`, …) |
+| Prop                                    | Description                                        |
+| --------------------------------------- | -------------------------------------------------- |
+| `display`                               | `'inline'` (default) or `'popover'`                |
+| `numberOfMonths`                        | `1` (default) or `2`                               |
+| `open` / `defaultOpen` / `onOpenChange` | Controlled popover state                           |
+| `closeOnSelect`                         | Close popover after selection (default: `true`)    |
+| `holidays`                              | Custom list; omitted = auto; `[]` = none           |
+| `minYear` / `maxYear`                   | Limit year dropdown                                |
+| `isDateDisabled`                        | `(date: Date) => boolean`                          |
+| `theme`                                 | Inline token overrides (`fontFamily`, `accent`, …) |
 
 ---
 
@@ -277,13 +267,13 @@ Details: [`docs/PHASES.md`](./docs/PHASES.md)
 
 ## Documentation
 
-| Doc | Description |
-| --- | --- |
-| [Architecture](./docs/ARCHITECTURE.md) | Monorepo structure |
-| [Implementation phases](./docs/PHASES.md) | Build plan & exit criteria |
-| [Publishing guide](./docs/PUBLISHING.md) | npm scope, CI release |
-| [Next.js guide](./docs/guides/nextjs.md) | App Router integration |
-| [R&D notes](./docs/RND.md) | Market research & tech choices |
+| Doc                                       | Description                    |
+| ----------------------------------------- | ------------------------------ |
+| [Architecture](./docs/ARCHITECTURE.md)    | Monorepo structure             |
+| [Implementation phases](./docs/PHASES.md) | Build plan & exit criteria     |
+| [Publishing guide](./docs/PUBLISHING.md)  | npm scope, CI release          |
+| [Next.js guide](./docs/guides/nextjs.md)  | App Router integration         |
+| [R&D notes](./docs/RND.md)                | Market research & tech choices |
 
 ---
 

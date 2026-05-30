@@ -42,13 +42,13 @@ export function Example() {
 
 ## Exports
 
-| Export | Description |
-| --- | --- |
-| `AvanCalendar` | Inline month grid (single or range) |
-| `AvanDatePicker` | Single date input + calendar |
-| `AvanDateRangePicker` | Range input + calendar |
-| `AvanProvider` | Default `dir`, `locale`, `theme` |
-| `useAvanCalendar` | Headless calendar state hook |
+| Export                | Description                         |
+| --------------------- | ----------------------------------- |
+| `AvanCalendar`        | Inline month grid (single or range) |
+| `AvanDatePicker`      | Single date input + calendar        |
+| `AvanDateRangePicker` | Range input + calendar              |
+| `AvanProvider`        | Default `dir`, `locale`, `theme`    |
+| `useAvanCalendar`     | Headless calendar state hook        |
 
 Types and server-safe exports: `@avan/react`  
 Client components: `@avan/react/client`

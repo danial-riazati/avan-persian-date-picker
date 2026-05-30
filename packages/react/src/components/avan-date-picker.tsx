@@ -88,7 +88,9 @@ export function AvanDatePicker({
           >
             {triggerLabel}
           </button>
-          {open ? <div className="avan-date-picker__popover avan-picker__popover">{calendar}</div> : null}
+          {open ? (
+            <div className="avan-date-picker__popover avan-picker__popover">{calendar}</div>
+          ) : null}
         </>
       ) : (
         <>

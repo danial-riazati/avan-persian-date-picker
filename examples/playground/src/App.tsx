@@ -152,9 +152,7 @@ export default function App() {
             {holidaysByYear.map(({ year, holidays: yearHolidays }) => (
               <article key={year} className="panel">
                 <h3>{toPersianDigits(year)}</h3>
-                <p>
-                  {toPersianDigits(yearHolidays.length)} official days (تعطیلات رسمی)
-                </p>
+                <p>{toPersianDigits(yearHolidays.length)} official days (تعطیلات رسمی)</p>
                 <ul className="holiday-list">
                   {yearHolidays.map((holiday) => (
                     <li key={holiday.date}>

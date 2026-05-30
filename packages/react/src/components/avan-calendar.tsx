@@ -142,7 +142,9 @@ function MonthDaysGrid({
                 <span className="avan-calendar__day-number">
                   {formatNumberDisplay(day.date.jalali.day, dir)}
                 </span>
-                {holiday ? <span className="avan-calendar__holiday-dot" aria-hidden="true" /> : null}
+                {holiday ? (
+                  <span className="avan-calendar__holiday-dot" aria-hidden="true" />
+                ) : null}
               </button>
             );
           }),
@@ -234,8 +236,7 @@ export function AvanCalendar({
 
   function openYears(panelIndex = 0) {
     setActivePanelIndex(panelIndex);
-    const panelMonth =
-      calendar.monthPanels[panelIndex]?.month ?? calendar.visibleMonth;
+    const panelMonth = calendar.monthPanels[panelIndex]?.month ?? calendar.visibleMonth;
     setYearPage(getYearPageForYear(panelMonth.year, yearBounds.minYear));
     setPickerView('years');
   }
@@ -262,11 +263,7 @@ export function AvanCalendar({
 
   return (
     <div
-      className={[
-        'avan-calendar',
-        monthsToShow === 2 && 'avan-calendar--2-months',
-        className,
-      ]
+      className={['avan-calendar', monthsToShow === 2 && 'avan-calendar--2-months', className]
         .filter(Boolean)
         .join(' ')}
       dir={dir}

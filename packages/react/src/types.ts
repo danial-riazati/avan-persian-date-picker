@@ -56,20 +56,16 @@ export interface AvanCalendarProps {
   isDateDisabled?: (date: Date) => boolean;
 }
 
-export interface AvanDateRangePickerProps extends Omit<
-  AvanCalendarProps,
-  'mode' | 'value' | 'onChange'
->, AvanPickerOpenProps {
+export interface AvanDateRangePickerProps
+  extends Omit<AvanCalendarProps, 'mode' | 'value' | 'onChange'>, AvanPickerOpenProps {
   value?: DateRangeValue;
   defaultValue?: DateRangeValue;
   onChange?: (value: DateRangeValue) => void;
   placeholder?: string;
 }
 
-export interface AvanDatePickerProps extends Omit<
-  AvanCalendarProps,
-  'mode' | 'rangeValue' | 'onRangeChange'
->, AvanPickerOpenProps {
+export interface AvanDatePickerProps
+  extends Omit<AvanCalendarProps, 'mode' | 'rangeValue' | 'onRangeChange'>, AvanPickerOpenProps {
   value?: Date | null;
   defaultValue?: Date | null;
   onChange?: (value: Date | null) => void;
