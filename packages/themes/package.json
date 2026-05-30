@@ -5,7 +5,9 @@
   "license": "MIT",
   "author": "Danial Riazati (https://github.com/danial-riazati)",
   "type": "module",
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -23,10 +25,20 @@
     "./dark.css": "./src/dark.css",
     "./tailwind": "./src/tailwind.preset.ts"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "build": "node -e \"console.log('themes: CSS package, no build step')\"",
     "clean": "node -e \"console.log('ok')\""
   },
-  "keywords": ["avan", "css", "tailwind", "theme", "jalali", "persian", "shamsi"]
+  "keywords": [
+    "avan",
+    "css",
+    "tailwind",
+    "theme",
+    "jalali",
+    "persian",
+    "shamsi"
+  ]
 }

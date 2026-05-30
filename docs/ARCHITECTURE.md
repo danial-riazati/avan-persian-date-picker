@@ -40,13 +40,13 @@ flowchart TB
 
 ## Package dependency rules
 
-| Package | May depend on | Must NOT depend on |
-|---|---|---|
-| `@avan/core` | `date-fns-jalali` | react, css |
-| `@avan/holidays` | `@avan/core` | react |
-| `@avan/themes` | — (CSS only) | react |
-| `@avan/react` | core, holidays, themes | — |
-| `@avan/travel` | core, react | — |
+| Package          | May depend on          | Must NOT depend on |
+| ---------------- | ---------------------- | ------------------ |
+| `@avan/core`     | `date-fns-jalali`      | react, css         |
+| `@avan/holidays` | `@avan/core`           | react              |
+| `@avan/themes`   | — (CSS only)           | react              |
+| `@avan/react`    | core, holidays, themes | —                  |
+| `@avan/travel`   | core, react            | —                  |
 
 **Rule:** Dependencies flow downward only. No circular imports.
 
@@ -114,12 +114,12 @@ No CSS-in-JS runtime (keeps RSC bundle clean).
 
 ## SSR / hydration
 
-| Concern | Strategy |
-|---|---|
-| Initial month | Accept `defaultMonth` prop from server |
+| Concern         | Strategy                                            |
+| --------------- | --------------------------------------------------- |
+| Initial month   | Accept `defaultMonth` prop from server              |
 | Today highlight | Client-only after mount OR pass `today` from server |
-| Popover | Client-only; no SSR of open state |
-| Locale | Pass via context from server-rendered layout |
+| Popover         | Client-only; no SSR of open state                   |
+| Locale          | Pass via context from server-rendered layout        |
 
 ## File structure (monorepo)
 

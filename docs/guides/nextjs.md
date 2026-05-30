@@ -85,10 +85,10 @@ For heavy travel bundle:
 ```tsx
 import dynamic from 'next/dynamic';
 
-const AvanTravelCalendar = dynamic(
-  () => import('@avan/travel').then((m) => m.AvanTravelCalendar),
-  { ssr: false, loading: () => <CalendarSkeleton /> },
-);
+const AvanTravelCalendar = dynamic(() => import('@avan/travel').then((m) => m.AvanTravelCalendar), {
+  ssr: false,
+  loading: () => <CalendarSkeleton />,
+});
 ```
 
 ## Hydration

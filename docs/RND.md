@@ -20,23 +20,23 @@ Persian websites need calendars that:
 
 ### 2.1 Established players
 
-| Library | Stars / traction | Strengths | Gaps for our goals |
-|---|---|---|---|
-| [react-multi-date-picker](https://github.com/shahabyazdi/react-multi-date-picker) | ~980★ | Multi-calendar, range modes, mature | Legacy styling, react-date-object coupling, weak travel primitives |
-| [persian-date-kit](https://github.com/aliseyedabady/darvix-persian-date-kit) | New, active | SSR-safe, controlled, RHF adapter | No pricing/holiday/travel layer, smaller ecosystem |
-| [@mrasti/jalali-react-calendar](https://www.npmjs.com/package/@mrasti/jalali-react-calendar) | Very new | shadcn-inspired, dual calendar | Early stage, no travel features |
-| [shadcn-jalali-calendar](https://github.com/javadshoja/shadcn-jalali-calendar) | Registry | shadcn CLI install | Not a unified npm product; copy-paste maintenance |
-| react-day-picker `/persian` + date-fns-jalali | De facto standard | Excellent a11y, maintained | No Persian holidays, no pricing, assembly required |
+| Library                                                                                      | Stars / traction  | Strengths                           | Gaps for our goals                                                 |
+| -------------------------------------------------------------------------------------------- | ----------------- | ----------------------------------- | ------------------------------------------------------------------ |
+| [react-multi-date-picker](https://github.com/shahabyazdi/react-multi-date-picker)            | ~980★             | Multi-calendar, range modes, mature | Legacy styling, react-date-object coupling, weak travel primitives |
+| [persian-date-kit](https://github.com/aliseyedabady/darvix-persian-date-kit)                 | New, active       | SSR-safe, controlled, RHF adapter   | No pricing/holiday/travel layer, smaller ecosystem                 |
+| [@mrasti/jalali-react-calendar](https://www.npmjs.com/package/@mrasti/jalali-react-calendar) | Very new          | shadcn-inspired, dual calendar      | Early stage, no travel features                                    |
+| [shadcn-jalali-calendar](https://github.com/javadshoja/shadcn-jalali-calendar)               | Registry          | shadcn CLI install                  | Not a unified npm product; copy-paste maintenance                  |
+| react-day-picker `/persian` + date-fns-jalali                                                | De facto standard | Excellent a11y, maintained          | No Persian holidays, no pricing, assembly required                 |
 
 ### 2.2 Core date engines
 
-| Engine | Recommendation |
-|---|---|
-| **date-fns-jalali** | ✅ Primary — tree-shakeable, TS-native, aligns with react-day-picker v9 Persian support |
-| jalaali-js | Legacy; fine for conversion only |
-| moment-jalaali | ❌ Avoid — bundle size, maintenance mode |
-| dayjs + jalaliday | Used by persian-date-kit; acceptable but less comprehensive than date-fns-jalali |
-| @persian-tools/persian-date | Good for validation/display; optional peer for input parsing |
+| Engine                      | Recommendation                                                                          |
+| --------------------------- | --------------------------------------------------------------------------------------- |
+| **date-fns-jalali**         | ✅ Primary — tree-shakeable, TS-native, aligns with react-day-picker v9 Persian support |
+| jalaali-js                  | Legacy; fine for conversion only                                                        |
+| moment-jalaali              | ❌ Avoid — bundle size, maintenance mode                                                |
+| dayjs + jalaliday           | Used by persian-date-kit; acceptable but less comprehensive than date-fns-jalali        |
+| @persian-tools/persian-date | Good for validation/display; optional peer for input parsing                            |
 
 **Decision:** `@avan/core` wraps `date-fns-jalali` with a stable Avan API so consumers are not locked to date-fns function names.
 
@@ -67,25 +67,25 @@ What Avan adds that others don't combine:
 
 ### 4.2 Candidates evaluated
 
-| Name | Pros | Cons | Verdict |
-|---|---|---|---|
-| **Avan** (آوان) | Persian *time* / *era*; elegant, short; `@avan/*` scope | Less literal than "date" in English | ✅ **Selected** |
-| ShamsiKit | Descriptive, SEO-friendly | Generic; hard to trademark | Reserve as tagline |
-| Ruzgar (روزگار) | Poetic ("era/time") | Hard to spell for devs | Alt brand |
-| SafarCal | Obvious travel angle | Too niche sounding | Submodule name |
-| Taarikh | Means "date" | Too generic | ❌ |
-| Mehr UI | Month name + sun | Conflicts with other "Mehr" libs | ❌ |
-| Jalali Forge | Technical | Long, cold | ❌ |
+| Name            | Pros                                                    | Cons                                | Verdict            |
+| --------------- | ------------------------------------------------------- | ----------------------------------- | ------------------ |
+| **Avan** (آوان) | Persian _time_ / _era_; elegant, short; `@avan/*` scope | Less literal than "date" in English | ✅ **Selected**    |
+| ShamsiKit       | Descriptive, SEO-friendly                               | Generic; hard to trademark          | Reserve as tagline |
+| Ruzgar (روزگار) | Poetic ("era/time")                                     | Hard to spell for devs              | Alt brand          |
+| SafarCal        | Obvious travel angle                                    | Too niche sounding                  | Submodule name     |
+| Taarikh         | Means "date"                                            | Too generic                         | ❌                 |
+| Mehr UI         | Month name + sun                                        | Conflicts with other "Mehr" libs    | ❌                 |
+| Jalali Forge    | Technical                                               | Long, cold                          | ❌                 |
 
 ### 4.3 Final naming
 
-| Asset | Value |
-|---|---|
-| **Product name** | Avan Persian Date Picker |
-| **npm scope** | `@avan` |
+| Asset               | Value                                          |
+| ------------------- | ---------------------------------------------- |
+| **Product name**    | Avan Persian Date Picker                       |
+| **npm scope**       | `@avan`                                        |
 | **Primary package** | `@avan/react` (most users install this + core) |
-| **GitHub repo** | `danial-riazati/avan-persian-date-picker` |
-| **Tagline** | Modern Jalali date picker for React & Next.js |
+| **GitHub repo**     | `danial-riazati/avan-persian-date-picker`      |
+| **Tagline**         | Modern Jalali date picker for React & Next.js  |
 
 Persian display name: **تقویم و انتخابگر تاریخ آوان**
 
@@ -93,18 +93,18 @@ Persian display name: **تقویم و انتخابگر تاریخ آوان**
 
 ## 5. Technical stack (2026)
 
-| Layer | Choice | Rationale |
-|---|---|---|
-| Language | TypeScript 5.x strict | Library quality bar |
-| Monorepo | pnpm workspaces + Turborepo | Fast CI, shared tooling |
-| Bundler | tsdown (or tsup) | ESM + CJS + `.d.ts`, tree-shaking |
-| Date math | date-fns-jalali | Ecosystem alignment |
-| React | 19 peer dep | Next.js 15 default |
-| Styling | CSS variables + optional Tailwind v4 preset | Framework-agnostic theming |
-| Docs | Storybook 8 + VitePress site (Phase 6) | Visual QA + public docs |
-| Tests | Vitest + @testing-library/react | Fast, ESM-native |
-| CI | GitHub Actions | lint, test, build, Changesets publish |
-| Versioning | Changesets | Monorepo semver |
+| Layer      | Choice                                      | Rationale                             |
+| ---------- | ------------------------------------------- | ------------------------------------- |
+| Language   | TypeScript 5.x strict                       | Library quality bar                   |
+| Monorepo   | pnpm workspaces + Turborepo                 | Fast CI, shared tooling               |
+| Bundler    | tsdown (or tsup)                            | ESM + CJS + `.d.ts`, tree-shaking     |
+| Date math  | date-fns-jalali                             | Ecosystem alignment                   |
+| React      | 19 peer dep                                 | Next.js 15 default                    |
+| Styling    | CSS variables + optional Tailwind v4 preset | Framework-agnostic theming            |
+| Docs       | Storybook 8 + VitePress site (Phase 6)      | Visual QA + public docs               |
+| Tests      | Vitest + @testing-library/react             | Fast, ESM-native                      |
+| CI         | GitHub Actions                              | lint, test, build, Changesets publish |
+| Versioning | Changesets                                  | Monorepo semver                       |
 
 ### 5.1 Next.js compatibility checklist
 
@@ -135,7 +135,7 @@ Persian display name: **تقویم و انتخابگر تاریخ آوان**
 
 ```ts
 interface AvanHoliday {
-  date: string;        // Jalali ISO: YYYY-MM-DD
+  date: string; // Jalali ISO: YYYY-MM-DD
   title: string;
   titleEn?: string;
   type: 'public' | 'religious' | 'cultural';
@@ -149,13 +149,13 @@ Ship `@avan/holidays/1404`, `1405`, … as subpath exports for tree-shaking.
 
 ## 7. Risk register
 
-| Risk | Mitigation |
-|---|---|
-| Jalali vs Gregorian off-by-one | Golden tests against known dates; document internal `Date` policy |
-| Holiday accuracy | Yearly data packages + community PRs |
-| Scope creep | Strict package boundaries in ARCHITECTURE.md |
-| Competing with free shadcn snippets | Win on travel API, holidays, maintenance, npm DX |
-| Bundle size | Subpath exports; `@avan/travel` optional |
+| Risk                                | Mitigation                                                        |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| Jalali vs Gregorian off-by-one      | Golden tests against known dates; document internal `Date` policy |
+| Holiday accuracy                    | Yearly data packages + community PRs                              |
+| Scope creep                         | Strict package boundaries in ARCHITECTURE.md                      |
+| Competing with free shadcn snippets | Win on travel API, holidays, maintenance, npm DX                  |
+| Bundle size                         | Subpath exports; `@avan/travel` optional                          |
 
 ---
 

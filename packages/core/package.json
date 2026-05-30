@@ -35,7 +35,9 @@
       "import": "./dist/grid.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
@@ -50,5 +52,13 @@
     "tsdown": "^0.9.9",
     "vitest": "^2.1.8"
   },
-  "keywords": ["avan", "jalali", "persian", "shamsi", "calendar", "date-fns", "typescript"]
+  "keywords": [
+    "avan",
+    "jalali",
+    "persian",
+    "shamsi",
+    "calendar",
+    "date-fns",
+    "typescript"
+  ]
 }

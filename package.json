@@ -15,7 +15,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "lint": "prettier --check \"**/*.{ts,tsx,json,md,css,yml,yaml}\" --ignore-path .prettierignore",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "clean": "turbo run clean && rimraf node_modules",

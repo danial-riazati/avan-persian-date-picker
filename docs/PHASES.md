@@ -34,8 +34,8 @@ Estimated total: **8–12 weeks** (solo, part-time) or **4–6 weeks** (full-tim
 // packages/core/src/types.ts
 export interface JalaliDate {
   year: number;
-  month: number;  // 1-12
-  day: number;    // 1-31
+  month: number; // 1-12
+  day: number; // 1-31
 }
 
 export interface AvanDate {
@@ -54,12 +54,12 @@ export interface CalendarDay {
 
 ### 1.2 Implement
 
-| Module | Functions |
-|---|---|
-| `convert` | `toJalali`, `toGregorian`, `parseJalali`, `formatJalali` |
-| `grid` | `getMonthGrid`, `getWeekDays`, `addMonths`, `startOfMonth` |
-| `compare` | `isSameDay`, `isBefore`, `isAfter`, `isWithinInterval` |
-| `validate` | `isValidJalali`, `daysInMonth`, leap year helper |
+| Module     | Functions                                                  |
+| ---------- | ---------------------------------------------------------- |
+| `convert`  | `toJalali`, `toGregorian`, `parseJalali`, `formatJalali`   |
+| `grid`     | `getMonthGrid`, `getWeekDays`, `addMonths`, `startOfMonth` |
+| `compare`  | `isSameDay`, `isBefore`, `isAfter`, `isWithinInterval`     |
+| `validate` | `isValidJalali`, `daysInMonth`, leap year helper           |
 
 ### 1.3 Tests
 
@@ -220,14 +220,14 @@ export default {
 
 ### 5.1 Features
 
-| Feature | API sketch |
-|---|---|
-| Price per night | `pricing: Record<JalaliISO, PriceInfo>` |
-| Range total | `computeRangePrice(from, to, pricing)` |
-| Min/max nights | `rules.minNights`, `rules.maxNights` |
-| Blocked dates | `rules.disabledDates(date) => boolean` |
-| Check-in/out days | `rules.allowedCheckInWeekdays` |
-| Hover preview | Show subtotal while selecting range |
+| Feature           | API sketch                              |
+| ----------------- | --------------------------------------- |
+| Price per night   | `pricing: Record<JalaliISO, PriceInfo>` |
+| Range total       | `computeRangePrice(from, to, pricing)`  |
+| Min/max nights    | `rules.minNights`, `rules.maxNights`    |
+| Blocked dates     | `rules.disabledDates(date) => boolean`  |
+| Check-in/out days | `rules.allowedCheckInWeekdays`          |
+| Hover preview     | Show subtotal while selecting range     |
 
 ### 5.2 Components
 
@@ -322,15 +322,15 @@ examples/
 
 ## Suggested weekly cadence (solo dev)
 
-| Week | Focus |
-|---|---|
-| 1 | Phase 1 core + tests |
-| 2 | Phase 2 holidays + Phase 3 hook |
-| 3 | Phase 3 components |
-| 4 | Phase 4 themes |
-| 5–6 | Phase 5 travel |
-| 7 | Phase 6 docs |
-| 8 | Phase 7 publish + polish |
+| Week | Focus                           |
+| ---- | ------------------------------- |
+| 1    | Phase 1 core + tests            |
+| 2    | Phase 2 holidays + Phase 3 hook |
+| 3    | Phase 3 components              |
+| 4    | Phase 4 themes                  |
+| 5–6  | Phase 5 travel                  |
+| 7    | Phase 6 docs                    |
+| 8    | Phase 7 publish + polish        |
 
 ---
 

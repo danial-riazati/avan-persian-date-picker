@@ -10,9 +10,9 @@
 
 ## What does **Avan** (آوان) mean?
 
-**آوان** (*Avān*) is a Persian word rooted in the flow of **time**, **era**, and the **rhythm of days**.
+**آوان** (_Avān_) is a Persian word rooted in the flow of **time**, **era**, and the **rhythm of days**.
 
-In classical Persian poetry and prose, *avan* evokes the passage of moments — the lived texture of dates, seasons, and milestones. It is also used as a graceful Persian given name. For a calendar library, that meaning fits naturally: helping people choose the right day, plan a journey, and align with the **Shamsi (Solar Hijri)** calendar used daily in Iran and by Persian communities worldwide.
+In classical Persian poetry and prose, _avan_ evokes the passage of moments — the lived texture of dates, seasons, and milestones. It is also used as a graceful Persian given name. For a calendar library, that meaning fits naturally: helping people choose the right day, plan a journey, and align with the **Shamsi (Solar Hijri)** calendar used daily in Iran and by Persian communities worldwide.
 
 > **Avan Persian Date Picker** — time, beautifully handled.
 
@@ -22,32 +22,32 @@ In classical Persian poetry and prose, *avan* evokes the passage of moments — 
 
 Persian products deserve more than outdated pickers or copy-pasted shadcn snippets. Avan is a **professional, npm-ready library** built for:
 
-- **Every Persian site** — shops, dashboards, blogs, admin panels  
-- **Travel & tourism** — nightly pricing, check-in/out ranges, blocked dates  
-- **Modern stacks** — Next.js 15+ App Router, React 19, Tailwind v4  
-- **Full customization** — your fonts, colors, radius, dark mode  
+- **Every Persian site** — shops, dashboards, blogs, admin panels
+- **Travel & tourism** — nightly pricing, check-in/out ranges, blocked dates
+- **Modern stacks** — Next.js 15+ App Router, React 19, Tailwind v4
+- **Full customization** — your fonts, colors, radius, dark mode
 
-| Capability | Avan | Typical alternatives |
-|---|---|---|
-| Headless core (any framework) | `@avan/core` | React-only |
-| Next.js App Router / SSR-safe | Built-in patterns | Partial |
-| CSS-variable theming | First-class | CSS overrides |
-| Iran holidays (Nowruz, …) | `@avan/holidays` | Manual |
-| Travel: prices, min-stay, rules | `@avan/travel` | DIY |
-| Exact Jalali range metadata | Native | Gregorian leaks |
-| Tree-shakeable ESM | Subpath exports | Monolithic bundles |
+| Capability                      | Avan              | Typical alternatives |
+| ------------------------------- | ----------------- | -------------------- |
+| Headless core (any framework)   | `@avan/core`      | React-only           |
+| Next.js App Router / SSR-safe   | Built-in patterns | Partial              |
+| CSS-variable theming            | First-class       | CSS overrides        |
+| Iran holidays (Nowruz, …)       | `@avan/holidays`  | Manual               |
+| Travel: prices, min-stay, rules | `@avan/travel`    | DIY                  |
+| Exact Jalali range metadata     | Native            | Gregorian leaks      |
+| Tree-shakeable ESM              | Subpath exports   | Monolithic bundles   |
 
 ---
 
 ## Packages
 
-| Package | Install | Purpose |
-|---|---|---|
-| [`@avan/react`](./packages/react) | Main UI | Calendar, DatePicker, DateRangePicker |
-| [`@avan/core`](./packages/core) | Optional | Headless Jalali math & grid |
-| [`@avan/holidays`](./packages/holidays) | Optional | Iran public holidays by year |
-| [`@avan/travel`](./packages/travel) | Optional | Pricing & booking rules |
-| [`@avan/themes`](./packages/themes) | Optional | CSS tokens + Tailwind preset |
+| Package                                 | Install  | Purpose                               |
+| --------------------------------------- | -------- | ------------------------------------- |
+| [`@avan/react`](./packages/react)       | Main UI  | Calendar, DatePicker, DateRangePicker |
+| [`@avan/core`](./packages/core)         | Optional | Headless Jalali math & grid           |
+| [`@avan/holidays`](./packages/holidays) | Optional | Iran public holidays by year          |
+| [`@avan/travel`](./packages/travel)     | Optional | Pricing & booking rules               |
+| [`@avan/themes`](./packages/themes)     | Optional | CSS tokens + Tailwind preset          |
 
 ---
 
@@ -133,30 +133,30 @@ import { AvanTravelCalendar } from '@avan/travel';
   onRangeConfirm={({ jalaliFrom, jalaliTo, nights, totalPrice }) => {
     // Exact Shamsi boundaries + price summary
   }}
-/>
+/>;
 ```
 
 ---
 
 ## Design principles
 
-1. **Gregorian internally, Jalali at the edge** — Safe for APIs, timezones, and databases.  
-2. **Headless core** — `@avan/core` has zero React dependency.  
-3. **RTL-first** — Persian UX by default; LTR supported.  
-4. **Accessible** — Keyboard navigation, ARIA, reduced motion.  
+1. **Gregorian internally, Jalali at the edge** — Safe for APIs, timezones, and databases.
+2. **Headless core** — `@avan/core` has zero React dependency.
+3. **RTL-first** — Persian UX by default; LTR supported.
+4. **Accessible** — Keyboard navigation, ARIA, reduced motion.
 5. **Open source** — MIT license, community holiday data.
 
 ---
 
 ## Documentation
 
-| Doc | Description |
-|---|---|
+| Doc                                          | Description                             |
+| -------------------------------------------- | --------------------------------------- |
 | [**Publishing guide**](./docs/PUBLISHING.md) | GitHub repo name, npm setup, CI release |
-| [Implementation phases](./docs/PHASES.md) | Step-by-step build plan |
-| [Architecture](./docs/ARCHITECTURE.md) | Monorepo structure |
-| [R&D notes](./docs/RND.md) | Market research & tech choices |
-| [Next.js guide](./docs/guides/nextjs.md) | App Router integration |
+| [Implementation phases](./docs/PHASES.md)    | Step-by-step build plan                 |
+| [Architecture](./docs/ARCHITECTURE.md)       | Monorepo structure                      |
+| [R&D notes](./docs/RND.md)                   | Market research & tech choices          |
+| [Next.js guide](./docs/guides/nextjs.md)     | App Router integration                  |
 
 ---
 
@@ -177,12 +177,12 @@ Requires **Node.js ≥ 20** and **pnpm ≥ 9**.
 
 ## Roadmap
 
-- [x] Phase 0 — R&D, naming (**Avan** / آوان), repo scaffold  
-- [ ] Phase 1 — `@avan/core`  
-- [ ] Phase 2 — `@avan/holidays`  
-- [ ] Phase 3 — `@avan/react`  
-- [ ] Phase 4 — `@avan/themes`  
-- [ ] Phase 5 — `@avan/travel`  
+- [x] Phase 0 — R&D, naming (**Avan** / آوان), repo scaffold
+- [ ] Phase 1 — `@avan/core`
+- [ ] Phase 2 — `@avan/holidays`
+- [ ] Phase 3 — `@avan/react`
+- [ ] Phase 4 — `@avan/themes`
+- [ ] Phase 5 — `@avan/travel`
 - [ ] Phase 6 — Docs + **npm publish**
 
 Details: [`docs/PHASES.md`](./docs/PHASES.md)

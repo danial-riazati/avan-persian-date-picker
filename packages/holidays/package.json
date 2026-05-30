@@ -27,7 +27,10 @@
     },
     "./1405": "./data/1405.json"
   },
-  "files": ["dist", "data"],
+  "files": [
+    "dist",
+    "data"
+  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
@@ -42,5 +45,13 @@
     "tsdown": "^0.9.9",
     "vitest": "^2.1.8"
   },
-  "keywords": ["avan", "iran", "holidays", "jalali", "persian", "nowruz", "shamsi"]
+  "keywords": [
+    "avan",
+    "iran",
+    "holidays",
+    "jalali",
+    "persian",
+    "nowruz",
+    "shamsi"
+  ]
 }

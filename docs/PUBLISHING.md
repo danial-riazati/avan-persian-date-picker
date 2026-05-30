@@ -6,24 +6,24 @@ The best setup for an open-source Persian date picker: **one public GitHub monor
 
 ## Recommended names
 
-| Asset | Recommended | Why |
-|---|---|---|
-| **GitHub repository** | `avan-persian-date-picker` | Clear on Google/npm; says exactly what it is |
-| **GitHub URL** | `github.com/danial-riazati/avan-persian-date-picker` | Use your personal account to start; migrate to org later |
-| **npm scope** | `@avan` | Short, matches brand — create at [npmjs.com/org/create](https://www.npmjs.com/org/create) |
-| **Primary install** | `@avan/react` | What most users add |
-| **Product name** | Avan Persian Date Picker | README, docs, marketing |
-| **Persian name** | تقویم و انتخابگر تاریخ آوان | Optional for Persian docs site |
+| Asset                 | Recommended                                          | Why                                                                                       |
+| --------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **GitHub repository** | `avan-persian-date-picker`                           | Clear on Google/npm; says exactly what it is                                              |
+| **GitHub URL**        | `github.com/danial-riazati/avan-persian-date-picker` | Use your personal account to start; migrate to org later                                  |
+| **npm scope**         | `@avan`                                              | Short, matches brand — create at [npmjs.com/org/create](https://www.npmjs.com/org/create) |
+| **Primary install**   | `@avan/react`                                        | What most users add                                                                       |
+| **Product name**      | Avan Persian Date Picker                             | README, docs, marketing                                                                   |
+| **Persian name**      | تقویم و انتخابگر تاریخ آوان                          | Optional for Persian docs site                                                            |
 
 ### If `@avan` is taken on npm
 
 Use one of these (pick one and stay consistent):
 
-| Fallback scope | Example package |
-|---|---|
-| `@avan-shamsi` | `@avan-shamsi/react` |
-| `@avan-date` | `@avan-date/react` |
-| Your username | `@danial-riazati/avan-react` |
+| Fallback scope | Example package              |
+| -------------- | ---------------------------- |
+| `@avan-shamsi` | `@avan-shamsi/react`         |
+| `@avan-date`   | `@avan-date/react`           |
+| Your username  | `@danial-riazati/avan-react` |
 
 > **Tip:** Check availability before branding hard: `npm view @avan/react` (404 = name likely free).
 
@@ -122,8 +122,8 @@ Repeat for `@avan/core`, `@avan/holidays`, `@avan/themes`, `@avan/travel`.
 
 **Do not** publish from your laptop long-term. Use GitHub Actions + npm token.
 
-1. npm → **Access Tokens** → Generate **Automation** token  
-2. GitHub repo → **Settings → Secrets → Actions**  
+1. npm → **Access Tokens** → Generate **Automation** token
+2. GitHub repo → **Settings → Secrets → Actions**
 3. Add secret: `NPM_TOKEN`
 
 Add `.github/workflows/release.yml` when Phase 1+ is ready (after Changesets):
@@ -184,13 +184,13 @@ pnpm changeset publish
 
 ### 6. What to publish when (order)
 
-| Order | Package | When |
-|---|---|---|
-| 1 | `@avan/core` | Phase 1 complete + tests green |
-| 2 | `@avan/holidays` | Phase 2 |
-| 3 | `@avan/themes` | Phase 4 (CSS, no build blocker) |
-| 4 | `@avan/react` | Phase 3 — **main entry most users install** |
-| 5 | `@avan/travel` | Phase 5 — optional peer |
+| Order | Package          | When                                        |
+| ----- | ---------------- | ------------------------------------------- |
+| 1     | `@avan/core`     | Phase 1 complete + tests green              |
+| 2     | `@avan/holidays` | Phase 2                                     |
+| 3     | `@avan/themes`   | Phase 4 (CSS, no build blocker)             |
+| 4     | `@avan/react`    | Phase 3 — **main entry most users install** |
+| 5     | `@avan/travel`   | Phase 5 — optional peer                     |
 
 Start with **`0.1.0`** until Phase 3 calendar UI works; then **`1.0.0`** when API is stable.
 
@@ -214,7 +214,7 @@ Add **repository**, **keywords**, and **homepage** so npm search ranks for: `per
 
 ### 8. GitHub repo polish (before announcing)
 
-- [ ] Pin repo description: *Avan — Modern Jalali date picker for React & Next.js (آوان)*
+- [ ] Pin repo description: _Avan — Modern Jalali date picker for React & Next.js (آوان)_
 - [ ] Add topics: `persian`, `jalali`, `shamsi`, `datepicker`, `react`, `nextjs`, `typescript`, `rtl`, `iran`, `calendar`
 - [ ] Enable **Issues** and **Discussions**
 - [ ] Add `SECURITY.md` for responsible disclosure
