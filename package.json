@@ -16,6 +16,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:playground": "npm run dev --prefix examples/playground",
+    "build:playground": "npm run build --prefix examples/playground",
     "lint": "prettier --check \"**/*.{ts,tsx,json,md,css,yml,yaml}\" --ignore-path .prettierignore",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",

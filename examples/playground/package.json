@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node --input-type=module -e \"import { writeFileSync } from 'node:fs'; writeFileSync('dist/.nojekyll', '');\"",
     "preview": "vite preview"
   },
   "dependencies": {

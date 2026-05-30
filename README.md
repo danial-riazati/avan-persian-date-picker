@@ -214,13 +214,19 @@ Responsive tokens scale down on tablet (≤1024px) and mobile (≤640px). Holida
 
 ## Playground
 
-Interactive demo with all picker modes, two-month layouts, popovers, and holiday listings:
+**Live demo:** [danial-riazati.github.io/avan-persian-date-picker](https://danial-riazati.github.io/avan-persian-date-picker/)
+
+Interactive demo with all picker modes, two-month layouts, popovers, and holiday listings.
+
+Run locally:
 
 ```bash
 corepack pnpm dev:playground
 ```
 
 Open [http://localhost:5173](http://localhost:5173).
+
+Deployed to GitHub Pages on every push to `main` (see [`.github/workflows/deploy-playground.yml`](./.github/workflows/deploy-playground.yml)).
 
 ---
 
