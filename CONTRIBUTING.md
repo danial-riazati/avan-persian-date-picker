@@ -21,7 +21,7 @@ Requirements: **Node.js ≥ 20**, **pnpm ≥ 9**.
 - `packages/travel` — booking / pricing features
 - `packages/themes` — CSS tokens
 
-See [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md).
+See [documentation/ARCHITECTURE.md](./documentation/ARCHITECTURE.md).
 
 ## Workflow
 

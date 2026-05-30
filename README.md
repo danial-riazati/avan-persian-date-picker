@@ -103,7 +103,7 @@ Holidays load automatically from bundled datasets (1404–1406) plus the visible
 
 ### Next.js App Router
 
-Use `@avan/react/client` in `'use client'` files only. See [`docs/guides/nextjs.md`](./docs/guides/nextjs.md).
+Use `@avan/react/client` in `'use client'` files only. See [`documentation/guides/nextjs.md`](./documentation/guides/nextjs.md).
 
 ---
 
@@ -204,7 +204,7 @@ Responsive tokens scale down on tablet (≤1024px) and mobile (≤640px). Holida
 
 ## Playground
 
-**Live demo:** [danial-riazati.github.io/avan-persian-date-picker](https://danial-riazati.github.io/avan-persian-date-picker/)
+**Live demo:** [danialriazati.ir/avan-persian-date-picker](https://danialriazati.ir/avan-persian-date-picker/)
 
 Interactive demo with all picker modes, two-month layouts, popovers, and holiday listings.
 
@@ -216,7 +216,7 @@ corepack pnpm dev:playground
 
 Open [http://localhost:5173](http://localhost:5173).
 
-Deployed to GitHub Pages on every push to `main` (see [`.github/workflows/deploy-playground.yml`](./.github/workflows/deploy-playground.yml)).
+Deployed to [danialriazati.ir/avan-persian-date-picker](https://danialriazati.ir/avan-persian-date-picker/) from the **`playground/`** folder on `main` (built React app — not the README). **Settings → Pages → `main` → `/playground`**.
 
 ---
 
@@ -244,8 +244,9 @@ packages/
   themes/     CSS tokens & fonts
   travel/     Booking/pricing (planned)
 examples/
-  playground/ Vite demo app
-docs/         Architecture, phases, publishing guide
+  playground/ Vite source for local dev
+playground/   Built app — GitHub Pages (CI deploys here)
+documentation/ Markdown guides
 ```
 
 ---
@@ -261,19 +262,19 @@ docs/         Architecture, phases, publishing guide
 - [ ] Phase 6 — Docs site, Storybook, more examples
 - [ ] Phase 7 — npm publish (`@avan/*` v1.0.0)
 
-Details: [`docs/PHASES.md`](./docs/PHASES.md)
+Details: [`documentation/PHASES.md`](./documentation/PHASES.md)
 
 ---
 
 ## Documentation
 
-| Doc                                       | Description                    |
-| ----------------------------------------- | ------------------------------ |
-| [Architecture](./docs/ARCHITECTURE.md)    | Monorepo structure             |
-| [Implementation phases](./docs/PHASES.md) | Build plan & exit criteria     |
-| [Publishing guide](./docs/PUBLISHING.md)  | npm scope, CI release          |
-| [Next.js guide](./docs/guides/nextjs.md)  | App Router integration         |
-| [R&D notes](./docs/RND.md)                | Market research & tech choices |
+| Doc                                                | Description                    |
+| -------------------------------------------------- | ------------------------------ |
+| [Architecture](./documentation/ARCHITECTURE.md)    | Monorepo structure             |
+| [Implementation phases](./documentation/PHASES.md) | Build plan & exit criteria     |
+| [Publishing guide](./documentation/PUBLISHING.md)  | npm scope, CI release          |
+| [Next.js guide](./documentation/guides/nextjs.md)  | App Router integration         |
+| [R&D notes](./documentation/RND.md)                | Market research & tech choices |
 
 ---
 

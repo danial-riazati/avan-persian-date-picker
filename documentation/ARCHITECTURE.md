@@ -136,8 +136,7 @@ Avan-persian-date-picker/
 │   └── docs/              # Phase 6
 ├── examples/
 │   └── nextjs-app-router/
-├── documentation/         # Markdown guides (not published to Pages)
-├── docs/                  # Built playground (GitHub Pages)
+├── documentation/         # Markdown guides
 ├── package.json
 ├── pnpm-workspace.yaml
 └── turbo.json
