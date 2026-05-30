@@ -1,0 +1,48 @@
+{
+  "name": "@avan/travel",
+  "version": "0.0.0",
+  "description": "Travel & pricing extensions for Avan Persian Date Picker",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker.git",
+    "directory": "packages/travel"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/avan-persian-date-picker#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "@avan/react": "workspace:*"
+  },
+  "dependencies": {
+    "@avan/core": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "^0.9.9",
+    "vitest": "^2.1.8"
+  },
+  "keywords": ["avan", "travel", "booking", "pricing", "jalali", "persian", "calendar", "shamsi"]
+}

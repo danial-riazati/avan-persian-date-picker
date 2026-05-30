@@ -1,0 +1,32 @@
+/**
+ * Avan Persian Date Picker — default theme tokens
+ * Import in app root: import '@avan/themes/default.css';
+ */
+.avan-root {
+  --avan-font-family: 'Vazirmatn', 'IRANSans', system-ui, sans-serif;
+  --avan-accent: hsl(210 90% 50%);
+  --avan-accent-foreground: hsl(0 0% 100%);
+  --avan-muted: hsl(210 20% 96%);
+  --avan-muted-foreground: hsl(210 10% 40%);
+  --avan-border: hsl(210 16% 90%);
+  --avan-background: hsl(0 0% 100%);
+  --avan-foreground: hsl(210 20% 10%);
+  --avan-day-radius: 0.5rem;
+  --avan-day-size: 2.5rem;
+  --avan-holiday-dot: hsl(0 72% 51%);
+  --avan-weekend-muted: hsl(210 15% 94%);
+  --avan-range-middle: hsl(210 90% 95%);
+  --avan-disabled-opacity: 0.4;
+  --avan-shadow: 0 8px 30px hsl(210 20% 10% / 0.08);
+  font-family: var(--avan-font-family);
+  color: var(--avan-foreground);
+  background: var(--avan-background);
+}
+
+.avan-root[dir='rtl'] {
+  direction: rtl;
+}
+
+.avan-root[dir='ltr'] {
+  direction: ltr;
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "date": "1405-01-01",
+    "title": "نوروز",
+    "titleEn": "Nowruz",
+    "type": "public"
+  },
+  {
+    "date": "1405-01-02",
+    "title": "عید نوروز",
+    "titleEn": "Nowruz holiday",
+    "type": "public"
+  },
+  {
+    "date": "1405-01-03",
+    "title": "عید نوروز",
+    "titleEn": "Nowruz holiday",
+    "type": "public"
+  },
+  {
+    "date": "1405-01-04",
+    "title": "عید نوروز",
+    "titleEn": "Nowruz holiday",
+    "type": "public"
+  },
+  {
+    "date": "1405-01-12",
+    "title": "روز جمهوری اسلامی",
+    "titleEn": "Islamic Republic Day",
+    "type": "public"
+  },
+  {
+    "date": "1405-01-13",
+    "title": "روز طبیعت (سیزده‌به‌در)",
+    "titleEn": "Nature Day (Sizdah Bedar)",
+    "type": "public"
+  },
+  {
+    "date": "1405-11-22",
+    "title": "پیروزی انقلاب اسلامی",
+    "titleEn": "Anniversary of Islamic Revolution",
+    "type": "public"
+  },
+  {
+    "date": "1405-12-29",
+    "title": "روز ملی شدن صنعت نفت",
+    "titleEn": "Nationalization of Oil Industry",
+    "type": "public"
+  }
+]

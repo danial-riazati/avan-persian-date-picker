@@ -1,0 +1,45 @@
+{
+  "name": "@avan/holidays",
+  "version": "0.0.0",
+  "description": "Iran public holidays for Avan Persian Date Picker",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker.git",
+    "directory": "packages/holidays"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/avan-persian-date-picker#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./1405": "./data/1405.json"
+  },
+  "files": ["dist", "data"],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@avan/core": "workspace:*"
+  },
+  "devDependencies": {
+    "tsdown": "^0.9.9",
+    "vitest": "^2.1.8"
+  },
+  "keywords": ["avan", "iran", "holidays", "jalali", "persian", "nowruz", "shamsi"]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "@avan/core",
+  "version": "0.0.0",
+  "description": "Headless Jalali (Persian) date utilities for Avan Persian Date Picker",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/avan-persian-date-picker#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker/issues"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./convert": {
+      "types": "./dist/convert.d.ts",
+      "import": "./dist/convert.js"
+    },
+    "./grid": {
+      "types": "./dist/grid.d.ts",
+      "import": "./dist/grid.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "date-fns-jalali": "^4.1.0-0"
+  },
+  "devDependencies": {
+    "tsdown": "^0.9.9",
+    "vitest": "^2.1.8"
+  },
+  "keywords": ["avan", "jalali", "persian", "shamsi", "calendar", "date-fns", "typescript"]
+}

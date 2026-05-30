@@ -1,0 +1,31 @@
+{
+  "name": "@avan/themes",
+  "version": "0.0.0",
+  "description": "Design tokens and CSS themes for Avan Persian Date Picker",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": ["**/*.css"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker.git",
+    "directory": "packages/themes"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/avan-persian-date-picker#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker/issues"
+  },
+  "exports": {
+    "./default.css": "./src/default.css",
+    "./dark.css": "./src/dark.css",
+    "./tailwind": "./src/tailwind.preset.ts"
+  },
+  "files": ["src"],
+  "scripts": {
+    "build": "node -e \"console.log('themes: CSS package, no build step')\"",
+    "clean": "node -e \"console.log('ok')\""
+  },
+  "keywords": ["avan", "css", "tailwind", "theme", "jalali", "persian", "shamsi"]
+}
