@@ -1,0 +1,193 @@
+:root {
+  color-scheme: light;
+  font-family: var(--avan-font-family);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, hsl(210 100% 97%), transparent 40%),
+    linear-gradient(180deg, hsl(210 30% 98%), hsl(210 20% 94%));
+  color: var(--avan-foreground);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.hero p {
+  margin: 0;
+  max-width: 48rem;
+  line-height: 1.7;
+  color: var(--avan-muted-foreground);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 0;
+}
+
+.panel {
+  padding: 1.25rem;
+  border: 1px solid var(--avan-border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  min-width: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 0;
+}
+
+.panel:has(.avan-picker--open) {
+  z-index: 5;
+}
+
+.panel .avan-calendar,
+.panel .avan-date-picker,
+.panel .avan-range-picker {
+  max-width: 100%;
+}
+
+.panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+
+.panel p {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  color: var(--avan-muted-foreground);
+}
+
+.meta {
+  margin-top: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.meta strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.panel--wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 720px) {
+  .panel--wide {
+    grid-column: auto;
+  }
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  background: var(--avan-range-middle);
+  color: var(--avan-foreground);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.holiday-years__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.holiday-years__intro {
+  margin: 0 0 1.25rem;
+  color: var(--avan-muted-foreground);
+}
+
+.holiday-years__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.holiday-years__grid h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.125rem;
+}
+
+.holiday-years__grid .panel > p {
+  margin-bottom: 1rem;
+}
+
+.holiday-list {
+  display: grid;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.holiday-list li {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, auto) 1fr;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.holiday-list__date {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.holiday-list__title {
+  color: var(--avan-muted-foreground);
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: min(100%, calc(100% - 1rem));
+    padding-top: 1.25rem;
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+
+  .panel {
+    padding: 1rem;
+  }
+}

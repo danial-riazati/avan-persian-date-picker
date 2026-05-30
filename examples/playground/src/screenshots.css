@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8fafc;
+}
+
+.screenshots-page {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.shot {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid hsl(210 16% 90%);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px hsl(210 20% 10% / 0.06);
+}
+
+.shot__label {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: hsl(210 10% 45%);
+}
+
+.shot--wide .avan-calendar,
+.shot--wide .avan-date-picker,
+.shot--wide .avan-date-range-picker {
+  width: 100%;
+}

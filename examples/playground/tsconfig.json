@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@avan/core": ["../../packages/core/src/index.ts"],
+      "@avan/holidays": ["../../packages/holidays/src/index.ts"],
+      "@avan/react/client": ["../../packages/react/src/client.ts"]
+    }
+  },
+  "include": ["src"]
+}
