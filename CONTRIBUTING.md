@@ -5,7 +5,7 @@ Thank you for helping build the Persian date picker library the ecosystem deserv
 ## Development setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/avan-persian-date-picker.git
+git clone https://github.com/danial-riazati/avan-persian-date-picker.git
 cd avan-persian-date-picker
 pnpm install
 pnpm dev

@@ -163,7 +163,7 @@ import { AvanTravelCalendar } from '@avan/travel';
 ## Development
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/avan-persian-date-picker.git
+git clone https://github.com/danial-riazati/avan-persian-date-picker.git
 cd avan-persian-date-picker
 pnpm install
 pnpm dev

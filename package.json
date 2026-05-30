@@ -3,6 +3,11 @@
   "private": true,
   "description": "Avan — Modern Persian (Jalali) date picker monorepo",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danial-riazati/avan-persian-date-picker.git"
+  },
+  "author": "Danial Riazati (https://github.com/danial-riazati)",
   "engines": {
     "node": ">=20"
   },

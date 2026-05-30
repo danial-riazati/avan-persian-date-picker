@@ -17,4 +17,4 @@ import { AvanDateRangePicker } from '@avan/react/client';
 import '@avan/themes/default.css';
 ```
 
-Full documentation: [github.com/YOUR_USERNAME/avan-persian-date-picker](https://github.com/YOUR_USERNAME/avan-persian-date-picker)
+Full documentation: [github.com/danial-riazati/avan-persian-date-picker](https://github.com/danial-riazati/avan-persian-date-picker)

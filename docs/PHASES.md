@@ -15,7 +15,7 @@ Estimated total: **8–12 weeks** (solo, part-time) or **4–6 weeks** (full-tim
 - [x] Competitive analysis → [`RND.md`](./RND.md)
 - [x] Choose name: **Avan** (آوان) — Avan Persian Date Picker
 - [x] Monorepo layout + README
-- [ ] Create GitHub repo `YOUR_USERNAME/avan-persian-date-picker`
+- [ ] Create GitHub repo [`danial-riazati/avan-persian-date-picker`](https://github.com/danial-riazati/avan-persian-date-picker)
 - [ ] Add MIT LICENSE, CODE_OF_CONDUCT, SECURITY.md
 
 **Exit criteria:** README renders; `pnpm install` succeeds; CI stub green.
@@ -281,7 +281,7 @@ examples/
 - Bundle size CI (size-limit)
 - Playwright smoke tests for examples
 
-**Exit criteria:** Avan-calendar.dev (or GitHub pages) live; all examples deploy.
+**Exit criteria:** GitHub Pages or Vercel docs site live; all examples deploy.
 
 ---
 

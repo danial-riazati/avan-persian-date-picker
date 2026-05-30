@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Travel & pricing extensions for Avan Persian Date Picker",
   "license": "MIT",
+  "author": "Danial Riazati (https://github.com/danial-riazati)",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
@@ -10,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker.git",
+    "url": "https://github.com/danial-riazati/avan-persian-date-picker.git",
     "directory": "packages/travel"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/avan-persian-date-picker#readme",
+  "homepage": "https://github.com/danial-riazati/avan-persian-date-picker#readme",
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker/issues"
+    "url": "https://github.com/danial-riazati/avan-persian-date-picker/issues"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

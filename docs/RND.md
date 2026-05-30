@@ -84,7 +84,7 @@ What Avan adds that others don't combine:
 | **Product name** | Avan Persian Date Picker |
 | **npm scope** | `@avan` |
 | **Primary package** | `@avan/react` (most users install this + core) |
-| **GitHub repo** | `YOUR_USERNAME/avan-persian-date-picker` |
+| **GitHub repo** | `danial-riazati/avan-persian-date-picker` |
 | **Tagline** | Modern Jalali date picker for React & Next.js |
 
 Persian display name: **تقویم و انتخابگر تاریخ آوان**

@@ -9,7 +9,7 @@ The best setup for an open-source Persian date picker: **one public GitHub monor
 | Asset | Recommended | Why |
 |---|---|---|
 | **GitHub repository** | `avan-persian-date-picker` | Clear on Google/npm; says exactly what it is |
-| **GitHub URL** | `github.com/YOUR_USERNAME/avan-persian-date-picker` | Use your personal account to start; migrate to org later |
+| **GitHub URL** | `github.com/danial-riazati/avan-persian-date-picker` | Use your personal account to start; migrate to org later |
 | **npm scope** | `@avan` | Short, matches brand — create at [npmjs.com/org/create](https://www.npmjs.com/org/create) |
 | **Primary install** | `@avan/react` | What most users add |
 | **Product name** | Avan Persian Date Picker | README, docs, marketing |
@@ -23,7 +23,7 @@ Use one of these (pick one and stay consistent):
 |---|---|
 | `@avan-shamsi` | `@avan-shamsi/react` |
 | `@avan-date` | `@avan-date/react` |
-| Your username | `@yourname/avan-react` |
+| Your username | `@danial-riazati/avan-react` |
 
 > **Tip:** Check availability before branding hard: `npm view @avan/react` (404 = name likely free).
 
@@ -42,8 +42,7 @@ github.com/avan-shamsi/avan-persian-date-picker
 ### 1. Create the GitHub repository
 
 ```bash
-cd C:\Users\Danial\Avan-calendar   # rename folder locally (optional):
-# ren .. Avan-calendar avan-persian-date-picker
+cd C:\Users\Danial\avan-persian-date-picker
 
 git add -A
 git commit -m "chore: Avan Persian Date Picker monorepo scaffold"
@@ -61,11 +60,9 @@ git branch -M main
 **Push:**
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/avan-persian-date-picker.git
+git remote add origin https://github.com/danial-riazati/avan-persian-date-picker.git
 git push -u origin main
 ```
-
-Replace `YOUR_USERNAME` with your GitHub handle (e.g. `danial`).
 
 ---
 
@@ -93,12 +90,12 @@ Each package under `packages/*/package.json` should include:
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker.git",
+    "url": "https://github.com/danial-riazati/avan-persian-date-picker.git",
     "directory": "packages/react"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/avan-persian-date-picker#readme",
+  "homepage": "https://github.com/danial-riazati/avan-persian-date-picker#readme",
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/avan-persian-date-picker/issues"
+    "url": "https://github.com/danial-riazati/avan-persian-date-picker/issues"
   },
   "keywords": [
     "avan",
@@ -210,7 +207,7 @@ On first publish, npm pulls from `README.md` in each package. Add a short `packa
 
 React components for **Avan Persian Date Picker** (Jalali / Shamsi).
 
-Full docs: https://github.com/YOUR_USERNAME/avan-persian-date-picker
+Full docs: https://github.com/danial-riazati/avan-persian-date-picker
 ```
 
 Add **repository**, **keywords**, and **homepage** so npm search ranks for: `persian date picker`, `jalali`, `shamsi`, `react`, `nextjs`.
@@ -230,7 +227,7 @@ Add **repository**, **keywords**, and **homepage** so npm search ranks for: `per
 ## Summary — do this
 
 ```
-GitHub:  YOUR_USERNAME/avan-persian-date-picker
+GitHub:  danial-riazati/avan-persian-date-picker
 npm:     @avan/react  (+ @avan/core, @avan/holidays, …)
 License: MIT
 Release: Changesets + GitHub Actions + NPM_TOKEN
