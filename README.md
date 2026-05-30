@@ -65,9 +65,11 @@ Import components from `@avan/react/client` in Client Components only.
 
 Run locally: `corepack pnpm dev:playground` → [localhost:5173](http://localhost:5173)
 
-GitHub Pages only allows **`/`** or **`/docs`**. CI deploys the built playground into **`docs/`** (the React app, not this README).
+The live demo is the built app in **`docs/`** (not markdown). CI updates it on every push.
 
 **Settings → Pages → branch `main` → folder `/docs`**
+
+If you see a Jekyll error, switch Pages source away from **GitHub Actions** — use **Deploy from branch** instead. The `docs/.nojekyll` file disables Jekyll.
 
 ---
 

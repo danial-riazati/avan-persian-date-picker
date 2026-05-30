@@ -51,4 +51,4 @@ jobs:
           publish_branch: main
           destination_dir: docs
           enable_jekyll: false
-          commit_message: 'deploy: playground to docs/'
+          commit_message: 'deploy: playground'
