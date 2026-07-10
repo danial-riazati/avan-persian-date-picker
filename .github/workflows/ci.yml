@@ -98,7 +98,11 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter avan-playground build
+      # `pnpm --filter avan-playground build` alone would skip building its workspace
+      # dependencies (@avan/core, @avan/travel, etc.) — this job runs on a fresh runner with no
+      # carried-over `dist/` output from the `build` job, so use `turbo run build` to build every
+      # package in dependency order, then the playground, in one go.
+      - run: pnpm build
         env:
           GITHUB_PAGES: 'true'
       - uses: peaceiris/actions-gh-pages@v4
