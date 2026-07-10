@@ -109,7 +109,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: examples/playground/dist
-          publish_branch: main
-          destination_dir: docs
+          publish_branch: gh-pages
           enable_jekyll: false
           commit_message: 'deploy: playground'
