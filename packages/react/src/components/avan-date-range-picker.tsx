@@ -5,24 +5,24 @@ import { AvanCalendar } from './avan-calendar';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
-import type { AvanDateRangePickerProps } from '../types';
+import { useFocusTrap } from '../hooks/use-focus-trap';
+import { resolveLocale, type AvanLocaleDefinition } from '../locale';
+import type { AvanDateRangePickerProps, DateRangeValue } from '../types';
 import { formatJalaliDisplay } from '../utils/format-display';
 
 function formatRangeTriggerLabel(
-  range: { from: Date | null; to: Date | null },
-  dir: 'rtl' | 'ltr',
+  range: DateRangeValue,
+  locale: AvanLocaleDefinition,
   placeholder: string,
 ): string {
   if (!range.from && !range.to) {
     return placeholder;
   }
 
-  const fromLabel = dir === 'rtl' ? 'از' : 'From';
-  const toLabel = dir === 'rtl' ? 'تا' : 'To';
-  const fromText = range.from ? formatJalaliDisplay(range.from, dir) : '—';
-  const toText = range.to ? formatJalaliDisplay(range.to, dir) : '—';
+  const fromText = range.from ? formatJalaliDisplay(range.from, locale) : '—';
+  const toText = range.to ? formatJalaliDisplay(range.to, locale) : '—';
 
-  return `${fromLabel} ${fromText} ${toLabel} ${toText}`;
+  return `${locale.strings.from} ${fromText} ${locale.strings.to} ${toText}`;
 }
 
 export function AvanDateRangePicker({
@@ -32,7 +32,7 @@ export function AvanDateRangePicker({
   className,
   dir: dirProp,
   locale: localeProp,
-  placeholder = 'انتخاب بازه تاریخ',
+  placeholder,
   display = 'inline',
   open: openProp,
   defaultOpen,
@@ -42,26 +42,27 @@ export function AvanDateRangePicker({
   ...props
 }: AvanDateRangePickerProps) {
   const context = useAvanContext();
-  const dir = dirProp ?? context.dir;
-  const locale = localeProp ?? context.locale;
+  const locale = resolveLocale(localeProp ?? context.locale);
+  const dir = dirProp ?? context.dir ?? locale.dir;
   const range = value ?? defaultValue ?? { from: null, to: null };
   const rootRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
     open: openProp,
     defaultOpen,
     onOpenChange,
   });
 
-  useDismissibleLayer(display === 'popover' && open, setOpen, rootRef);
-
-  const fromLabel = dir === 'rtl' ? 'از' : 'From';
-  const toLabel = dir === 'rtl' ? 'تا' : 'To';
   const isPopover = display === 'popover';
-  const isTwoMonths = numberOfMonths === 2;
-  const hasSelection = Boolean(range.from || range.to);
-  const triggerLabel = formatRangeTriggerLabel(range, dir, placeholder);
+  useDismissibleLayer(isPopover && open, setOpen, rootRef);
+  useFocusTrap(isPopover && open, popoverRef);
 
-  function handleRangeChange(next: { from: Date | null; to: Date | null }) {
+  const resolvedPlaceholder = placeholder ?? locale.strings.placeholderRange;
+  const isTwoMonths = numberOfMonths >= 2;
+  const hasSelection = Boolean(range.from || range.to);
+  const triggerLabel = formatRangeTriggerLabel(range, locale, resolvedPlaceholder);
+
+  function handleRangeChange(next: DateRangeValue) {
     onChange?.(next);
 
     if (isPopover && closeOnSelect && next.from && next.to) {
@@ -85,12 +86,12 @@ export function AvanDateRangePicker({
   const summary = (
     <div className="avan-range-picker__summary">
       <div>
-        <span className="avan-range-picker__label">{fromLabel}</span>
-        <strong>{range.from ? formatJalaliDisplay(range.from, dir) : '—'}</strong>
+        <span className="avan-range-picker__label">{locale.strings.from}</span>
+        <strong>{range.from ? formatJalaliDisplay(range.from, locale) : '—'}</strong>
       </div>
       <div>
-        <span className="avan-range-picker__label">{toLabel}</span>
-        <strong>{range.to ? formatJalaliDisplay(range.to, dir) : '—'}</strong>
+        <span className="avan-range-picker__label">{locale.strings.to}</span>
+        <strong>{range.to ? formatJalaliDisplay(range.to, locale) : '—'}</strong>
       </div>
     </div>
   );
@@ -126,7 +127,14 @@ export function AvanDateRangePicker({
             {triggerLabel}
           </button>
           {open ? (
-            <div className="avan-range-picker__popover avan-picker__popover">
+            <div
+              ref={popoverRef}
+              tabIndex={-1}
+              className="avan-range-picker__popover avan-picker__popover"
+              role="dialog"
+              aria-modal="true"
+              aria-label={resolvedPlaceholder}
+            >
               {calendar}
               {summary}
             </div>

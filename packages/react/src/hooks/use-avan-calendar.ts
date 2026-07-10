@@ -2,29 +2,79 @@ import { useEffect, useMemo, useState } from 'react';
 import { isSameDay } from 'date-fns-jalali';
 import {
   addJalaliMonths,
+  endOfJalaliWeek,
   getMonthGrid,
+  startOfJalaliWeek,
   toJalali,
   type CalendarDay,
   type JalaliDate,
 } from '@avan/core';
-import type { DateRangeValue } from '../types';
+import type { AvanSelectionMode, DateRangeValue } from '../types';
+import { isWithinDay } from '../utils/constraints';
 
 export interface CalendarMonthPanel {
   month: JalaliDate;
   weeks: CalendarDay[][];
 }
 
+export interface DayState {
+  isSelected: boolean;
+  isRangeStart: boolean;
+  isRangeEnd: boolean;
+  isInRange: boolean;
+}
+
 export interface UseAvanCalendarOptions {
   visibleMonth?: JalaliDate;
-  numberOfMonths?: 1 | 2;
+  numberOfMonths?: 1 | 2 | 3 | 4;
   today?: Date;
+  weekStartsOn?: number;
+  weekendDays?: readonly number[];
   isDateDisabled?: (date: Date) => boolean;
-  mode?: 'single' | 'range';
+  mode?: AvanSelectionMode;
+
   value?: Date | null;
-  rangeValue?: DateRangeValue;
   onValueChange?: (value: Date | null) => void;
+
+  rangeValue?: DateRangeValue;
   onRangeChange?: (value: DateRangeValue) => void;
+
+  multipleValue?: Date[];
+  onMultipleChange?: (value: Date[]) => void;
+  maxMultipleCount?: number;
+
+  multiRangeValue?: DateRangeValue[];
+  onMultiRangeChange?: (value: DateRangeValue[]) => void;
+  maxRangeCount?: number;
+
+  weekValue?: DateRangeValue;
+  onWeekChange?: (value: DateRangeValue) => void;
+
+  monthValue?: JalaliDate | null;
+  onMonthChange?: (value: JalaliDate | null) => void;
+
+  yearValue?: number | null;
+  onYearChange?: (value: number | null) => void;
+
   onVisibleMonthChange?: (month: JalaliDate) => void;
+}
+
+const EMPTY_RANGE: DateRangeValue = { from: null, to: null };
+
+function nextRangeValue(current: DateRangeValue, date: Date): DateRangeValue {
+  if (!current.from || (current.from && current.to)) {
+    return { from: date, to: null };
+  }
+
+  if (isSameDay(date, current.from)) {
+    return { from: date, to: date };
+  }
+
+  if (date < current.from) {
+    return { from: date, to: current.from };
+  }
+
+  return { from: current.from, to: date };
 }
 
 export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
@@ -36,6 +86,7 @@ export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
     if (options.visibleMonth) {
       setVisibleMonthState(options.visibleMonth);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.visibleMonth?.year, options.visibleMonth?.month]);
 
   function setVisibleMonth(next: JalaliDate) {
@@ -56,12 +107,23 @@ export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
         weeks: getMonthGrid(month.year, month.month, {
           today,
           isDateDisabled: options.isDateDisabled,
+          weekStartsOn: options.weekStartsOn,
+          weekendDays: options.weekendDays,
         }),
       });
     }
 
     return panels;
-  }, [visibleMonth.year, visibleMonth.month, numberOfMonths, today, options.isDateDisabled]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    visibleMonth.year,
+    visibleMonth.month,
+    numberOfMonths,
+    today,
+    options.isDateDisabled,
+    options.weekStartsOn,
+    options.weekendDays,
+  ]);
 
   function goToPreviousMonth() {
     setVisibleMonth(addJalaliMonths(visibleMonth, -1));
@@ -69,6 +131,18 @@ export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
 
   function goToNextMonth() {
     setVisibleMonth(addJalaliMonths(visibleMonth, 1));
+  }
+
+  function goToPreviousYear() {
+    setVisibleMonth(addJalaliMonths(visibleMonth, -12));
+  }
+
+  function goToNextYear() {
+    setVisibleMonth(addJalaliMonths(visibleMonth, 12));
+  }
+
+  function goToday() {
+    setVisibleMonth(toJalali(today));
   }
 
   function setMonth(month: number) {
@@ -90,57 +164,127 @@ export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
   }
 
   function selectDate(date: Date) {
-    if (options.mode === 'range') {
-      const current = options.rangeValue ?? { from: null, to: null };
-
-      if (!current.from || (current.from && current.to)) {
-        options.onRangeChange?.({ from: date, to: null });
+    switch (options.mode) {
+      case 'range': {
+        options.onRangeChange?.(nextRangeValue(options.rangeValue ?? EMPTY_RANGE, date));
         return;
       }
 
-      if (isSameDay(date, current.from)) {
-        options.onRangeChange?.({ from: date, to: date });
+      case 'multiRange': {
+        const ranges = options.multiRangeValue ?? [];
+        const last = ranges[ranges.length - 1];
+
+        if (!last || (last.from && last.to)) {
+          if (options.maxRangeCount && ranges.length >= options.maxRangeCount) {
+            return;
+          }
+          options.onMultiRangeChange?.([...ranges, { from: date, to: null }]);
+          return;
+        }
+
+        const updated = [...ranges];
+        updated[updated.length - 1] = nextRangeValue(last, date);
+        options.onMultiRangeChange?.(updated);
         return;
       }
 
-      if (date < current.from) {
-        options.onRangeChange?.({ from: date, to: current.from });
+      case 'multiple': {
+        const current = options.multipleValue ?? [];
+        const existingIndex = current.findIndex((existing) => isSameDay(existing, date));
+
+        if (existingIndex >= 0) {
+          options.onMultipleChange?.(current.filter((_, index) => index !== existingIndex));
+          return;
+        }
+
+        if (options.maxMultipleCount && current.length >= options.maxMultipleCount) {
+          options.onMultipleChange?.([...current.slice(1), date]);
+          return;
+        }
+
+        options.onMultipleChange?.([...current, date]);
         return;
       }
 
-      options.onRangeChange?.({ from: current.from, to: date });
-      return;
+      case 'week': {
+        const from = startOfJalaliWeek(date, options.weekStartsOn);
+        const to = endOfJalaliWeek(date, options.weekStartsOn);
+        options.onWeekChange?.({ from, to });
+        return;
+      }
+
+      default: {
+        options.onValueChange?.(date);
+      }
     }
-
-    options.onValueChange?.(date);
   }
 
-  function isSelected(day: CalendarDay): boolean {
-    if (options.mode === 'range') {
-      const { from, to } = options.rangeValue ?? { from: null, to: null };
-      if (!from) {
-        return false;
+  function selectMonthValue(year: number, month: number) {
+    options.onMonthChange?.({ year, month, day: 1 });
+  }
+
+  function selectYearValue(year: number) {
+    options.onYearChange?.(year);
+  }
+
+  function getDayState(day: CalendarDay): DayState {
+    const date = day.date.gregorian;
+
+    switch (options.mode) {
+      case 'range': {
+        const { from, to } = options.rangeValue ?? EMPTY_RANGE;
+        if (!from)
+          return { isSelected: false, isRangeStart: false, isRangeEnd: false, isInRange: false };
+        const isRangeStart = isSameDay(date, from);
+        const isRangeEnd = to ? isSameDay(date, to) : false;
+        const isInRange = Boolean(to) && isWithinDay(date, from, to as Date);
+        return {
+          isSelected: isInRange || (!to && isRangeStart),
+          isRangeStart,
+          isRangeEnd,
+          isInRange,
+        };
       }
 
-      if (!to) {
-        return isSameDay(day.date.gregorian, from);
+      case 'multiRange': {
+        const ranges = options.multiRangeValue ?? [];
+        for (const range of ranges) {
+          if (!range.from) continue;
+          const isRangeStart = isSameDay(date, range.from);
+          const isRangeEnd = range.to ? isSameDay(date, range.to) : false;
+          const isInRange = Boolean(range.to) && isWithinDay(date, range.from, range.to as Date);
+          if (isRangeStart || isRangeEnd || isInRange) {
+            return { isSelected: true, isRangeStart, isRangeEnd, isInRange };
+          }
+        }
+        return { isSelected: false, isRangeStart: false, isRangeEnd: false, isInRange: false };
       }
 
-      const time = day.date.gregorian.getTime();
-      return time >= from.getTime() && time <= to.getTime();
+      case 'multiple': {
+        const isSelected = (options.multipleValue ?? []).some((existing) =>
+          isSameDay(existing, date),
+        );
+        return { isSelected, isRangeStart: false, isRangeEnd: false, isInRange: false };
+      }
+
+      case 'week': {
+        const { from, to } = options.weekValue ?? EMPTY_RANGE;
+        if (!from || !to)
+          return { isSelected: false, isRangeStart: false, isRangeEnd: false, isInRange: false };
+        const isInRange = isWithinDay(date, from, to);
+        return {
+          isSelected: isInRange,
+          isRangeStart: isSameDay(date, from),
+          isRangeEnd: isSameDay(date, to),
+          isInRange,
+        };
+      }
+
+      default: {
+        const isSelected = options.value ? isSameDay(date, options.value) : false;
+        return { isSelected, isRangeStart: false, isRangeEnd: false, isInRange: false };
+      }
     }
-
-    return options.value ? isSameDay(day.date.gregorian, options.value) : false;
-  }
-
-  function isRangeStart(day: CalendarDay): boolean {
-    const from = options.rangeValue?.from;
-    return from ? isSameDay(day.date.gregorian, from) : false;
-  }
-
-  function isRangeEnd(day: CalendarDay): boolean {
-    const to = options.rangeValue?.to;
-    return to ? isSameDay(day.date.gregorian, to) : false;
   }
 
   return {
@@ -150,13 +294,16 @@ export function useAvanCalendar(options: UseAvanCalendarOptions = {}) {
     monthPanels,
     goToPreviousMonth,
     goToNextMonth,
+    goToPreviousYear,
+    goToNextYear,
+    goToday,
     setMonth,
     setYear,
     setPanelMonth,
     setPanelYear,
     selectDate,
-    isSelected,
-    isRangeStart,
-    isRangeEnd,
+    selectMonthValue,
+    selectYearValue,
+    getDayState,
   };
 }

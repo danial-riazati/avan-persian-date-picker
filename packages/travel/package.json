@@ -1,13 +1,14 @@
 {
   "name": "@avan/travel",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Travel & pricing extensions for Avan Persian Date Picker",
   "license": "MIT",
   "author": "Danial Riazati (https://github.com/danial-riazati)",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "repository": {
     "type": "git",
@@ -33,17 +34,16 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "test": "vitest run",
+    "coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf dist"
   },
-  "peerDependencies": {
-    "react": ">=18",
-    "@avan/react": "workspace:*"
-  },
   "dependencies": {
-    "@avan/core": "workspace:*"
+    "@avan/core": "workspace:*",
+    "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.8",
     "tsdown": "^0.9.9",
     "vitest": "^2.1.8"
   },

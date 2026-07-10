@@ -1,5 +1,5 @@
 /**
- * @avan/core — Public types (Phase 1 implementation target)
+ * @avan/core — Headless Jalali (Persian) date utilities.
  * @see README.md
  */
 
@@ -32,3 +32,4 @@ export type JalaliISO = `${number}-${string}-${string}`;
 export * from './convert';
 export * from './grid';
 export * from './digits';
+export * from './business';

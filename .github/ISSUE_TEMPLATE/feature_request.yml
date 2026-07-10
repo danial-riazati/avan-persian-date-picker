@@ -1,0 +1,78 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Avan Persian Date Picker.
+title: '[Feature]: '
+labels: ['enhancement', 'needs-triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement! Please fill out the sections below to help us understand your request.
+
+  - type: checkboxes
+    id: existing-issue-check
+    attributes:
+      label: Checked for existing issues
+      description: Please search open and closed issues before filing a new one.
+      options:
+        - label: I have searched the existing issues and this is not a duplicate.
+          required: true
+
+  - type: dropdown
+    id: packages
+    attributes:
+      label: Package(s) affected
+      description: Which package(s) would this feature affect?
+      multiple: true
+      options:
+        - '@avan/core'
+        - '@avan/react'
+        - '@avan/holidays'
+        - '@avan/themes'
+        - '@avan/travel'
+        - other / not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem description
+      description: What problem are you trying to solve? Is your feature request related to a limitation you've encountered?
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the solution you'd like, including any API/prop shape ideas if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What alternative solutions or workarounds have you considered?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: willing-to-pr
+    attributes:
+      label: Are you willing to submit a PR for this feature?
+      options:
+        - 'Yes'
+        - 'Yes, with guidance'
+        - 'No'
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other context, mockups, or links that would help.
+    validations:
+      required: false

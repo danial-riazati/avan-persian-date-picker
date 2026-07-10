@@ -5,13 +5,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node --input-type=module -e \"import { writeFileSync } from 'node:fs'; writeFileSync('dist/.nojekyll', '');\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@avan/core": "workspace:*",
     "@avan/holidays": "workspace:*",
     "@avan/react": "workspace:*",
     "@avan/themes": "workspace:*",
+    "@avan/travel": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@avan/react",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "React components for Avan Persian Date Picker",
   "license": "MIT",
   "author": "Danial Riazati (https://github.com/danial-riazati)",
@@ -9,7 +9,8 @@
     "**/*.css"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,8 @@
   "bugs": {
     "url": "https://github.com/danial-riazati/avan-persian-date-picker/issues"
   },
-  "main": "./dist/client.js",
-  "types": "./dist/client.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -30,7 +31,8 @@
     "./client": {
       "types": "./dist/client.d.ts",
       "import": "./dist/client.js"
-    }
+    },
+    "./client.css": "./dist/client.css"
   },
   "files": [
     "dist"
@@ -39,6 +41,7 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "test": "vitest run",
+    "coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf dist"
   },
@@ -52,8 +55,14 @@
     "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "axe-core": "^4.12.1",
+    "jsdom": "^25.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsdown": "^0.9.9",

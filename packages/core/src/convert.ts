@@ -6,6 +6,7 @@ import {
   format,
 } from 'date-fns-jalali';
 import type { JalaliDate, AvanDate } from './index';
+import { toWesternDigits } from './digits';
 
 /** Normalize to local noon to reduce DST edge cases. */
 function atLocalNoon(date: Date): Date {
@@ -37,7 +38,8 @@ export function formatJalaliISO(date: Date): string {
 }
 
 export function parseJalali(input: string): AvanDate {
-  const match = /^(\d{4})[/-](\d{1,2})[/-](\d{1,2})$/.exec(input.trim());
+  const normalized = toWesternDigits(input.trim());
+  const match = /^(\d{4})[/-](\d{1,2})[/-](\d{1,2})$/.exec(normalized);
   if (!match) {
     throw new Error(`@avan/core: invalid Jalali date "${input}"`);
   }
@@ -56,6 +58,15 @@ export function parseJalali(input: string): AvanDate {
     gregorian: toGregorian(jalali),
     jalali,
   };
+}
+
+/** Like `parseJalali`, but returns `null` instead of throwing on invalid input. */
+export function tryParseJalali(input: string): AvanDate | null {
+  try {
+    return parseJalali(input);
+  } catch {
+    return null;
+  }
 }
 
 export function isValidJalali(jalali: JalaliDate): boolean {

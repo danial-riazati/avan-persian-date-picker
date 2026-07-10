@@ -7,14 +7,33 @@ export interface MonthGridOptions {
   today?: Date;
   /** Disable specific dates */
   isDateDisabled?: (date: Date) => boolean;
+  /**
+   * JS `Date#getDay()` index (0=Sun..6=Sat) that starts the week. Default: 6 (Saturday, Iran).
+   * Pass 1 for a Monday-first (ISO-like) week, 0 for Sunday-first, etc.
+   */
+  weekStartsOn?: number;
+  /** JS `Date#getDay()` indices treated as the weekend. Default: `[5]` (Friday, Iran). */
+  weekendDays?: readonly number[];
 }
 
 const GRID_WEEKS = 6;
 const DAYS_PER_WEEK = 7;
+const DEFAULT_WEEK_STARTS_ON = 6; // Saturday
+const DEFAULT_WEEKEND_DAYS: readonly number[] = [5]; // Friday
 
-/** Iran week starts on Saturday. Returns 0 for Saturday … 6 for Friday. */
-function getIranWeekdayIndex(date: Date): number {
-  return (getDay(date) + 1) % 7;
+/** Iran week starts on Saturday by default. Returns 0 for the configured first day of week. */
+export function getWeekdayIndex(date: Date, weekStartsOn = DEFAULT_WEEK_STARTS_ON): number {
+  return (getDay(date) - weekStartsOn + 7) % 7;
+}
+
+/** Start (00:00-normalized to noon) of the calendar week containing `date`. */
+export function startOfJalaliWeek(date: Date, weekStartsOn = DEFAULT_WEEK_STARTS_ON): Date {
+  return addDays(atLocalNoon(date), -getWeekdayIndex(date, weekStartsOn));
+}
+
+/** End of the calendar week containing `date`. */
+export function endOfJalaliWeek(date: Date, weekStartsOn = DEFAULT_WEEK_STARTS_ON): Date {
+  return addDays(startOfJalaliWeek(date, weekStartsOn), DAYS_PER_WEEK - 1);
 }
 
 export function getMonthGrid(
@@ -23,8 +42,10 @@ export function getMonthGrid(
   options: MonthGridOptions = {},
 ): CalendarDay[][] {
   const today = options.today ? atLocalNoon(options.today) : atLocalNoon(new Date());
+  const weekStartsOn = options.weekStartsOn ?? DEFAULT_WEEK_STARTS_ON;
+  const weekendDays = options.weekendDays ?? DEFAULT_WEEKEND_DAYS;
   const firstOfMonth = toGregorian({ year, month, day: 1 });
-  const gridStart = addDays(firstOfMonth, -getIranWeekdayIndex(firstOfMonth));
+  const gridStart = addDays(firstOfMonth, -getWeekdayIndex(firstOfMonth, weekStartsOn));
   const weeks: CalendarDay[][] = [];
 
   for (let week = 0; week < GRID_WEEKS; week += 1) {
@@ -39,7 +60,7 @@ export function getMonthGrid(
         date: avanDate,
         isCurrentMonth: avanDate.jalali.year === year && avanDate.jalali.month === month,
         isToday: isSameDay(gregorian, today),
-        isWeekend: getDay(gregorian) === 5,
+        isWeekend: weekendDays.includes(getDay(gregorian)),
         isDisabled: options.isDateDisabled?.(gregorian) ?? false,
       });
     }

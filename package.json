@@ -14,22 +14,32 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "build": "turbo run build",
+    "verify-exports": "node scripts/verify-package-exports.mjs",
     "dev": "turbo run dev",
     "dev:playground": "npm run dev --prefix examples/playground",
-    "lint": "prettier --check \"**/*.{ts,tsx,json,md,css,yml,yaml}\" --ignore-path .prettierignore",
+    "lint": "prettier --check \"**/*.{ts,tsx,js,mjs,json,md,css,yml,yaml}\" --ignore-path .prettierignore && eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "turbo run test",
+    "coverage": "turbo run coverage",
     "typecheck": "turbo run typecheck",
     "clean": "turbo run clean && rimraf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "release": "turbo run build && node scripts/verify-package-exports.mjs && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.11",
+    "@eslint/js": "^9.39.4",
     "@types/node": "^22.10.2",
+    "eslint": "^9.39.4",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^15.15.0",
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "turbo": "^2.3.3",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.63.0"
   }
 }

@@ -1,0 +1,86 @@
+.avan-time-picker {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-muted);
+}
+
+.avan-time-picker__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.avan-time-picker__label {
+  font-size: var(--avan-calendar-text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--avan-muted-foreground);
+  text-align: center;
+}
+
+.avan-time-picker__select {
+  padding: 0.5rem 0.5rem;
+  border: 1px solid var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-background);
+  color: var(--avan-foreground);
+  font: inherit;
+  font-size: var(--avan-calendar-text-md, 0.875rem);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.avan-time-picker__select:focus-visible {
+  border-color: var(--avan-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--avan-accent) 16%, transparent);
+  outline: none;
+}
+
+.avan-time-picker__select:disabled {
+  opacity: var(--avan-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.avan-time-picker__separator {
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--avan-muted-foreground);
+}
+
+.avan-time-picker__meridiem {
+  display: flex;
+  gap: 0.25rem;
+  margin-inline-start: 0.25rem;
+}
+
+.avan-time-picker__meridiem-btn {
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--avan-border);
+  border-radius: var(--avan-day-radius);
+  background: var(--avan-background);
+  color: var(--avan-muted-foreground);
+  font: inherit;
+  font-size: var(--avan-calendar-text-sm, 0.8125rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.avan-time-picker__meridiem-btn--active {
+  border-color: var(--avan-accent);
+  background: var(--avan-accent);
+  color: var(--avan-accent-foreground);
+}
+
+.avan-time-picker__meridiem-btn:disabled {
+  opacity: var(--avan-disabled-opacity);
+  cursor: not-allowed;
+}

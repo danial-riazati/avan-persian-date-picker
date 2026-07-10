@@ -1,8 +1,9 @@
 'use client';
 
 import { useMemo, type ReactNode } from 'react';
-import type { AvanLocale } from '../types';
+import type { AvanCalendarComponents } from '../types';
 import { formatNumberDisplay } from '../utils/format-display';
+import type { AvanLocaleDefinition } from '../locale';
 
 export type CalendarPickerView = 'days' | 'months' | 'years';
 
@@ -48,6 +49,7 @@ interface CalendarNavButtonProps {
   disabled?: boolean;
   className?: string;
   onClick: () => void;
+  render?: AvanCalendarComponents['NavButton'];
 }
 
 /** Nav buttons: LTR = prev left (←), next right (→). RTL = prev right (→), next left (←). */
@@ -57,7 +59,12 @@ export function CalendarNavButton({
   disabled,
   className,
   onClick,
+  render,
 }: CalendarNavButtonProps) {
+  if (render) {
+    return <>{render({ direction, label, disabled, onClick })}</>;
+  }
+
   return (
     <button
       type="button"
@@ -75,9 +82,12 @@ interface CalendarNavRowProps {
   dir: 'rtl' | 'ltr';
   prevLabel: string;
   nextLabel: string;
+  prevDisabled?: boolean;
+  nextDisabled?: boolean;
   onPrevious: () => void;
   onNext: () => void;
   children: ReactNode;
+  renderNavButton?: AvanCalendarComponents['NavButton'];
 }
 
 function navChevronForPrevious(dir: 'rtl' | 'ltr'): 'prev' | 'next' {
@@ -92,19 +102,30 @@ export function CalendarNavRow({
   dir,
   prevLabel,
   nextLabel,
+  prevDisabled,
+  nextDisabled,
   onPrevious,
   onNext,
   children,
+  renderNavButton,
 }: CalendarNavRowProps) {
   return (
     <div className="avan-calendar__header-nav" dir={dir}>
       <CalendarNavButton
         direction={navChevronForPrevious(dir)}
         label={prevLabel}
+        disabled={prevDisabled}
         onClick={onPrevious}
+        render={renderNavButton}
       />
       <div className="avan-calendar__header-center">{children}</div>
-      <CalendarNavButton direction={navChevronForNext(dir)} label={nextLabel} onClick={onNext} />
+      <CalendarNavButton
+        direction={navChevronForNext(dir)}
+        label={nextLabel}
+        disabled={nextDisabled}
+        onClick={onNext}
+        render={renderNavButton}
+      />
     </div>
   );
 }
@@ -152,7 +173,6 @@ export function PickerToolbar({
 }
 
 interface CalendarCaptionProps {
-  locale: AvanLocale;
   dir: 'rtl' | 'ltr';
   month: number;
   year: number;
@@ -160,10 +180,10 @@ interface CalendarCaptionProps {
   pickerView: CalendarPickerView;
   onOpenMonths: () => void;
   onOpenYears: () => void;
+  render?: AvanCalendarComponents['Caption'];
 }
 
 export function CalendarCaption({
-  locale,
   dir,
   month,
   year,
@@ -171,9 +191,25 @@ export function CalendarCaption({
   pickerView,
   onOpenMonths,
   onOpenYears,
+  render,
 }: CalendarCaptionProps) {
   const monthName = monthNames[month - 1] ?? '';
   const yearLabel = formatNumberDisplay(year, dir);
+
+  if (render) {
+    return (
+      <>
+        {render({
+          month,
+          year,
+          monthLabel: monthName,
+          yearLabel,
+          onOpenMonths,
+          onOpenYears,
+        })}
+      </>
+    );
+  }
 
   return (
     <div className="avan-calendar__caption">
@@ -209,10 +245,11 @@ export function CalendarCaption({
 
 interface MonthPickerGridProps {
   dir: 'rtl' | 'ltr';
-  locale: AvanLocale;
+  locale: AvanLocaleDefinition;
   month: number;
   monthNames: readonly string[];
   onSelect: (month: number) => void;
+  isMonthDisabled?: (month: number) => boolean;
 }
 
 export function MonthPickerGrid({
@@ -221,16 +258,16 @@ export function MonthPickerGrid({
   month,
   monthNames,
   onSelect,
+  isMonthDisabled,
 }: MonthPickerGridProps) {
-  const title = locale === 'fa-IR' ? 'انتخاب ماه' : 'Select month';
-
   return (
     <div className="avan-calendar__picker" dir={dir}>
-      <div className="avan-calendar__picker-title">{title}</div>
+      <div className="avan-calendar__picker-title">{locale.strings.selectMonth}</div>
       <div className="avan-calendar__picker-grid avan-calendar__picker-grid--months" role="listbox">
         {monthNames.map((name, index) => {
           const monthNumber = index + 1;
           const isSelected = monthNumber === month;
+          const disabled = isMonthDisabled?.(monthNumber) ?? false;
 
           return (
             <button
@@ -238,6 +275,7 @@ export function MonthPickerGrid({
               type="button"
               role="option"
               aria-selected={isSelected}
+              disabled={disabled}
               className={[
                 'avan-calendar__picker-cell',
                 isSelected && 'avan-calendar__picker-cell--selected',
@@ -257,13 +295,14 @@ export function MonthPickerGrid({
 
 interface YearPickerGridProps {
   dir: 'rtl' | 'ltr';
-  locale: AvanLocale;
+  locale: AvanLocaleDefinition;
   year: number;
   minYear: number;
   maxYear: number;
   page: number;
   onPageChange: (page: number) => void;
   onSelect: (year: number) => void;
+  title?: string;
 }
 
 const YEARS_PER_PAGE = 12;
@@ -302,25 +341,23 @@ export function YearPickerGrid({
   page,
   onPageChange,
   onSelect,
+  title,
 }: YearPickerGridProps) {
   const pageCount = getYearPageCount(minYear, maxYear);
   const years = useMemo(() => getYearsForPage(minYear, maxYear, page), [minYear, maxYear, page]);
   const pageStart = minYear + page * YEARS_PER_PAGE;
   const pageEnd = Math.min(pageStart + YEARS_PER_PAGE - 1, maxYear);
 
-  const title = locale === 'fa-IR' ? 'انتخاب سال' : 'Select year';
   const rangeLabel = `${formatNumberDisplay(pageStart, dir)} – ${formatNumberDisplay(pageEnd, dir)}`;
-  const prevLabel = locale === 'fa-IR' ? 'صفحه قبل' : 'Previous page';
-  const nextLabel = locale === 'fa-IR' ? 'صفحه بعد' : 'Next page';
 
   return (
     <div className="avan-calendar__picker" dir={dir}>
-      <div className="avan-calendar__picker-title">{title}</div>
+      <div className="avan-calendar__picker-title">{title ?? locale.strings.selectYear}</div>
 
       <PickerToolbar
         dir={dir}
-        prevLabel={prevLabel}
-        nextLabel={nextLabel}
+        prevLabel={locale.strings.previousPage}
+        nextLabel={locale.strings.nextPage}
         prevDisabled={page <= 0}
         nextDisabled={page >= pageCount - 1}
         onPrevious={() => onPageChange(page - 1)}

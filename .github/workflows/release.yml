@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Version or Publish
+    if: github.repository == 'danial-riazati/avan-persian-date-picker'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm lint
+
+      - run: pnpm typecheck
+
+      - run: pnpm test
+
+      - run: pnpm build
+
+      - run: pnpm verify-exports
+
+      # On every push to `main`, either opens/updates a "Version Packages" PR (when
+      # changesets are pending) or, once that PR is merged, publishes the new versions
+      # to npm and tags the release on GitHub.
+      - name: Create release PR or publish to npm
+        uses: changesets/action@v1
+        with:
+          version: pnpm version-packages
+          publish: pnpm release
+          commit: 'chore: version packages'
+          title: 'chore: version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # `actions/setup-node`'s `registry-url` writes an `.npmrc` keyed off `NODE_AUTH_TOKEN`;
+          # some `changesets/action` + `setup-node` combinations only pick up the token via this
+          # var (see https://github.com/changesets/action/issues/132). Set both to be safe.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

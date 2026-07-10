@@ -10,3 +10,19 @@
   --avan-weekend-muted: hsl(210 15% 14%);
   --avan-shadow: 0 8px 30px hsl(0 0% 0% / 0.35);
 }
+
+/* `colorScheme="system"` on <AvanProvider> follows the OS preference automatically. */
+@media (prefers-color-scheme: dark) {
+  .avan-root[data-color-scheme='system'] {
+    --avan-accent: hsl(210 90% 60%);
+    --avan-accent-foreground: hsl(210 20% 10%);
+    --avan-muted: hsl(210 15% 18%);
+    --avan-muted-foreground: hsl(210 10% 70%);
+    --avan-border: hsl(210 12% 24%);
+    --avan-background: hsl(210 20% 8%);
+    --avan-foreground: hsl(210 10% 96%);
+    --avan-range-middle: hsl(210 50% 20%);
+    --avan-weekend-muted: hsl(210 15% 14%);
+    --avan-shadow: 0 8px 30px hsl(0 0% 0% / 0.35);
+  }
+}

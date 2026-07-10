@@ -14,18 +14,97 @@ body {
     radial-gradient(circle at top, hsl(210 100% 97%), transparent 40%),
     linear-gradient(180deg, hsl(210 30% 98%), hsl(210 20% 94%));
   color: var(--avan-foreground);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.avan-root[data-color-scheme='dark'] body,
+body:has(.avan-root[data-theme='dark']) {
+  background:
+    radial-gradient(circle at top, hsl(210 40% 14%), transparent 40%),
+    linear-gradient(180deg, hsl(210 25% 8%), hsl(210 20% 6%));
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
 .page {
-  width: min(1100px, calc(100% - 2rem));
+  width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 2rem 0 4rem;
+  padding: 1.25rem 0 4rem;
 }
+
+/* Toolbar */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid var(--avan-border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: 0.75rem;
+  z-index: 10;
+}
+
+.avan-root[data-theme='dark'] .toolbar {
+  background: rgba(20, 24, 30, 0.75);
+}
+
+.toolbar__group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toolbar__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--avan-muted-foreground);
+}
+
+.toolbar__segment {
+  display: flex;
+  padding: 0.1875rem;
+  border-radius: 0.625rem;
+  background: var(--avan-muted);
+  gap: 0.125rem;
+}
+
+.toolbar__option {
+  padding: 0.3125rem 0.6875rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--avan-muted-foreground);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.toolbar__option:hover {
+  color: var(--avan-foreground);
+}
+
+.toolbar__option--active {
+  background: var(--avan-background);
+  color: var(--avan-foreground);
+  box-shadow: var(--avan-shadow, 0 1px 2px rgb(0 0 0 / 0.08));
+  font-weight: 600;
+}
+
+/* Hero */
 
 .hero {
   margin-bottom: 2rem;
@@ -38,9 +117,53 @@ input {
 
 .hero p {
   margin: 0;
-  max-width: 48rem;
+  max-width: 52rem;
   line-height: 1.7;
   color: var(--avan-muted-foreground);
+}
+
+.hero__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1.25rem;
+}
+
+.hero__nav a {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--avan-accent);
+  text-decoration: none;
+  padding: 0.25rem 0;
+}
+
+.hero__nav a:hover {
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  background: var(--avan-range-middle);
+  color: var(--avan-foreground);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Sections */
+
+.demo-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 5rem;
+}
+
+.demo-section__title {
+  margin: 0 0 1.25rem;
+  font-size: 1.375rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--avan-border);
 }
 
 .grid {
@@ -63,6 +186,10 @@ input {
   z-index: 0;
 }
 
+.avan-root[data-theme='dark'] .panel {
+  background: rgba(24, 28, 34, 0.82);
+}
+
 .panel:has(.avan-picker--open) {
   z-index: 5;
 }
@@ -73,9 +200,9 @@ input {
   max-width: 100%;
 }
 
-.panel h2 {
+.panel h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
 }
 
 .panel p {
@@ -98,9 +225,8 @@ input {
   margin-bottom: 0.25rem;
 }
 
-.stack {
-  display: grid;
-  gap: 1.5rem;
+.meta--warning {
+  color: hsl(0 70% 50%);
 }
 
 .panel--wide {
@@ -113,46 +239,30 @@ input {
   }
 }
 
-.badge {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  padding: 0.25rem 0.625rem;
-  border-radius: 999px;
-  background: var(--avan-range-middle);
-  color: var(--avan-foreground);
-  font-size: 0.75rem;
+/* Custom rendering demo */
+
+.demo-day-badge {
+  position: absolute;
+  bottom: 0.125rem;
+  font-size: 0.625rem;
+  line-height: 1;
+}
+
+.avan-calendar__day--event,
+.demo-day--event {
   font-weight: 700;
 }
 
-.holiday-years__title {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
+.demo-day--fastest {
+  box-shadow: inset 0 0 0 2px var(--avan-accent);
 }
 
-.holiday-years__intro {
-  margin: 0 0 1.25rem;
-  color: var(--avan-muted-foreground);
-}
-
-.holiday-years__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.holiday-years__grid h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1.125rem;
-}
-
-.holiday-years__grid .panel > p {
-  margin-bottom: 1rem;
-}
+/* Holidays */
 
 .holiday-list {
   display: grid;
   gap: 0.625rem;
-  margin: 0;
+  margin: 1rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -168,19 +278,20 @@ input {
   line-height: 1.5;
 }
 
-.holiday-list__date {
+.holiday-list code {
   font-weight: 700;
   white-space: nowrap;
-}
-
-.holiday-list__title {
-  color: var(--avan-muted-foreground);
+  font-family: inherit;
 }
 
 @media (max-width: 640px) {
   .page {
     width: min(100%, calc(100% - 1rem));
-    padding-top: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .toolbar {
+    position: static;
   }
 
   .grid {
