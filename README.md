@@ -1,13 +1,19 @@
-# Avan Persian Date Picker
+# Avan — Persian Date Picker
 
-**آوان — Jalali (Shamsi) calendar & date picker for React**
+**آوان — تقویم و انتخاب‌گر تاریخ شمسی (جلالی) برای React**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6.svg)](https://www.typescriptlang.org/)
+[![npm](https://img.shields.io/npm/v/%40avan-persian%2Freact?color=1a73e8&label=npm)](https://www.npmjs.com/package/@avan-persian/react)
+[![License: MIT](https://img.shields.io/badge/license-MIT-1a73e8.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-1a73e8.svg)](https://www.typescriptlang.org/)
 
-Persian-first date picker: RTL calendar, range selection, Iran holidays, CSS theming.
+![Avan Persian Date Picker](./assets/avan-banner-fa.jpg)
 
-**Live demo:** [danialriazati.ir/avan-persian-date-picker](https://danialriazati.ir/avan-persian-date-picker/)
+A **Persian-first**, fully accessible Jalali calendar & date picker for React — built for apps
+that need real RTL support, correct Shamsi dates, and Iran's official holidays out of the box.
+
+**🔗 Live demo:** [danialriazati.ir/avan-persian-date-picker](https://danialriazati.ir/avan-persian-date-picker/)
+· **📦 npm:** [@avan-persian/react](https://www.npmjs.com/package/@avan-persian/react)
+· **💻 source:** [github.com/danial-riazati/avan-persian-date-picker](https://github.com/danial-riazati/avan-persian-date-picker)
 
 ---
 
@@ -47,22 +53,20 @@ export function Example() {
 }
 ```
 
-Import components from `@avan-persian/react/client` in Client Components only.
+> Import components from `@avan-persian/react/client` in Client Components only.
 
 ---
 
-## Features
+## Why Avan
 
-- **Every selection mode**: single, range, multiple, multi-range, week, month, and year.
-- **1–4 month views**, inline or popover display, controlled or uncontrolled.
-- **Time & date-time pickers** with 12/24-hour cycles, seconds, and minute stepping.
-- **Constraints**: `minDate`/`maxDate`, disabled dates/weekdays/ranges, custom predicates.
-- **Custom rendering**: swap day content, nav buttons, captions, or footer without forking.
-- **Day metadata**: badges, pricing, availability — powers travel/e-commerce calendars.
-- **Iran holidays** built in (`@avan-persian/holidays`), business-day & fiscal-year helpers (`@avan-persian/core`).
-- **Full localization**: `fa-IR`/`en-IR` presets or fully custom locales, RTL/LTR, Persian/Western digits, configurable week start.
-- **Accessible**: WAI-ARIA grid keyboard navigation, focus trap, live-region announcements, reduced motion & high contrast support.
-- **Themeable**: CSS variables, dark mode, Tailwind preset — no CSS-in-JS runtime.
+- **Every selection mode** — single, range, multiple, multi-range, week, month, and year.
+- **Time & date-time pickers** — 12/24-hour, seconds, minute stepping.
+- **Real constraints** — `minDate`/`maxDate`, disabled dates/weekdays/ranges, custom predicates.
+- **Iran holidays built in** (`@avan-persian/holidays`) plus business-day & fiscal-year helpers (`@avan-persian/core`).
+- **Fully localized** — `fa-IR`/`en-IR` presets or custom locales, RTL/LTR, Persian/Western digits.
+- **Accessible** — WAI-ARIA grid keyboard navigation, focus trap, live-region announcements.
+- **Themeable** — plain CSS variables, dark mode, Tailwind preset. No CSS-in-JS runtime.
+- **Custom rendering** — swap day content, captions, or footer without forking the library.
 
 ## Packages
 
@@ -87,29 +91,18 @@ Full guides live in [`documentation/`](./documentation/README.md):
 [Accessibility](./ACCESSIBILITY.md) ·
 [FAQ](./documentation/faq.md)
 
----
-
-## Playground
-
-Run locally: `corepack pnpm dev:playground` → [localhost:5173](http://localhost:5173)
-
-The live demo is the built app in **`docs/`** (not markdown). CI updates it on every push.
-
-**Settings → Pages → branch `main` → folder `/docs`**
-
-If you see a Jekyll error, switch Pages source away from **GitHub Actions** — use **Deploy from branch** instead. The `docs/.nojekyll` file disables Jekyll.
-
----
-
 ## Development
 
 ```bash
 git clone https://github.com/danial-riazati/avan-persian-date-picker.git
 cd avan-persian-date-picker
 corepack pnpm install
+corepack pnpm dev:playground   # local playground at localhost:5173
 corepack pnpm test
 corepack pnpm build
 ```
+
+Contributions are welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
