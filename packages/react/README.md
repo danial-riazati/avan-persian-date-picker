@@ -1,5 +1,7 @@
 # @avan-persian/react
 
+![Avan Persian Date Picker](https://raw.githubusercontent.com/danial-riazati/avan-persian-date-picker/main/assets/avan-banner-fa.jpg)
+
 React components for [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker)
 — a Jalali (Shamsi) calendar and full set of date/time pickers with RTL, Persian digits, Iran
 holidays, and WCAG-compliant accessibility built in.

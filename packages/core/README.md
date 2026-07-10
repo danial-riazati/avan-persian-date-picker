@@ -1,5 +1,7 @@
 # @avan-persian/core
 
+![Avan Persian Date Picker](https://raw.githubusercontent.com/danial-riazati/avan-persian-date-picker/main/assets/avan-banner-fa.jpg)
+
 Headless Jalali (Persian/Shamsi) date utilities — the calendar-math engine behind
 [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker). Zero UI,
 zero dependencies beyond `date-fns-jalali`, fully tree-shakeable.

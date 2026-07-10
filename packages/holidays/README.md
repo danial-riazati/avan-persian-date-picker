@@ -1,5 +1,7 @@
 # @avan-persian/holidays
 
+![Avan Persian Date Picker](https://raw.githubusercontent.com/danial-riazati/avan-persian-date-picker/main/assets/avan-banner-fa.jpg)
+
 Official Iran public holiday datasets (Jalali calendar) for
 [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker). Used
 automatically by `@avan-persian/react` calendars, or standalone in any project that needs Iran holiday

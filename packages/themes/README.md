@@ -1,5 +1,7 @@
 # @avan-persian/themes
 
+![Avan Persian Date Picker](https://raw.githubusercontent.com/danial-riazati/avan-persian-date-picker/main/assets/avan-banner-fa.jpg)
+
 Design tokens and CSS themes for [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker)
 — plain CSS custom properties, dark mode, the Estedad Persian font, and a Tailwind CSS preset. No
 CSS-in-JS runtime, no build step required.

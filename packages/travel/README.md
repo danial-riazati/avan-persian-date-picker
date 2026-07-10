@@ -1,5 +1,7 @@
 # @avan-persian/travel
 
+![Avan Persian Date Picker](https://raw.githubusercontent.com/danial-riazati/avan-persian-date-picker/main/assets/avan-banner-fa.jpg)
+
 Pricing, availability, and booking-rule helpers for travel/hotel/e-commerce date-selection UIs,
 built to plug straight into [`@avan-persian/react`](https://www.npmjs.com/package/@avan-persian/react)'s
 `AvanCalendar#getDayMeta`.

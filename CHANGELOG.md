@@ -8,6 +8,15 @@ detail — this root file is a human-curated overview.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/); this project
 follows [Semantic Versioning](https://semver.org/) once it reaches `1.0.0`.
 
+## [0.1.1]
+
+### Changed
+
+- Added the project's promo banner (real product-screenshot collage) to every package's npm
+  README, and to the root `README.md`.
+- Removed the stale `docs/` folder left over from an earlier GitHub Pages deploy strategy — CI
+  now publishes the playground straight to the `gh-pages` branch.
+
 ## [0.1.0] — first public release
 
 A comprehensive audit-and-productionize pass across the whole toolkit, and the first version
