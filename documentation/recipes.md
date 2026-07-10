@@ -4,7 +4,7 @@ Real-world patterns built from the pieces documented in the [API Reference](./ap
 
 ## Travel / hotel booking calendar
 
-`@avan/travel` bridges a pricing function straight into `AvanCalendar#getDayMeta`, and validates
+`@avan-persian/travel` bridges a pricing function straight into `AvanCalendar#getDayMeta`, and validates
 booking rules (min/max nights, blackout dates, business-days-only, check-in weekday) before you
 commit a reservation.
 
@@ -12,18 +12,18 @@ commit a reservation.
 'use client';
 
 import { useMemo, useState } from 'react';
-import { AvanDateRangePicker, AvanProvider } from '@avan/react/client';
+import { AvanDateRangePicker, AvanProvider } from '@avan-persian/react/client';
 import {
   createPriceDayMeta,
   computeRangePrice,
   isRangeAvailable,
   type GetPriceForDate,
   type TravelRules,
-} from '@avan/travel';
-import { toJalali } from '@avan/core';
-import type { DateRangeValue } from '@avan/react';
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
+} from '@avan-persian/travel';
+import { toJalali } from '@avan-persian/core';
+import type { DateRangeValue } from '@avan-persian/react';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
 
 const rules: TravelRules = { minNights: 2, maxNights: 14, allowedCheckInWeekdays: [4, 5, 6] };
 
@@ -74,9 +74,9 @@ crew), and shows a "fastest delivery" badge:
 'use client';
 
 import { useState } from 'react';
-import { AvanDatePicker, AvanProvider } from '@avan/react/client';
-import { getIranHolidays, isHoliday } from '@avan/holidays';
-import { toJalali } from '@avan/core';
+import { AvanDatePicker, AvanProvider } from '@avan-persian/react/client';
+import { getIranHolidays, isHoliday } from '@avan-persian/holidays';
+import { toJalali } from '@avan-persian/core';
 
 const holidays = getIranHolidays(1405);
 
@@ -110,7 +110,7 @@ drops directly into `Controller`:
 
 ```tsx
 import { Controller, useForm } from 'react-hook-form';
-import { AvanDatePicker } from '@avan/react/client';
+import { AvanDatePicker } from '@avan-persian/react/client';
 
 function BirthDateField() {
   const { control } = useForm<{ birthDate: Date | null }>();
@@ -164,7 +164,7 @@ itinerary) in one calendar:
 ## Business-day-only deadlines
 
 ```ts
-import { addBusinessDays, isBusinessDay, countBusinessDays } from '@avan/core';
+import { addBusinessDays, isBusinessDay, countBusinessDays } from '@avan-persian/core';
 
 const deadline = addBusinessDays(new Date(), 5); // skips Fridays automatically
 ```
@@ -172,7 +172,7 @@ const deadline = addBusinessDays(new Date(), 5); // skips Fridays automatically
 Pass `holidayDates` (an array of `YYYY-MM-DD` Jalali ISO strings) to also skip public holidays:
 
 ```ts
-import { getIranHolidays } from '@avan/holidays';
+import { getIranHolidays } from '@avan-persian/holidays';
 
 const holidayDates = getIranHolidays(1405).map((h) => h.date);
 const deadline = addBusinessDays(new Date(), 5, { holidayDates });

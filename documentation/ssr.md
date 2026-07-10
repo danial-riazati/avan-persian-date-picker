@@ -14,10 +14,10 @@ point:
 'use client';
 
 import { useState } from 'react';
-import { AvanDateRangePicker, AvanProvider } from '@avan/react/client';
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
-import type { DateRangeValue } from '@avan/react';
+import { AvanDateRangePicker, AvanProvider } from '@avan-persian/react/client';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
+import type { DateRangeValue } from '@avan-persian/react';
 
 export function BookingDatePicker() {
   const [range, setRange] = useState<DateRangeValue>({ from: null, to: null });
@@ -32,13 +32,13 @@ export function BookingDatePicker() {
 Then use `<BookingDatePicker />` from any Server Component as usual — Next.js automatically
 renders it on the client.
 
-**Do not** import `@avan/react/client` from a Server Component or a file without `'use client'`
+**Do not** import `@avan-persian/react/client` from a Server Component or a file without `'use client'`
 — React will fail at build time because hooks aren't available during server rendering. If you
 only need a _type_ (e.g. `AvanTheme`) in server code, import it from the type-only root package
 instead:
 
 ```ts
-import type { AvanTheme } from '@avan/react'; // no 'use client' needed — types only
+import type { AvanTheme } from '@avan-persian/react'; // no 'use client' needed — types only
 ```
 
 ## Next.js Pages Router
@@ -47,9 +47,9 @@ No special handling needed — everything under `pages/` already renders on the 
 default (after hydration):
 
 ```tsx
-import { AvanDatePicker, AvanProvider } from '@avan/react/client';
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
+import { AvanDatePicker, AvanProvider } from '@avan-persian/react/client';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
 
 export default function BookingPage() {
   return (
@@ -73,7 +73,7 @@ export default function BookingPage() {
 ## Remix / Vite / CRA
 
 No special handling needed — these all render the whole app client-side (Vite/CRA) or you
-control loader vs. component boundaries yourself (Remix); import `@avan/react/client` from any
+control loader vs. component boundaries yourself (Remix); import `@avan-persian/react/client` from any
 component that needs it.
 
 ## Streaming / Suspense

@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
-import { toJalali, toPersianDigits } from '@avan/core';
-import { AvanDateRangePicker } from '@avan/react/client';
-import type { DateRangeValue } from '@avan/react';
+import { toJalali, toPersianDigits } from '@avan-persian/core';
+import { AvanDateRangePicker } from '@avan-persian/react/client';
+import type { DateRangeValue } from '@avan-persian/react';
 import {
   computeRangePrice,
   createPriceDayMeta,
   isRangeAvailable,
   type GetPriceForDate,
   type TravelRules,
-} from '@avan/travel';
+} from '@avan-persian/travel';
 import { Panel, Section } from '../components/Panel';
 import { T, type PlaygroundLocale } from '../strings';
 

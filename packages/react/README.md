@@ -1,4 +1,4 @@
-# @avan/react
+# @avan-persian/react
 
 React components for [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker)
 — a Jalali (Shamsi) calendar and full set of date/time pickers with RTL, Persian digits, Iran
@@ -7,7 +7,7 @@ holidays, and WCAG-compliant accessibility built in.
 ## Install
 
 ```bash
-pnpm add @avan/react @avan/themes
+pnpm add @avan-persian/react @avan-persian/themes
 ```
 
 ## Import the CSS
@@ -15,8 +15,8 @@ pnpm add @avan/react @avan/themes
 Two stylesheets are required, imported once near your app root:
 
 ```ts
-import '@avan/themes/default.css'; // design tokens (colors, spacing, dark mode)
-import '@avan/react/client.css'; // calendar/picker structural styles
+import '@avan-persian/themes/default.css'; // design tokens (colors, spacing, dark mode)
+import '@avan-persian/react/client.css'; // calendar/picker structural styles
 ```
 
 ## Quick example
@@ -25,9 +25,9 @@ import '@avan/react/client.css'; // calendar/picker structural styles
 'use client';
 
 import { useState } from 'react';
-import { AvanDateRangePicker, AvanProvider } from '@avan/react/client';
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
+import { AvanDateRangePicker, AvanProvider } from '@avan-persian/react/client';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
 
 export function Example() {
   const [range, setRange] = useState<{ from: Date | null; to: Date | null }>({
@@ -51,8 +51,8 @@ export function Example() {
 `AvanProvider` for locale/direction/theme, min/max/disabled-date constraints, custom day rendering,
 keyboard navigation, and screen-reader support.
 
-`@avan/react` (this package's root import) is types-only and safe for Server Components;
-interactive components live under `@avan/react/client`. See
+`@avan-persian/react` (this package's root import) is types-only and safe for Server Components;
+interactive components live under `@avan-persian/react/client`. See
 [Installation → Client vs. server entry points](https://github.com/danial-riazati/avan-persian-date-picker/blob/main/documentation/installation.md#client-vs-server-entry-points).
 
 ## Docs

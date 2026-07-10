@@ -51,7 +51,7 @@ For a language Avan doesn't ship (e.g. Dari/Pashto, or a fully custom English wo
 a complete `AvanLocaleDefinition`:
 
 ```ts
-import type { AvanLocaleDefinition } from '@avan/react';
+import type { AvanLocaleDefinition } from '@avan-persian/react';
 
 export const faAF: AvanLocaleDefinition = {
   code: 'fa-AF',
@@ -128,11 +128,11 @@ for an org that uses `fa-IR` strings but a Monday-first week:
 
 `numerals: 'persian'` renders day numbers, year labels, and time values with Persian digits
 (۰۱۲۳۴۵۶۷۸۹); `'western'` uses plain `0-9`. Parsing (`parseJalali`/`tryParseJalali` in
-`@avan/core`, and the text-input mode of `AvanDatePicker`) accepts **either** digit style
+`@avan-persian/core`, and the text-input mode of `AvanDatePicker`) accepts **either** digit style
 regardless of the active locale.
 
 ```ts
-import { toPersianDigits, toWesternDigits } from '@avan/core';
+import { toPersianDigits, toWesternDigits } from '@avan-persian/core';
 
 toPersianDigits('1405/01/01'); // '۱۴۰۵/۰۱/۰۱'
 toWesternDigits('۱۴۰۵/۰۱/۰۱'); // '1405/01/01'

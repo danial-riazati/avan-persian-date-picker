@@ -1,20 +1,20 @@
-# @avan/travel
+# @avan-persian/travel
 
 Pricing, availability, and booking-rule helpers for travel/hotel/e-commerce date-selection UIs,
-built to plug straight into [`@avan/react`](https://www.npmjs.com/package/@avan/react)'s
+built to plug straight into [`@avan-persian/react`](https://www.npmjs.com/package/@avan-persian/react)'s
 `AvanCalendar#getDayMeta`.
 
 ## Install
 
 ```bash
-pnpm add @avan/travel
+pnpm add @avan-persian/travel
 ```
 
 ## Quick example
 
 ```ts
-import { createPriceDayMeta, computeRangePrice, isRangeAvailable } from '@avan/travel';
-import { AvanDateRangePicker } from '@avan/react/client';
+import { createPriceDayMeta, computeRangePrice, isRangeAvailable } from '@avan-persian/travel';
+import { AvanDateRangePicker } from '@avan-persian/react/client';
 
 const getPriceForDate = (date: Date) => ({
   amount: date.getDay() === 5 ? 3_200_000 : 2_400_000,

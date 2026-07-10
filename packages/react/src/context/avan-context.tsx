@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { createContext, useContext, useMemo } from 'react';
-import type { AvanHoliday } from '@avan/holidays';
+import type { AvanHoliday } from '@avan-persian/holidays';
 import type { AvanLocale, AvanTheme, DateRangeValue } from '../types';
 
 export interface AvanContextValue {

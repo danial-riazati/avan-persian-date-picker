@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { toPersianDigits, toWesternDigits } from '../src/digits';
 
-describe('@avan/core digits', () => {
+describe('@avan-persian/core digits', () => {
   it('converts Western digits to Persian', () => {
     expect(toPersianDigits('1405/01/01')).toBe('۱۴۰۵/۰۱/۰۱');
     expect(toPersianDigits(25)).toBe('۲۵');

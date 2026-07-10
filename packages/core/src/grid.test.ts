@@ -8,7 +8,7 @@ import {
 } from './grid';
 import { toGregorian } from './convert';
 
-describe('@avan/core grid', () => {
+describe('@avan-persian/core grid', () => {
   it('defaults to a Saturday-first week (Iran)', () => {
     const saturday = toGregorian({ year: 1405, month: 1, day: 1 });
     expect(getWeekdayIndex(saturday)).toBe(0);

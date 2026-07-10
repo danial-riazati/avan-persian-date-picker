@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
-import type { AvanHoliday } from '@avan/holidays';
-import type { CalendarDay, JalaliDate } from '@avan/core';
+import type { AvanHoliday } from '@avan-persian/holidays';
+import type { CalendarDay, JalaliDate } from '@avan-persian/core';
 import type { AvanLocale } from './locale';
 
 export type { AvanLocale, AvanLocaleKey, AvanLocaleDefinition, AvanLocaleStrings } from './locale';

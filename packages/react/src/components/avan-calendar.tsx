@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { getHolidayForDate } from '@avan/holidays';
+import { getHolidayForDate } from '@avan-persian/holidays';
 import {
   addJalaliMonths,
   toGregorian,
   toJalali,
   type CalendarDay,
   type JalaliDate,
-} from '@avan/core';
+} from '@avan-persian/core';
 import type { AvanCalendarProps, AvanNumberOfMonths } from '../types';
 import { useAvanContext } from '../context/avan-context';
 import { resolveLocale, formatLocaleString, type AvanLocaleDefinition } from '../locale';

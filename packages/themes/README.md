@@ -1,4 +1,4 @@
-# @avan/themes
+# @avan-persian/themes
 
 Design tokens and CSS themes for [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker)
 — plain CSS custom properties, dark mode, the Estedad Persian font, and a Tailwind CSS preset. No
@@ -7,22 +7,22 @@ CSS-in-JS runtime, no build step required.
 ## Install
 
 ```bash
-pnpm add @avan/themes
+pnpm add @avan-persian/themes
 ```
 
 ## Usage
 
 ```ts
-import '@avan/themes/default.css'; // required — design tokens
-import '@avan/themes/dark.css'; // optional — dark palette, toggled via <AvanProvider colorScheme>
-import '@avan/themes/fonts.css'; // optional — bundles the Estedad variable font
+import '@avan-persian/themes/default.css'; // required — design tokens
+import '@avan-persian/themes/dark.css'; // optional — dark palette, toggled via <AvanProvider colorScheme>
+import '@avan-persian/themes/fonts.css'; // optional — bundles the Estedad variable font
 ```
 
 ### Tailwind CSS preset
 
 ```ts
 // tailwind.config.ts
-import avanPreset from '@avan/themes/tailwind';
+import avanPreset from '@avan-persian/themes/tailwind';
 
 export default {
   presets: [avanPreset],

@@ -5,9 +5,9 @@ Every example below assumes:
 ```tsx
 'use client';
 
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
-import { AvanProvider } from '@avan/react/client';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
+import { AvanProvider } from '@avan-persian/react/client';
 ```
 
 Wrap your app (or the part of it that uses Avan) once in an `<AvanProvider>` to set the default
@@ -23,7 +23,7 @@ locale, text direction, and theme:
 
 ```tsx
 import { useState } from 'react';
-import { AvanDatePicker } from '@avan/react/client';
+import { AvanDatePicker } from '@avan-persian/react/client';
 
 function Example() {
   const [date, setDate] = useState<Date | null>(null);
@@ -35,8 +35,8 @@ function Example() {
 
 ```tsx
 import { useState } from 'react';
-import { AvanDateRangePicker } from '@avan/react/client';
-import type { DateRangeValue } from '@avan/react';
+import { AvanDateRangePicker } from '@avan-persian/react/client';
+import type { DateRangeValue } from '@avan-persian/react';
 
 function Example() {
   const [range, setRange] = useState<DateRangeValue>({ from: null, to: null });
@@ -50,7 +50,7 @@ function Example() {
 
 ```tsx
 import { useState } from 'react';
-import { AvanMultiDatePicker } from '@avan/react/client';
+import { AvanMultiDatePicker } from '@avan-persian/react/client';
 
 function Example() {
   const [dates, setDates] = useState<Date[]>([]);
@@ -62,8 +62,8 @@ function Example() {
 
 ```tsx
 import { useState } from 'react';
-import { AvanWeekPicker } from '@avan/react/client';
-import type { DateRangeValue } from '@avan/react';
+import { AvanWeekPicker } from '@avan-persian/react/client';
+import type { DateRangeValue } from '@avan-persian/react';
 
 function Example() {
   const [week, setWeek] = useState<DateRangeValue>({ from: null, to: null });
@@ -75,8 +75,8 @@ function Example() {
 
 ```tsx
 import { useState } from 'react';
-import { AvanMonthPicker, AvanYearPicker } from '@avan/react/client';
-import type { JalaliDate } from '@avan/react';
+import { AvanMonthPicker, AvanYearPicker } from '@avan-persian/react/client';
+import type { JalaliDate } from '@avan-persian/react';
 
 function Example() {
   const [month, setMonth] = useState<JalaliDate | null>(null);
@@ -94,8 +94,8 @@ function Example() {
 
 ```tsx
 import { useState } from 'react';
-import { AvanTimePicker, AvanDateTimePicker } from '@avan/react/client';
-import type { AvanTimeValue } from '@avan/react';
+import { AvanTimePicker, AvanDateTimePicker } from '@avan-persian/react/client';
+import type { AvanTimeValue } from '@avan-persian/react';
 
 function Example() {
   const [time, setTime] = useState<AvanTimeValue | null>(null);
@@ -115,7 +115,7 @@ Every picker above wraps `<AvanCalendar>`. Use it directly for a fully inline ca
 input/trigger), e.g. embedded in a sidebar:
 
 ```tsx
-import { AvanCalendar } from '@avan/react/client';
+import { AvanCalendar } from '@avan-persian/react/client';
 
 function Example() {
   return <AvanCalendar mode="range" numberOfMonths={2} showTodayButton showClearButton />;
@@ -125,8 +125,8 @@ function Example() {
 ## Constraints (min/max/disabled dates)
 
 ```tsx
-import { AvanDatePicker } from '@avan/react/client';
-import { toGregorian } from '@avan/core';
+import { AvanDatePicker } from '@avan-persian/react/client';
+import { toGregorian } from '@avan-persian/core';
 
 <AvanDatePicker
   minDate={new Date()}

@@ -9,7 +9,7 @@ We have a quick list of common questions to get you started engaging with this p
 
 ## Note on `access`
 
-The `access` field in `config.json` is currently set to `"restricted"` because none of the `@avan/*`
+The `access` field in `config.json` is currently set to `"restricted"` because none of the `@avan-persian/*`
 packages have been published yet. **Before the first public release**, this must be changed to
 `"public"` (matching the `publishConfig.access` already set in each package's `package.json`), otherwise
 `changeset publish` will fail or attempt to publish as a private/restricted package.

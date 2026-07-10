@@ -1,5 +1,5 @@
 import { addDays } from 'date-fns-jalali';
-import { formatJalaliISO, getMonthGrid, isBusinessDay } from '@avan/core';
+import { formatJalaliISO, getMonthGrid, isBusinessDay } from '@avan-persian/core';
 
 export interface PriceInfo {
   amount: number;
@@ -24,7 +24,7 @@ export interface TravelRules {
   disabledDates?: (date: Date) => boolean;
   /** JS `Date#getDay()` indices (0=Sun..6=Sat) allowed as a check-in day. */
   allowedCheckInWeekdays?: number[];
-  /** Require every night in the range to be a business day (see `@avan/core#isBusinessDay`). */
+  /** Require every night in the range to be a business day (see `@avan-persian/core#isBusinessDay`). */
   businessDaysOnly?: boolean;
 }
 
@@ -42,7 +42,7 @@ export interface RangePriceSummary {
 
 export class TravelRangeError extends Error {
   constructor(message: string) {
-    super(`@avan/travel: ${message}`);
+    super(`@avan-persian/travel: ${message}`);
     this.name = 'TravelRangeError';
   }
 }
@@ -170,7 +170,7 @@ export function findLowestPriceInMonth(
 }
 
 /**
- * Bridges a pricing source into the shape `@avan/react`'s `AvanCalendar#getDayMeta` expects,
+ * Bridges a pricing source into the shape `@avan-persian/react`'s `AvanCalendar#getDayMeta` expects,
  * without adding a hard dependency on React. Returns plain objects with `badge`/`price`/
  * `availability`/`tooltip`/`disabled` fields.
  */

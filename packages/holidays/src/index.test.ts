@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { getIranHolidays } from '../src/index';
 
-describe('@avan/holidays', () => {
+describe('@avan-persian/holidays', () => {
   it('returns all 26 official holidays for 1404', () => {
     const holidays = getIranHolidays(1404);
     expect(holidays).toHaveLength(26);

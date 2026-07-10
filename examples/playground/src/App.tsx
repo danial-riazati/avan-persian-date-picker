@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AvanProvider } from '@avan/react/client';
+import { AvanProvider } from '@avan-persian/react/client';
 import { Toolbar, type ColorScheme } from './components/Toolbar';
 import { SelectionModesSection } from './sections/SelectionModesSection';
 import { TimeSection } from './sections/TimeSection';

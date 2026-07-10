@@ -1,4 +1,4 @@
-# @avan/core
+# @avan-persian/core
 
 Headless Jalali (Persian/Shamsi) date utilities — the calendar-math engine behind
 [Avan Persian Date Picker](https://github.com/danial-riazati/avan-persian-date-picker). Zero UI,
@@ -7,7 +7,7 @@ zero dependencies beyond `date-fns-jalali`, fully tree-shakeable.
 ## Install
 
 ```bash
-pnpm add @avan/core
+pnpm add @avan-persian/core
 ```
 
 ## What's inside
@@ -22,7 +22,7 @@ pnpm add @avan/core
 ## Quick example
 
 ```ts
-import { toJalali, formatJalali, getMonthGrid } from '@avan/core';
+import { toJalali, formatJalali, getMonthGrid } from '@avan-persian/core';
 
 const j = toJalali(new Date()); // { year, month, day }
 formatJalali(new Date(), 'yyyy/MM/dd'); // "1405/04/19"

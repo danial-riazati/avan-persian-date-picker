@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { toJalali, toGregorian, formatJalali, parseJalali, tryParseJalali } from '../src/convert';
 import { getMonthGrid } from '../src/grid';
 
-describe('@avan/core', () => {
+describe('@avan-persian/core', () => {
   it('converts Nowruz 1405 correctly', () => {
     const nowruz = new Date(2026, 2, 21, 12, 0, 0);
     expect(toJalali(nowruz)).toEqual({ year: 1405, month: 1, day: 1 });

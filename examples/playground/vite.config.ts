@@ -9,9 +9,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@avan/core': path.resolve(__dirname, '../../packages/core/src'),
-      '@avan/holidays': path.resolve(__dirname, '../../packages/holidays/src'),
-      '@avan/react/client': path.resolve(__dirname, '../../packages/react/src/client.ts'),
+      '@avan-persian/core': path.resolve(__dirname, '../../packages/core/src'),
+      '@avan-persian/holidays': path.resolve(__dirname, '../../packages/holidays/src'),
+      '@avan-persian/react/client': path.resolve(__dirname, '../../packages/react/src/client.ts'),
     },
   },
   server: {

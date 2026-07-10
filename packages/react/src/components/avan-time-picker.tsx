@@ -1,7 +1,7 @@
 'use client';
 
 import { useId } from 'react';
-import { toPersianDigits } from '@avan/core';
+import { toPersianDigits } from '@avan-persian/core';
 import { useAvanContext } from '../context/avan-context';
 import { resolveLocale, type AvanLocaleDefinition } from '../locale';
 import type { AvanTimePickerProps, AvanTimeValue } from '../types';

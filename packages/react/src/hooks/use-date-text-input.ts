@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, type KeyboardEvent } from 'react';
-import { formatJalali, tryParseJalali } from '@avan/core';
+import { formatJalali, tryParseJalali } from '@avan-persian/core';
 import { formatJalaliDisplay, shouldUsePersianDigits } from '../utils/format-display';
 import type { AvanLocaleDefinition } from '../locale';
 
@@ -15,7 +15,7 @@ export interface UseDateTextInputOptions {
 
 /**
  * Drives a text `<input>` that can parse/format a single Jalali date, tolerating Persian or
- * Western digits and either `/` or `-` separators (delegated to `@avan/core#tryParseJalali`).
+ * Western digits and either `/` or `-` separators (delegated to `@avan-persian/core#tryParseJalali`).
  */
 export function useDateTextInput({
   value,

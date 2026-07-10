@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { formatJalali, toGregorian, toPersianDigits } from '@avan/core';
-import { AvanCalendar, AvanDatePicker } from '@avan/react/client';
+import { formatJalali, toGregorian, toPersianDigits } from '@avan-persian/core';
+import { AvanCalendar, AvanDatePicker } from '@avan-persian/react/client';
 import { Panel, Section } from '../components/Panel';
 import { T, type PlaygroundLocale } from '../strings';
 

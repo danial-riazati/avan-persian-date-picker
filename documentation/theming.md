@@ -6,7 +6,7 @@ build step required, and no lock-in to a particular styling library.
 ## 1. Import a base theme
 
 ```ts
-import '@avan/themes/default.css';
+import '@avan-persian/themes/default.css';
 ```
 
 This sets every `--avan-*` variable on the `.avan-root` class rendered by `<AvanProvider>`
@@ -17,8 +17,8 @@ This sets every `--avan-*` variable on the `.avan-root` class rendered by `<Avan
 Import the dark stylesheet alongside the default one:
 
 ```ts
-import '@avan/themes/default.css';
-import '@avan/themes/dark.css';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/themes/dark.css';
 ```
 
 Then control which palette is active via `<AvanProvider colorScheme>`:
@@ -104,7 +104,7 @@ utility classes elsewhere in your app:
 
 ```ts
 // tailwind.config.ts
-import avanPreset from '@avan/themes/tailwind';
+import avanPreset from '@avan-persian/themes/tailwind';
 
 export default {
   presets: [avanPreset],
@@ -118,16 +118,16 @@ This exposes `bg-avan-accent`, `text-avan-accent`, `border-avan-border`, `rounde
 
 ## 5. Fully custom stylesheet
 
-`@avan/themes/default.css` and `dark.css` only set variables — the structural CSS (layout, grid,
-animations) lives in a separate stylesheet, `@avan/react/client.css`, which you must import
+`@avan-persian/themes/default.css` and `dark.css` only set variables — the structural CSS (layout, grid,
+animations) lives in a separate stylesheet, `@avan-persian/react/client.css`, which you must import
 explicitly (it is **not** injected automatically just by importing components):
 
 ```ts
-import '@avan/react/client.css';
+import '@avan-persian/react/client.css';
 ```
 
-You never need to import `@avan/themes` at all if you'd rather define every `--avan-*` variable
-yourself; just make sure your own stylesheet is loaded after `@avan/react/client.css` so your
+You never need to import `@avan-persian/themes` at all if you'd rather define every `--avan-*` variable
+yourself; just make sure your own stylesheet is loaded after `@avan-persian/react/client.css` so your
 overrides win.
 
 ## 6. Reduced motion & high contrast

@@ -17,9 +17,9 @@
 - [Constraints](#constraints-avandateconstraints)
 - [Custom rendering (`components`)](#custom-rendering-components)
 - [Hooks](#hooks)
-- [`@avan/core`](#avancore)
-- [`@avan/holidays`](#avanholidays)
-- [`@avan/travel`](#avantravel)
+- [`@avan-persian/core`](#avancore)
+- [`@avan-persian/holidays`](#avanholidays)
+- [`@avan-persian/travel`](#avantravel)
 
 ---
 
@@ -241,7 +241,7 @@ Swap out individual pieces of the calendar without forking the whole component:
 | `Caption`    | `(props: AvanCaptionRenderProps) => ReactNode`                             | The month/year caption row                                                  |
 | `Footer`     | `(props: AvanFooterRenderProps) => ReactNode`                              | The footer slot (in addition to/instead of Today/Clear buttons)             |
 
-`AvanDayRenderContext` gives you `day` (`CalendarDay` from `@avan/core`), `isSelected`,
+`AvanDayRenderContext` gives you `day` (`CalendarDay` from `@avan-persian/core`), `isSelected`,
 `isRangeStart`, `isRangeEnd`, `isInRange`, `isDisabled`, `isOutside`, `holiday`, and `meta`
 (whatever `getDayMeta` returned for that day).
 
@@ -255,7 +255,7 @@ The headless hook that powers `AvanCalendar`. Use it to build a fully custom UI 
 Avan's date logic (selection state, month grid, navigation).
 
 ```tsx
-import { useAvanCalendar } from '@avan/react/client';
+import { useAvanCalendar } from '@avan-persian/react/client';
 
 const calendar = useAvanCalendar({
   mode: 'range',
@@ -285,7 +285,7 @@ Reads the nearest `<AvanProvider>` value (`{ locale, dir, theme }`) directly.
 
 ---
 
-## `@avan/core`
+## `@avan-persian/core`
 
 Framework-agnostic Jalali date utilities — no React dependency.
 
@@ -315,7 +315,7 @@ import {
   daysInJalaliYear,
   compareJalali,
   getDaysInRange,
-} from '@avan/core';
+} from '@avan-persian/core';
 ```
 
 | Function                                | Signature                                                  | Description                                                                                     |
@@ -348,7 +348,7 @@ Key types: `JalaliDate { year, month, day }`, `AvanDate { gregorian: Date; jalal
 
 ---
 
-## `@avan/holidays`
+## `@avan-persian/holidays`
 
 ```ts
 import {
@@ -356,7 +356,7 @@ import {
   isHoliday,
   getHolidayForDate,
   getFixedSolarIranHolidays,
-} from '@avan/holidays';
+} from '@avan-persian/holidays';
 ```
 
 | Function                    | Signature                                                           | Description                                                                         |
@@ -373,7 +373,7 @@ visible) — pass your own `holidays` array to override, or `holidays={[]}` to h
 
 ---
 
-## `@avan/travel`
+## `@avan-persian/travel`
 
 Booking/pricing helpers that plug straight into `getDayMeta`.
 
@@ -385,7 +385,7 @@ import {
   findLowestPriceInMonth,
   createPriceDayMeta,
   TravelRangeError,
-} from '@avan/travel';
+} from '@avan-persian/travel';
 ```
 
 | Function                 | Signature                                                        | Description                                                                 |

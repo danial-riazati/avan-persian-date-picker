@@ -20,7 +20,7 @@ published to npm.
   `AvanWeekPicker`, `AvanMonthPicker`, `AvanYearPicker`).
 - **Time selection**: `AvanTimePicker` and `AvanDateTimePicker`, with 12/24-hour cycles, seconds,
   and configurable minute stepping.
-- **`@avan/travel`**: booking/pricing helpers (`validateTravelRange`, `isRangeAvailable`,
+- **`@avan-persian/travel`**: booking/pricing helpers (`validateTravelRange`, `isRangeAvailable`,
   `computeRangePrice`, `findLowestPriceInMonth`, `createPriceDayMeta`) for travel/hotel/e-commerce
   calendars.
 - **Locale system overhaul**: `AvanLocaleDefinition`/`AvanLocale` types support full custom
@@ -37,7 +37,7 @@ published to npm.
 - **Accessibility**: WAI-ARIA grid keyboard navigation (roving tabindex, arrow keys,
   Home/End/PageUp/PageDown), popover focus trap with restoration, live-region selection
   announcements, `role="combobox"` text-input trigger.
-- **`@avan/core` additions**: `business.ts` module (`isBusinessDay`, `addBusinessDays`,
+- **`@avan-persian/core` additions**: `business.ts` module (`isBusinessDay`, `addBusinessDays`,
   `countBusinessDays`, `getFiscalYearBounds`, `getJalaliQuarter`, `daysInJalaliYear`,
   `compareJalali`, `getDaysInRange`), `tryParseJalali`, `startOfJalaliWeek`/`endOfJalaliWeek`,
   `getWeekdayIndex`.
@@ -58,7 +58,7 @@ published to npm.
   typed as plain `CSSProperties`, which rejected custom properties at the type level).
 - Day metadata/format-display utilities are now locale-aware (`AvanLocaleDefinition`) instead of
   taking a bare `dir` string in some call sites.
-- `jsdom` pinned to `25.0.1` in `@avan/react`'s dev dependencies to avoid an ESM/CJS interop issue
+- `jsdom` pinned to `25.0.1` in `@avan-persian/react`'s dev dependencies to avoid an ESM/CJS interop issue
   with `html-encoding-sniffer` present in some `jsdom` v29.x releases.
 
 ### Fixed
@@ -71,24 +71,24 @@ published to npm.
   Picker Dialog" pattern.
 - Focus trap no longer relies on `offsetParent` (always `null` in `jsdom`, and unreliable for
   legitimately-visible elements in some layouts) to determine focusable elements.
-- **`@avan/react`'s structural CSS (`.avan-calendar`, `.avan-day`, popover, time-picker layout) was
+- **`@avan-persian/react`'s structural CSS (`.avan-calendar`, `.avan-day`, popover, time-picker layout) was
   unreachable by real consumers** — it was built to `dist/client.css` but never exposed via
   `package.json#exports`, and no documentation mentioned importing it. Added a `"./client.css"`
-  export and updated every doc/example to `import '@avan/react/client.css'` alongside
-  `@avan/themes/default.css`. Added `scripts/verify-package-exports.mjs`, run in CI after every
+  export and updated every doc/example to `import '@avan-persian/react/client.css'` alongside
+  `@avan-persian/themes/default.css`. Added `scripts/verify-package-exports.mjs`, run in CI after every
   build, to catch this class of bug (an `exports` entry pointing at a file the build doesn't emit,
   or vice versa) before it reaches npm again.
-- `@avan/holidays` was missing `"./1404"` and `"./1406"` subpath exports for its bundled yearly
+- `@avan-persian/holidays` was missing `"./1404"` and `"./1406"` subpath exports for its bundled yearly
   datasets (only `"./1405"` was wired up).
-- `@avan/react`'s `main` field pointed at the client (interactive) bundle while its `exports["."]`
+- `@avan-persian/react`'s `main` field pointed at the client (interactive) bundle while its `exports["."]`
   pointed at the server-safe types-only bundle — inconsistent behavior between `exports`-aware and
   legacy tooling. `main` now matches `exports["."]`.
-- `@avan/themes`'s Tailwind preset shipped as raw, unbuilt TypeScript (`src/tailwind.preset.ts`),
+- `@avan-persian/themes`'s Tailwind preset shipped as raw, unbuilt TypeScript (`src/tailwind.preset.ts`),
   which breaks for any Tailwind config that doesn't run through a TS loader. It's now compiled to
   `dist/tailwind.preset.js` + `.d.ts` via `tsdown`, like every other package.
 
 ## [0.0.0] — initial scaffold
 
-Initial monorepo scaffold: `@avan/core`, `@avan/react`, `@avan/holidays`, `@avan/themes`, basic
+Initial monorepo scaffold: `@avan-persian/core`, `@avan-persian/react`, `@avan-persian/holidays`, `@avan-persian/themes`, basic
 `AvanCalendar`/`AvanDatePicker`/`AvanDateRangePicker`, CI build/lint pipeline, and GitHub Pages
 playground deployment.

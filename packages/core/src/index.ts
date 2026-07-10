@@ -1,5 +1,5 @@
 /**
- * @avan/core — Headless Jalali (Persian) date utilities.
+ * @avan-persian/core — Headless Jalali (Persian) date utilities.
  * @see README.md
  */
 

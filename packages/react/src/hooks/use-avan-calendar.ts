@@ -8,7 +8,7 @@ import {
   toJalali,
   type CalendarDay,
   type JalaliDate,
-} from '@avan/core';
+} from '@avan-persian/core';
 import type { AvanSelectionMode, DateRangeValue } from '../types';
 import { isWithinDay } from '../utils/constraints';
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { toGregorian, toJalali } from '@avan/core';
+import { toGregorian, toJalali } from '@avan-persian/core';
 import {
   computeRangePrice,
   createPriceDayMeta,
@@ -19,7 +19,7 @@ const pricing: GetPriceForDate = (date) => {
   return { amount: 200_000 + day * 10_000, currency: 'IRR', availability: 'available' };
 };
 
-describe('@avan/travel', () => {
+describe('@avan-persian/travel', () => {
   it('computes total price across nights (checkout night excluded)', () => {
     const cheap: GetPriceForDate = () => ({ amount: 100_000, currency: 'IRR' });
     const summary = computeRangePrice(checkIn, checkOut, cheap);

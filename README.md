@@ -14,7 +14,7 @@ Persian-first date picker: RTL calendar, range selection, Iran holidays, CSS the
 ## Install
 
 ```bash
-pnpm add @avan/react @avan/core @avan/holidays @avan/themes
+pnpm add @avan-persian/react @avan-persian/core @avan-persian/holidays @avan-persian/themes
 ```
 
 ## Usage
@@ -23,9 +23,9 @@ pnpm add @avan/react @avan/core @avan/holidays @avan/themes
 'use client';
 
 import { useState } from 'react';
-import { AvanDateRangePicker, AvanProvider } from '@avan/react/client';
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
+import { AvanDateRangePicker, AvanProvider } from '@avan-persian/react/client';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
 
 export function Example() {
   const [range, setRange] = useState<{ from: Date | null; to: Date | null }>({
@@ -47,7 +47,7 @@ export function Example() {
 }
 ```
 
-Import components from `@avan/react/client` in Client Components only.
+Import components from `@avan-persian/react/client` in Client Components only.
 
 ---
 
@@ -59,20 +59,20 @@ Import components from `@avan/react/client` in Client Components only.
 - **Constraints**: `minDate`/`maxDate`, disabled dates/weekdays/ranges, custom predicates.
 - **Custom rendering**: swap day content, nav buttons, captions, or footer without forking.
 - **Day metadata**: badges, pricing, availability — powers travel/e-commerce calendars.
-- **Iran holidays** built in (`@avan/holidays`), business-day & fiscal-year helpers (`@avan/core`).
+- **Iran holidays** built in (`@avan-persian/holidays`), business-day & fiscal-year helpers (`@avan-persian/core`).
 - **Full localization**: `fa-IR`/`en-IR` presets or fully custom locales, RTL/LTR, Persian/Western digits, configurable week start.
 - **Accessible**: WAI-ARIA grid keyboard navigation, focus trap, live-region announcements, reduced motion & high contrast support.
 - **Themeable**: CSS variables, dark mode, Tailwind preset — no CSS-in-JS runtime.
 
 ## Packages
 
-| Package          | Purpose                                              |
-| ---------------- | ---------------------------------------------------- |
-| `@avan/react`    | Calendar + every picker component                    |
-| `@avan/core`     | Jalali convert, grid, digits, business days          |
-| `@avan/holidays` | Iran public holidays                                 |
-| `@avan/themes`   | CSS tokens, dark mode, Tailwind preset, Estedad font |
-| `@avan/travel`   | Pricing/availability helpers for booking UIs         |
+| Package                  | Purpose                                              |
+| ------------------------ | ---------------------------------------------------- |
+| `@avan-persian/react`    | Calendar + every picker component                    |
+| `@avan-persian/core`     | Jalali convert, grid, digits, business days          |
+| `@avan-persian/holidays` | Iran public holidays                                 |
+| `@avan-persian/themes`   | CSS tokens, dark mode, Tailwind preset, Estedad font |
+| `@avan-persian/travel`   | Pricing/availability helpers for booking UIs         |
 
 ## Documentation
 

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { toGregorian } from '@avan/core';
+import { toGregorian } from '@avan-persian/core';
 import { AvanCalendar } from './avan-calendar';
 
 const NOWRUZ_1405 = toGregorian({ year: 1405, month: 1, day: 1 });

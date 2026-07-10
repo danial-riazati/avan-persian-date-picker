@@ -50,19 +50,19 @@ importers:
 
   examples/playground:
     dependencies:
-      '@avan/core':
+      '@avan-persian/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@avan/holidays':
+      '@avan-persian/holidays':
         specifier: workspace:*
         version: link:../../packages/holidays
-      '@avan/react':
+      '@avan-persian/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@avan/themes':
+      '@avan-persian/themes':
         specifier: workspace:*
         version: link:../../packages/themes
-      '@avan/travel':
+      '@avan-persian/travel':
         specifier: workspace:*
         version: link:../../packages/travel
       react:
@@ -106,7 +106,7 @@ importers:
 
   packages/holidays:
     dependencies:
-      '@avan/core':
+      '@avan-persian/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -122,10 +122,10 @@ importers:
 
   packages/react:
     dependencies:
-      '@avan/core':
+      '@avan-persian/core':
         specifier: workspace:*
         version: link:../core
-      '@avan/holidays':
+      '@avan-persian/holidays':
         specifier: workspace:*
         version: link:../holidays
       date-fns-jalali:
@@ -183,7 +183,7 @@ importers:
 
   packages/travel:
     dependencies:
-      '@avan/core':
+      '@avan-persian/core':
         specifier: workspace:*
         version: link:../core
       date-fns-jalali:

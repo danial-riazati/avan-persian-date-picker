@@ -1,5 +1,5 @@
 {
-  "name": "@avan/holidays",
+  "name": "@avan-persian/holidays",
   "version": "0.1.0",
   "description": "Iran public holidays for Avan Persian Date Picker",
   "license": "MIT",
@@ -44,7 +44,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@avan/core": "workspace:*"
+    "@avan-persian/core": "workspace:*"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.8",

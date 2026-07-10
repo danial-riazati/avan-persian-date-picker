@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
-import { toJalali, toPersianDigits } from '@avan/core';
-import { AvanCalendar } from '@avan/react/client';
-import type { AvanCalendarComponents, AvanGetDayMeta } from '@avan/react';
+import { toJalali, toPersianDigits } from '@avan-persian/core';
+import { AvanCalendar } from '@avan-persian/react/client';
+import type { AvanCalendarComponents, AvanGetDayMeta } from '@avan-persian/react';
 import { Panel, Section } from '../components/Panel';
 import { T, type PlaygroundLocale } from '../strings';
 

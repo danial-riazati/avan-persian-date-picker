@@ -8,7 +8,7 @@ import {
   startOfJalaliWeek,
   toGregorian,
   toJalali,
-} from '@avan/core';
+} from '@avan-persian/core';
 
 export interface UseDayGridKeyboardOptions {
   dir: 'rtl' | 'ltr';

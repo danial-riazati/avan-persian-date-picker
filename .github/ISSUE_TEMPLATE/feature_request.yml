@@ -24,11 +24,11 @@ body:
       description: Which package(s) would this feature affect?
       multiple: true
       options:
-        - '@avan/core'
-        - '@avan/react'
-        - '@avan/holidays'
-        - '@avan/themes'
-        - '@avan/travel'
+        - '@avan-persian/core'
+        - '@avan-persian/react'
+        - '@avan-persian/holidays'
+        - '@avan-persian/themes'
+        - '@avan-persian/travel'
         - other / not sure
     validations:
       required: true

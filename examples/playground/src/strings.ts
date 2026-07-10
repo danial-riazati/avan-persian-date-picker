@@ -37,7 +37,7 @@ export const T = {
     },
     travel: {
       description:
-        'قیمت هر شب و ظرفیت باقی‌مانده با getDayMeta روی تقویم نمایش داده می‌شود؛ قوانین رزرو (حداقل/حداکثر شب، روزهای کاری) با @avan/travel اعتبارسنجی می‌شود.',
+        'قیمت هر شب و ظرفیت باقی‌مانده با getDayMeta روی تقویم نمایش داده می‌شود؛ قوانین رزرو (حداقل/حداکثر شب، روزهای کاری) با @avan-persian/travel اعتبارسنجی می‌شود.',
       nights: 'شب',
       total: 'جمع',
       unavailable: 'این بازه در دسترس نیست یا قوانین رزرو را نقض می‌کند.',
@@ -92,7 +92,7 @@ export const T = {
     },
     travel: {
       description:
-        'Nightly price & remaining capacity are shown on the calendar via getDayMeta; booking rules (min/max nights, business-days-only) are validated with @avan/travel.',
+        'Nightly price & remaining capacity are shown on the calendar via getDayMeta; booking rules (min/max nights, business-days-only) are validated with @avan-persian/travel.',
       nights: 'nights',
       total: 'Total',
       unavailable: 'This range is unavailable or violates a booking rule.',

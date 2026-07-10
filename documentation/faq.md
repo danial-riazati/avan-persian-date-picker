@@ -2,7 +2,7 @@
 
 ## Nothing renders / "hooks can only be called inside a function component"
 
-You likely imported from `@avan/react` instead of `@avan/react/client`, or forgot `'use client'`
+You likely imported from `@avan-persian/react` instead of `@avan-persian/react/client`, or forgot `'use client'`
 in Next.js App Router. See [Installation → Client vs. server entry points](./installation.md#client-vs-server-entry-points).
 
 ## Styles look broken / unstyled
@@ -11,13 +11,13 @@ You need **two** stylesheets imported once near your app root — a design-token
 component structural CSS:
 
 ```ts
-import '@avan/themes/default.css';
-import '@avan/react/client.css';
+import '@avan-persian/themes/default.css';
+import '@avan-persian/react/client.css';
 ```
 
-Importing only `@avan/themes/default.css` sets CSS variables but not the actual `.avan-calendar`
+Importing only `@avan-persian/themes/default.css` sets CSS variables but not the actual `.avan-calendar`
 layout rules, so the calendar will render as plain unstyled buttons in a grid. Importing only
-`@avan/react/client.css` renders the layout but without colors/spacing tokens. Both are required.
+`@avan-persian/react/client.css` renders the layout but without colors/spacing tokens. Both are required.
 
 If you're using a bundler that doesn't support CSS imports from `node_modules` by default (rare
 in modern tooling), copy the CSS files into your own stylesheet pipeline instead.
@@ -50,14 +50,14 @@ names automatically. See [Localization](./localization.md).
 
 ## Can I use this without React?
 
-`@avan/core` has zero React dependency and can be used standalone for date math (conversion,
+`@avan-persian/core` has zero React dependency and can be used standalone for date math (conversion,
 formatting, business days, etc.) in any JS/TS environment — Node scripts, other frameworks, CLI
-tools. `@avan/react` is the only package that requires React.
+tools. `@avan-persian/react` is the only package that requires React.
 
 ## Does Avan work with Vue/Svelte/Angular?
 
-Not out of the box — `@avan/react` is React-specific. `@avan/core` (date logic) and
-`@avan/holidays` (holiday data) are framework-agnostic and can be used to build a calendar UI in
+Not out of the box — `@avan-persian/react` is React-specific. `@avan-persian/core` (date logic) and
+`@avan-persian/holidays` (holiday data) are framework-agnostic and can be used to build a calendar UI in
 any framework.
 
 ## How accurate are the Iran holiday dates?
@@ -65,7 +65,7 @@ any framework.
 Years 1404–1406 ship an official yearly calendar (public/religious/cultural holidays, including
 tentative religious dates that depend on moon sighting). Years outside that range fall back to
 fixed solar-calendar holidays only (won't include lunar-dependent religious holidays). See
-[`@avan/holidays`](./api-reference.md#avanholidays).
+[`@avan-persian/holidays`](./api-reference.md#avanholidays).
 
 ## Why does `parseJalali` throw on some strings?
 
@@ -75,7 +75,7 @@ and validates it's a real calendar day (correct days-per-month, leap years). Use
 input:
 
 ```ts
-import { tryParseJalali } from '@avan/core';
+import { tryParseJalali } from '@avan-persian/core';
 
 const parsed = tryParseJalali(userInput); // AvanDate | null
 ```

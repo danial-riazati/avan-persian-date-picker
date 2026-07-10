@@ -41,7 +41,7 @@ export function parseJalali(input: string): AvanDate {
   const normalized = toWesternDigits(input.trim());
   const match = /^(\d{4})[/-](\d{1,2})[/-](\d{1,2})$/.exec(normalized);
   if (!match) {
-    throw new Error(`@avan/core: invalid Jalali date "${input}"`);
+    throw new Error(`@avan-persian/core: invalid Jalali date "${input}"`);
   }
 
   const jalali: JalaliDate = {
@@ -51,7 +51,7 @@ export function parseJalali(input: string): AvanDate {
   };
 
   if (!isValidJalali(jalali)) {
-    throw new Error(`@avan/core: invalid Jalali date "${input}"`);
+    throw new Error(`@avan-persian/core: invalid Jalali date "${input}"`);
   }
 
   return {

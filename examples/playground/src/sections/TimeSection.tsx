@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { formatJalali, toPersianDigits } from '@avan/core';
-import { AvanDateTimePicker, AvanTimePicker } from '@avan/react/client';
-import type { AvanTimeValue } from '@avan/react';
+import { formatJalali, toPersianDigits } from '@avan-persian/core';
+import { AvanDateTimePicker, AvanTimePicker } from '@avan-persian/react/client';
+import type { AvanTimeValue } from '@avan-persian/react';
 import { Panel, Section } from '../components/Panel';
 import { T, type PlaygroundLocale } from '../strings';
 

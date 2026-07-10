@@ -1,4 +1,4 @@
-import { formatJalaliISO } from '@avan/core';
+import { formatJalaliISO } from '@avan-persian/core';
 import fixedSolar from '../data/fixed-solar.json';
 import holidays1404 from '../data/1404.json';
 import holidays1405 from '../data/1405.json';

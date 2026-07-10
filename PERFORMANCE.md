@@ -5,20 +5,20 @@
 Measured from a production build (`pnpm build`, `tsdown`/rolldown, ESM output, gzip via
 `tsdown`'s reporter) as of this release:
 
-| Package          | File                                                    | Minified | Gzipped |
-| ---------------- | ------------------------------------------------------- | -------- | ------- |
-| `@avan/react`    | `dist/client.js` (every component + hook)               | 75.9 kB  | 14.9 kB |
-| `@avan/react`    | `dist/client.css` (all component styles)                | 22.4 kB  | 3.5 kB  |
-| `@avan/core`     | `dist/index.js` (root re-export)                        | 1.1 kB   | 0.4 kB  |
-| `@avan/holidays` | `dist/index.js` (incl. 3 years of bundled holiday data) | 15.6 kB  | 2.6 kB  |
-| `@avan/travel`   | `dist/index.js`                                         | 4.3 kB   | 1.5 kB  |
+| Package                  | File                                                    | Minified | Gzipped |
+| ------------------------ | ------------------------------------------------------- | -------- | ------- |
+| `@avan-persian/react`    | `dist/client.js` (every component + hook)               | 75.9 kB  | 14.9 kB |
+| `@avan-persian/react`    | `dist/client.css` (all component styles)                | 22.4 kB  | 3.5 kB  |
+| `@avan-persian/core`     | `dist/index.js` (root re-export)                        | 1.1 kB   | 0.4 kB  |
+| `@avan-persian/holidays` | `dist/index.js` (incl. 3 years of bundled holiday data) | 15.6 kB  | 2.6 kB  |
+| `@avan-persian/travel`   | `dist/index.js`                                         | 4.3 kB   | 1.5 kB  |
 
 Notes:
 
-- `@avan/core` exposes per-function subpath exports (`@avan/core/convert`, `@avan/core/grid`,
-  `@avan/core/business`, `@avan/core/digits`), each under 1 kB gzipped individually — apps that
+- `@avan-persian/core` exposes per-function subpath exports (`@avan-persian/core/convert`, `@avan-persian/core/grid`,
+  `@avan-persian/core/business`, `@avan-persian/core/digits`), each under 1 kB gzipped individually — apps that
   only need date math (no React) can import just what they use.
-- `@avan/react/client`'s 14.9 kB gzipped figure includes **every** selection mode, all seven
+- `@avan-persian/react/client`'s 14.9 kB gzipped figure includes **every** selection mode, all seven
   picker components, the time picker, and all hooks — there's no per-component code-splitting
   within the package, since the whole surface is small enough that splitting would add bundler
   overhead without a meaningful download-size win for typical apps that use more than one
@@ -26,7 +26,7 @@ Notes:
   bundle; this is a deliberate simplicity/size trade-off given the current total size.
 - CSS is a single stylesheet bundled alongside the JS (no runtime CSS-in-JS cost); it's cached
   independently by the browser like any other static asset.
-- `@avan/holidays`'s size is dominated by the bundled JSON holiday datasets (1404–1406), not
+- `@avan-persian/holidays`'s size is dominated by the bundled JSON holiday datasets (1404–1406), not
   code — years outside that range use a small fixed-solar-holiday table instead.
 
 ## Rendering behavior

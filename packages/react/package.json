@@ -1,5 +1,5 @@
 {
-  "name": "@avan/react",
+  "name": "@avan-persian/react",
   "version": "0.1.0",
   "description": "React components for Avan Persian Date Picker",
   "license": "MIT",
@@ -50,8 +50,8 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@avan/core": "workspace:*",
-    "@avan/holidays": "workspace:*",
+    "@avan-persian/core": "workspace:*",
+    "@avan-persian/holidays": "workspace:*",
     "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {

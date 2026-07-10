@@ -55,16 +55,16 @@ offer natively.
 
 ## Persian/Jalali-specific (the actual differentiator)
 
-| Feature                                            | react-multi-date-picker | shamsi-date-picker | **Avan**                                    |
-| -------------------------------------------------- | ----------------------- | ------------------ | ------------------------------------------- |
-| Jalali calendar                                    | ✅                      | ✅                 | ✅                                          |
-| Iran public holidays bundled                       | ❌                      | ❌                 | ✅ (`@avan/holidays`, 1404–1406 + fallback) |
-| Business-day helpers (Iran weekend)                | ❌                      | ❌                 | ✅ (`@avan/core` business module)           |
-| Fiscal year / quarter helpers                      | ❌                      | ❌                 | ✅                                          |
-| Persian ⇄ Western digit conversion                 | ✅                      | ✅                 | ✅                                          |
-| Configurable week start (not just Saturday)        | ❌                      | ❌                 | ✅                                          |
-| Full custom locale objects (not just string swaps) | ❌                      | Partial            | ✅ (`AvanLocaleDefinition`)                 |
-| RTL + LTR support decoupled from digit style       | Partial                 | Partial            | ✅ (`dir` independent of `locale`)          |
+| Feature                                            | react-multi-date-picker | shamsi-date-picker | **Avan**                                            |
+| -------------------------------------------------- | ----------------------- | ------------------ | --------------------------------------------------- |
+| Jalali calendar                                    | ✅                      | ✅                 | ✅                                                  |
+| Iran public holidays bundled                       | ❌                      | ❌                 | ✅ (`@avan-persian/holidays`, 1404–1406 + fallback) |
+| Business-day helpers (Iran weekend)                | ❌                      | ❌                 | ✅ (`@avan-persian/core` business module)           |
+| Fiscal year / quarter helpers                      | ❌                      | ❌                 | ✅                                                  |
+| Persian ⇄ Western digit conversion                 | ✅                      | ✅                 | ✅                                                  |
+| Configurable week start (not just Saturday)        | ❌                      | ❌                 | ✅                                                  |
+| Full custom locale objects (not just string swaps) | ❌                      | Partial            | ✅ (`AvanLocaleDefinition`)                         |
+| RTL + LTR support decoupled from digit style       | Partial                 | Partial            | ✅ (`dir` independent of `locale`)                  |
 
 ## Accessibility
 
@@ -81,7 +81,7 @@ offer natively.
 | Feature                                                                | Benchmarks              | **Avan**                               |
 | ---------------------------------------------------------------------- | ----------------------- | -------------------------------------- |
 | Per-day pricing/availability metadata                                  | ❌ (custom render only) | ✅ (`getDayMeta`, typed `AvanDayMeta`) |
-| Booking rule validation (min/max nights, blackout, business-days-only) | ❌                      | ✅ (`@avan/travel`)                    |
+| Booking rule validation (min/max nights, blackout, business-days-only) | ❌                      | ✅ (`@avan-persian/travel`)            |
 | Range price summary                                                    | ❌                      | ✅ (`computeRangePrice`)               |
 | "Lowest price this month" helper                                       | ❌                      | ✅ (`findLowestPriceInMonth`)          |
 
@@ -99,8 +99,8 @@ cycle:
 - ✅ Added `disabledWeekdays`/`disabledRanges` as first-class constraint props.
 - ✅ Added `getDayMeta` + `components` custom-rendering API.
 - ✅ Added swipe/wheel navigation, loading skeletons, today/clear footer buttons.
-- ✅ Added `@avan/travel` for real booking/pricing use cases.
-- ✅ Added business-day, fiscal-year, and quarter helpers to `@avan/core`.
+- ✅ Added `@avan-persian/travel` for real booking/pricing use cases.
+- ✅ Added business-day, fiscal-year, and quarter helpers to `@avan-persian/core`.
 - ✅ Added WAI-ARIA grid keyboard navigation, focus trap, and live-region announcements.
 
 ## Remaining gaps / candidates for future releases

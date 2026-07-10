@@ -34,13 +34,13 @@ pnpm install
 This is a [pnpm](https://pnpm.io/) + [Turborepo](https://turbo.build/repo)
 monorepo. The main packages live under `packages/`:
 
-| Package          | Description                                                |
-| ---------------- | ---------------------------------------------------------- |
-| `@avan/core`     | Headless Jalali (Persian) date utilities                   |
-| `@avan/react`    | React components for the date picker (the main UI package) |
-| `@avan/holidays` | Iran public holidays data and helpers                      |
-| `@avan/themes`   | Design tokens and CSS themes (including a Tailwind preset) |
-| `@avan/travel`   | Travel & pricing extensions built on top of `@avan/react`  |
+| Package                  | Description                                                       |
+| ------------------------ | ----------------------------------------------------------------- |
+| `@avan-persian/core`     | Headless Jalali (Persian) date utilities                          |
+| `@avan-persian/react`    | React components for the date picker (the main UI package)        |
+| `@avan-persian/holidays` | Iran public holidays data and helpers                             |
+| `@avan-persian/themes`   | Design tokens and CSS themes (including a Tailwind preset)        |
+| `@avan-persian/travel`   | Travel & pricing extensions built on top of `@avan-persian/react` |
 
 There's also a demo/development app:
 
@@ -67,9 +67,9 @@ To run a command for a single package, use pnpm's `--filter` flag, for
 example:
 
 ```bash
-pnpm --filter @avan/core test
-pnpm --filter @avan/react typecheck
-pnpm --filter @avan/react build
+pnpm --filter @avan-persian/core test
+pnpm --filter @avan-persian/react typecheck
+pnpm --filter @avan-persian/react build
 ```
 
 ## Code Style
@@ -111,7 +111,7 @@ Example: `fix(react): correct focus trap in calendar popover`
 ## Adding a Changeset
 
 This repo uses [Changesets](https://github.com/changesets/changesets) to
-manage versioning and changelogs across the `@avan/*` packages. **Any PR that
+manage versioning and changelogs across the `@avan-persian/*` packages. **Any PR that
 changes the behavior or public API of a published package should include a
 changeset.**
 

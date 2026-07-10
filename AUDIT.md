@@ -1,7 +1,7 @@
 # Audit Report
 
-_Last updated: this release. Covers the full monorepo: `@avan/core`, `@avan/react`,
-`@avan/holidays`, `@avan/themes`, `@avan/travel`, and `examples/playground`._
+_Last updated: this release. Covers the full monorepo: `@avan-persian/core`, `@avan-persian/react`,
+`@avan-persian/holidays`, `@avan-persian/themes`, `@avan-persian/travel`, and `examples/playground`._
 
 ## Summary
 
@@ -28,10 +28,10 @@ examples/
   playground/  Vite app used as the live demo + manual QA surface
 ```
 
-- **Layering is clean**: `@avan/react` depends on `@avan/core` and `@avan/holidays`; `@avan/travel`
-  depends only on `@avan/core`. Neither `@avan/core`, `@avan/holidays`, nor `@avan/travel` depend
+- **Layering is clean**: `@avan-persian/react` depends on `@avan-persian/core` and `@avan-persian/holidays`; `@avan-persian/travel`
+  depends only on `@avan-persian/core`. Neither `@avan-persian/core`, `@avan-persian/holidays`, nor `@avan-persian/travel` depend
   on React, so they're reusable outside a React app.
-- **Dual entry points** on `@avan/react` (`.` for types only, `./client` for components/hooks)
+- **Dual entry points** on `@avan-persian/react` (`.` for types only, `./client` for components/hooks)
   let type-only imports work in Server Components without pulling in client runtime code.
 - **Date model**: Jalali dates are represented as `{ year, month, day }` (`JalaliDate`); every
   public API that crosses the React/date-math boundary uses plain `Date` (Gregorian) as the
@@ -68,7 +68,7 @@ established calendar libraries. Highlights:
   all composable via `createDisabledResolver`.
 - Custom rendering: day content, full day cell, nav buttons, caption, footer.
 - Day metadata (`getDayMeta`): badges, pricing, availability, tooltips, forced-disable — powers
-  the `@avan/travel` integration.
+  the `@avan-persian/travel` integration.
 - Time selection: standalone `AvanTimePicker` and composite `AvanDateTimePicker`.
 - Text input mode for `AvanDatePicker` with tolerant parsing.
 
@@ -81,20 +81,20 @@ suite (0 violations across single-mode and two-month range-mode calendars, inlin
 
 ## Performance
 
-Full report: [PERFORMANCE.md](./PERFORMANCE.md). Summary: `@avan/react`'s client bundle is
-~75.9 kB minified / ~15 kB gzipped including every component; `@avan/core` is tree-shakeable
+Full report: [PERFORMANCE.md](./PERFORMANCE.md). Summary: `@avan-persian/react`'s client bundle is
+~75.9 kB minified / ~15 kB gzipped including every component; `@avan-persian/core` is tree-shakeable
 per-function (sub-1 kB gzipped for typical usage). No unnecessary re-renders were found in the
 calendar grid during manual profiling; memoization is applied to the disabled-date resolver and
 year-bounds calculation.
 
 ## Testing
 
-| Package          | Test files | Tests | Notable coverage                                                                                                                |
-| ---------------- | ---------- | ----- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `@avan/core`     | 4          | 27    | Convert/parse round-trips, grid generation, business days, digits                                                               |
-| `@avan/holidays` | 1          | 4     | Lookup, merging, fixed-solar fallback                                                                                           |
-| `@avan/travel`   | 1          | 7     | Range validation, pricing, availability                                                                                         |
-| `@avan/react`    | 8          | 48    | Every selection mode, keyboard nav, focus trap, text input, time picker, all picker wrappers, provider/theming, `axe-core` a11y |
+| Package                  | Test files | Tests | Notable coverage                                                                                                                |
+| ------------------------ | ---------- | ----- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `@avan-persian/core`     | 4          | 27    | Convert/parse round-trips, grid generation, business days, digits                                                               |
+| `@avan-persian/holidays` | 1          | 4     | Lookup, merging, fixed-solar fallback                                                                                           |
+| `@avan-persian/travel`   | 1          | 7     | Range validation, pricing, availability                                                                                         |
+| `@avan-persian/react`    | 8          | 48    | Every selection mode, keyboard nav, focus trap, text input, time picker, all picker wrappers, provider/theming, `axe-core` a11y |
 
 All 86 tests pass; `pnpm lint`, `pnpm typecheck`, and `pnpm build` are clean across every
 package. CI (`.github/workflows/ci.yml`) runs lint, typecheck, test+coverage, and build as
@@ -115,7 +115,7 @@ separate jobs on every push/PR.
 
 ## Known limitations / follow-ups
 
-- `@avan/holidays` statement coverage (73%) is lower than other packages — the untested branches
+- `@avan-persian/holidays` statement coverage (73%) is lower than other packages — the untested branches
   are primarily edge cases in holiday-entry merging (overlapping titles across datasets) rather
   than core lookup logic.
 - Years outside the bundled 1404–1406 range only get fixed solar-calendar holidays (no

@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { formatJalali, toPersianDigits } from '@avan/core';
-import { getIranHolidays, isHoliday } from '@avan/holidays';
-import { AvanCalendar } from '@avan/react/client';
-import type { AvanGetDayMeta } from '@avan/react';
+import { formatJalali, toPersianDigits } from '@avan-persian/core';
+import { getIranHolidays, isHoliday } from '@avan-persian/holidays';
+import { AvanCalendar } from '@avan-persian/react/client';
+import type { AvanGetDayMeta } from '@avan-persian/react';
 import { Panel, Section } from '../components/Panel';
 import { T, type PlaygroundLocale } from '../strings';
 

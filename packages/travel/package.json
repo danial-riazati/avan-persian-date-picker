@@ -1,5 +1,5 @@
 {
-  "name": "@avan/travel",
+  "name": "@avan-persian/travel",
   "version": "0.1.0",
   "description": "Travel & pricing extensions for Avan Persian Date Picker",
   "license": "MIT",
@@ -39,7 +39,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@avan/core": "workspace:*",
+    "@avan-persian/core": "workspace:*",
     "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {

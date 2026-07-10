@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
-import { addJalaliMonths, type JalaliDate } from '@avan/core';
-import { getIranHolidays, type AvanHoliday } from '@avan/holidays';
+import { addJalaliMonths, type JalaliDate } from '@avan-persian/core';
+import { getIranHolidays, type AvanHoliday } from '@avan-persian/holidays';
 
-/** Official yearly datasets shipped with `@avan/holidays`. */
+/** Official yearly datasets shipped with `@avan-persian/holidays`. */
 export const AVAN_BUNDLED_HOLIDAY_YEARS = [1404, 1405, 1406] as const;
 
 function collectHolidayYears(visibleMonth: JalaliDate, numberOfMonths: number): number[] {

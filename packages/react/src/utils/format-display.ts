@@ -1,4 +1,4 @@
-import { formatJalali, toPersianDigits } from '@avan/core';
+import { formatJalali, toPersianDigits } from '@avan-persian/core';
 import type { AvanLocaleDefinition } from '../locale';
 
 export function shouldUsePersianDigits(dirOrLocale: 'rtl' | 'ltr' | AvanLocaleDefinition): boolean {

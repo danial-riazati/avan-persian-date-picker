@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { formatJalali, toPersianDigits } from '@avan/core';
+import { formatJalali, toPersianDigits } from '@avan-persian/core';
 import {
   AvanCalendar,
   AvanDatePicker,
@@ -9,8 +9,8 @@ import {
   AvanWeekPicker,
   AvanYearPicker,
   type DateRangeValue,
-} from '@avan/react/client';
-import type { JalaliDate } from '@avan/core';
+} from '@avan-persian/react/client';
+import type { JalaliDate } from '@avan-persian/core';
 import { Panel, Section } from '../components/Panel';
 import { T, type PlaygroundLocale } from '../strings';
 

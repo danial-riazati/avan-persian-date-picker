@@ -11,7 +11,7 @@ import {
 } from './business';
 import { toGregorian } from './convert';
 
-describe('@avan/core business', () => {
+describe('@avan-persian/core business', () => {
   it('treats Friday as the only default weekend day', () => {
     // 1405/01/01 is a Saturday (Nowruz 1405 falls on Saturday).
     const saturday = toGregorian({ year: 1405, month: 1, day: 1 });

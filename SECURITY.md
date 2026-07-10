@@ -3,7 +3,7 @@
 ## Supported Versions
 
 Avan Persian Date Picker is currently **pre-1.0**. While the project is in
-this stage, only the latest published version of each `@avan/*` package
+this stage, only the latest published version of each `@avan-persian/*` package
 receives security fixes.
 
 | Version            | Supported          |
@@ -36,7 +36,7 @@ When reporting a vulnerability, please include, if possible:
 
 - A description of the vulnerability and its potential impact
 - Steps to reproduce, or a minimal reproduction (code snippet or repo)
-- The affected package(s) and version(s) (e.g. `@avan/core@0.0.0`)
+- The affected package(s) and version(s) (e.g. `@avan-persian/core@0.0.0`)
 - Any known mitigations or workarounds
 
 ## Response Expectations
