@@ -4,10 +4,12 @@ import { useRef } from 'react';
 import { AvanCalendar } from './avan-calendar';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
+import { useControllableState } from '../hooks/use-controllable-state';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
 import { useFocusTrap } from '../hooks/use-focus-trap';
 import { resolveLocale } from '../locale';
 import type { AvanMonthPickerProps } from '../types';
+import type { JalaliDate } from '@avan-persian/core';
 import { formatNumberDisplay } from '../utils/format-display';
 
 export function AvanMonthPicker({
@@ -28,7 +30,13 @@ export function AvanMonthPicker({
   const context = useAvanContext();
   const locale = resolveLocale(localeProp ?? context.locale);
   const dir = dirProp ?? context.dir ?? locale.dir;
-  const monthValue = value ?? defaultValue ?? null;
+  // Lift the selection into the wrapper so uncontrolled usage still re-renders the trigger
+  // label when a month is picked from the calendar.
+  const [monthValue, setMonthValue] = useControllableState<JalaliDate | null>(
+    value,
+    defaultValue ?? null,
+    onChange,
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
@@ -46,8 +54,8 @@ export function AvanMonthPicker({
     ? `${locale.strings.months[monthValue.month - 1]} ${formatNumberDisplay(monthValue.year, locale)}`
     : resolvedPlaceholder;
 
-  function handleChange(next: typeof monthValue) {
-    onChange?.(next);
+  function handleChange(next: JalaliDate | null) {
+    setMonthValue(next);
     if (isPopover && closeOnSelect && next) setOpen(false);
   }
 
@@ -57,8 +65,7 @@ export function AvanMonthPicker({
       locale={locale}
       dir={dir}
       mode="month"
-      monthValue={value}
-      defaultMonthValue={defaultValue}
+      monthValue={monthValue}
       onMonthChange={handleChange}
     />
   );

@@ -76,4 +76,40 @@ describe('<AvanDatePicker />', () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });
+
+  it('reflects a calendar pick in the text input when uncontrolled', async () => {
+    const user = userEvent.setup();
+    render(
+      <AvanDatePicker
+        dir="ltr"
+        locale="en-IR"
+        display="popover"
+        allowTextInput
+        visibleMonth={{ year: 1405, month: 1, day: 1 }}
+      />,
+    );
+
+    const input = screen.getByPlaceholderText(/yyyy\/MM\/dd/);
+    await user.click(input);
+    await user.click(screen.getByRole('gridcell', { name: /1405\/01\/15/ }));
+
+    expect((input as HTMLInputElement).value).toContain('1405/01/15');
+  });
+
+  it('updates the trigger label after picking a date when uncontrolled', async () => {
+    const user = userEvent.setup();
+    render(
+      <AvanDatePicker
+        dir="ltr"
+        locale="en-IR"
+        display="popover"
+        visibleMonth={{ year: 1405, month: 1, day: 1 }}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: /select a date/i }));
+    await user.click(screen.getByRole('gridcell', { name: /1405\/01\/05/ }));
+
+    expect(screen.getByRole('button', { name: /1405\/01\/05/ })).toBeInTheDocument();
+  });
 });

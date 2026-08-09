@@ -466,6 +466,7 @@ export function AvanCalendar(props: AvanCalendarProps) {
     dir,
     weekStartsOn,
     numberOfMonths: monthsToShow,
+    visibleMonth: calendar.visibleMonth,
     isDateDisabled: combinedIsDateDisabled,
     initialDate: keyboardAnchor,
     onNavigateMonths: (delta) =>

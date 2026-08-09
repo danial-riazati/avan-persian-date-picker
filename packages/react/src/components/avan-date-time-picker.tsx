@@ -5,6 +5,7 @@ import { AvanCalendar } from './avan-calendar';
 import { AvanTimePicker } from './avan-time-picker';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
+import { useControllableState } from '../hooks/use-controllable-state';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
 import { useFocusTrap } from '../hooks/use-focus-trap';
 import { resolveLocale } from '../locale';
@@ -42,7 +43,13 @@ export function AvanDateTimePicker({
   const context = useAvanContext();
   const locale = resolveLocale(localeProp ?? context.locale);
   const dir = dirProp ?? context.dir ?? locale.dir;
-  const selected = value ?? defaultValue ?? null;
+  // Lift the selection into the wrapper so uncontrolled usage still re-renders the trigger
+  // label and enables the time picker once a date is chosen from the calendar.
+  const [selected, setSelected] = useControllableState<Date | null>(
+    value,
+    defaultValue ?? null,
+    onChange,
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
@@ -63,20 +70,20 @@ export function AvanDateTimePicker({
 
   function handleDateChange(nextDate: Date | null) {
     if (!nextDate) {
-      onChange?.(null);
+      setSelected(null);
       return;
     }
 
     const time = selected ? timeOf(selected) : { hour: 0, minute: 0, second: 0 };
-    onChange?.(withTime(nextDate, time));
+    setSelected(withTime(nextDate, time));
   }
 
   function handleTimeChange(time: AvanTimeValue) {
     if (!selected) {
-      onChange?.(withTime(new Date(), time));
+      setSelected(withTime(new Date(), time));
       return;
     }
-    onChange?.(withTime(selected, time));
+    setSelected(withTime(selected, time));
   }
 
   const content = (

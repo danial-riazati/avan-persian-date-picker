@@ -6,6 +6,7 @@ import { AvanYearPicker } from './avan-year-picker';
 import { AvanWeekPicker } from './avan-week-picker';
 import { AvanMultiDatePicker } from './avan-multi-date-picker';
 import { AvanDateTimePicker } from './avan-date-time-picker';
+import { AvanDateRangePicker } from './avan-date-range-picker';
 import { AvanProvider } from '../context/avan-context';
 
 const VISIBLE_MONTH = { year: 1405, month: 1, day: 1 };
@@ -127,5 +128,41 @@ describe('AvanDateTimePicker', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Select a date' })).toBeInTheDocument();
+  });
+});
+
+describe('AvanDateRangePicker', () => {
+  it('updates the trigger label after picking a range when uncontrolled', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <AvanProvider dir="ltr" locale="en-IR">
+        <AvanDateRangePicker display="popover" visibleMonth={VISIBLE_MONTH} />
+      </AvanProvider>,
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Select a date range' }));
+    await user.click(screen.getByRole('gridcell', { name: /1405\/01\/05/ }));
+    await user.click(screen.getByRole('gridcell', { name: /1405\/01\/10/ }));
+
+    expect(screen.getByRole('button', { name: /1405\/01\/05/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /1405\/01\/10/ })).toBeInTheDocument();
+  });
+});
+
+describe('AvanMonthPicker uncontrolled label', () => {
+  it('updates the inline label after selecting a month when uncontrolled', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <AvanProvider dir="ltr" locale="en-IR">
+        <AvanMonthPicker visibleMonth={VISIBLE_MONTH} />
+      </AvanProvider>,
+    );
+
+    await user.click(screen.getByRole('option', { name: 'Farvardin' }));
+
+    const label = document.querySelector('.avan-month-picker__input');
+    expect(label?.textContent).toContain('Farvardin 1405');
   });
 });
