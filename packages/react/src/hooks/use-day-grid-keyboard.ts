@@ -8,6 +8,7 @@ import {
   startOfJalaliWeek,
   toGregorian,
   toJalali,
+  type JalaliDate,
 } from '@avan-persian/core';
 
 export interface UseDayGridKeyboardOptions {
@@ -15,6 +16,11 @@ export interface UseDayGridKeyboardOptions {
   weekStartsOn?: number;
   /** How many Jalali months are currently visible (1–4). Used to know when to page. */
   numberOfMonths: number;
+  /** The first visible month. When provided, focus movement is measured against the whole
+   *  visible span (`visibleMonth` … `visibleMonth + numberOfMonths - 1`) instead of the focused
+   *  date, so arrow navigation across panel boundaries in multi-month views pages exactly once
+   *  and never pages while the target is already on screen. */
+  visibleMonth?: JalaliDate;
   /** Called with a month delta (e.g. -1, +1, -12, +12) when focus needs to move off-screen. */
   onNavigateMonths: (deltaMonths: number) => void;
   onSelect: (date: Date) => void;
@@ -55,7 +61,7 @@ export function useDayGridKeyboard(options: UseDayGridKeyboardOptions) {
   }
 
   function moveFocusTo(date: Date) {
-    const monthDelta = monthsBetween(date, focusedDate);
+    const monthDelta = monthsBetween(date);
     setFocusedDate(date);
     const key = keyOf(date);
 
@@ -70,18 +76,23 @@ export function useDayGridKeyboard(options: UseDayGridKeyboardOptions) {
     }
   }
 
-  function monthsBetween(target: Date, current: Date): number {
+  function monthsBetween(target: Date): number {
     const targetJalali = toJalali(target);
-    const currentJalali = toJalali(current);
+    const anchorJalali = options.visibleMonth ?? toJalali(focusedDate);
     const totalMonthsDiff =
-      (targetJalali.year - currentJalali.year) * 12 + (targetJalali.month - currentJalali.month);
+      (targetJalali.year - anchorJalali.year) * 12 + (targetJalali.month - anchorJalali.month);
 
-    // Only page when the target falls outside the currently visible span of months.
-    if (totalMonthsDiff >= options.numberOfMonths) {
-      return totalMonthsDiff - options.numberOfMonths + 1;
-    }
+    // Only page when the target falls outside the currently visible span of months
+    // (`visibleMonth` … `visibleMonth + numberOfMonths - 1`). Measuring against the first
+    // visible month (not the focused date) means a target already rendered in another panel
+    // never pages the view, while a target beyond the last panel pages exactly once.
     if (totalMonthsDiff < 0) {
+      // Before the first visible panel: page so the target becomes the first panel.
       return totalMonthsDiff;
+    }
+    if (totalMonthsDiff >= options.numberOfMonths) {
+      // After the last visible panel: page so the target lands in the last panel.
+      return totalMonthsDiff - options.numberOfMonths + 1;
     }
     return 0;
   }

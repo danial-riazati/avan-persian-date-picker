@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AvanCalendar } from './avan-calendar';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
+import { useControllableState } from '../hooks/use-controllable-state';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
 import { useFocusTrap } from '../hooks/use-focus-trap';
 import { resolveLocale } from '../locale';
@@ -28,7 +29,13 @@ export function AvanYearPicker({
   const context = useAvanContext();
   const locale = resolveLocale(localeProp ?? context.locale);
   const dir = dirProp ?? context.dir ?? locale.dir;
-  const yearValue = value ?? defaultValue ?? null;
+  // Lift the selection into the wrapper so uncontrolled usage still re-renders the trigger
+  // label when a year is picked from the calendar.
+  const [yearValue, setYearValue] = useControllableState<number | null>(
+    value,
+    defaultValue ?? null,
+    onChange,
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
@@ -45,7 +52,7 @@ export function AvanYearPicker({
   const triggerLabel = yearValue ? formatNumberDisplay(yearValue, locale) : resolvedPlaceholder;
 
   function handleChange(next: number | null) {
-    onChange?.(next);
+    setYearValue(next);
     if (isPopover && closeOnSelect && next) setOpen(false);
   }
 
@@ -55,8 +62,7 @@ export function AvanYearPicker({
       locale={locale}
       dir={dir}
       mode="year"
-      yearValue={value}
-      defaultYearValue={defaultValue}
+      yearValue={yearValue}
       onYearChange={handleChange}
     />
   );

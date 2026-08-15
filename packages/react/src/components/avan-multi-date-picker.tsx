@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AvanCalendar } from './avan-calendar';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
+import { useControllableState } from '../hooks/use-controllable-state';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
 import { useFocusTrap } from '../hooks/use-focus-trap';
 import { resolveLocale } from '../locale';
@@ -29,7 +30,9 @@ export function AvanMultiDatePicker({
   const context = useAvanContext();
   const locale = resolveLocale(localeProp ?? context.locale);
   const dir = dirProp ?? context.dir ?? locale.dir;
-  const selected = value ?? defaultValue ?? [];
+  // Lift the selection into the wrapper so uncontrolled usage still re-renders the trigger
+  // label when dates are picked from the calendar.
+  const [selected, setSelected] = useControllableState<Date[]>(value, defaultValue ?? [], onChange);
   const rootRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
@@ -49,7 +52,7 @@ export function AvanMultiDatePicker({
       : resolvedPlaceholder;
 
   function handleChange(next: Date[]) {
-    onChange?.(next);
+    setSelected(next);
     if (isPopover && closeOnSelect) setOpen(false);
   }
 
@@ -60,8 +63,7 @@ export function AvanMultiDatePicker({
       dir={dir}
       mode="multiple"
       numberOfMonths={numberOfMonths}
-      multipleValue={value}
-      defaultMultipleValue={defaultValue}
+      multipleValue={selected}
       onMultipleChange={handleChange}
     />
   );

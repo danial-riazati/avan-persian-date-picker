@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AvanCalendar } from './avan-calendar';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
+import { useControllableState } from '../hooks/use-controllable-state';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
 import { useFocusTrap } from '../hooks/use-focus-trap';
 import { resolveLocale, type AvanLocaleDefinition } from '../locale';
@@ -44,7 +45,13 @@ export function AvanDateRangePicker({
   const context = useAvanContext();
   const locale = resolveLocale(localeProp ?? context.locale);
   const dir = dirProp ?? context.dir ?? locale.dir;
-  const range = value ?? defaultValue ?? { from: null, to: null };
+  // Lift the range into the wrapper so uncontrolled usage still re-renders the trigger label
+  // and the summary when a range is picked from the calendar.
+  const [range, setRange] = useControllableState<DateRangeValue>(
+    value,
+    defaultValue ?? { from: null, to: null },
+    onChange,
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
@@ -63,7 +70,7 @@ export function AvanDateRangePicker({
   const triggerLabel = formatRangeTriggerLabel(range, locale, resolvedPlaceholder);
 
   function handleRangeChange(next: DateRangeValue) {
-    onChange?.(next);
+    setRange(next);
 
     if (isPopover && closeOnSelect && next.from && next.to) {
       setOpen(false);
@@ -77,8 +84,7 @@ export function AvanDateRangePicker({
       locale={locale}
       mode="range"
       numberOfMonths={numberOfMonths}
-      rangeValue={value}
-      defaultRangeValue={defaultValue}
+      rangeValue={range}
       onRangeChange={handleRangeChange}
     />
   );

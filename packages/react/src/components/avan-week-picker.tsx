@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AvanCalendar } from './avan-calendar';
 import { useAvanContext } from '../context/avan-context';
 import { useControllableOpen } from '../hooks/use-controllable-open';
+import { useControllableState } from '../hooks/use-controllable-state';
 import { useDismissibleLayer } from '../hooks/use-dismissible-layer';
 import { useFocusTrap } from '../hooks/use-focus-trap';
 import { resolveLocale } from '../locale';
@@ -29,7 +30,13 @@ export function AvanWeekPicker({
   const context = useAvanContext();
   const locale = resolveLocale(localeProp ?? context.locale);
   const dir = dirProp ?? context.dir ?? locale.dir;
-  const week: DateRangeValue = value ?? defaultValue ?? { from: null, to: null };
+  // Lift the selection into the wrapper so uncontrolled usage still re-renders the trigger
+  // label when a week is picked from the calendar.
+  const [week, setWeek] = useControllableState<DateRangeValue>(
+    value,
+    defaultValue ?? { from: null, to: null },
+    onChange,
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { open, setOpen, toggleOpen } = useControllableOpen({
@@ -49,7 +56,7 @@ export function AvanWeekPicker({
       : resolvedPlaceholder;
 
   function handleChange(next: DateRangeValue) {
-    onChange?.(next);
+    setWeek(next);
     if (isPopover && closeOnSelect && next.from && next.to) setOpen(false);
   }
 
@@ -60,8 +67,7 @@ export function AvanWeekPicker({
       dir={dir}
       mode="week"
       numberOfMonths={numberOfMonths}
-      weekValue={value}
-      defaultWeekValue={defaultValue}
+      weekValue={week}
       onWeekChange={handleChange}
     />
   );
