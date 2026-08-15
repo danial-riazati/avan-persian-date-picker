@@ -12,6 +12,10 @@ Avan is a small set of focused packages — install only what you need.
 | `@avan-persian/themes`   | CSS design tokens, dark mode, Tailwind preset, Estedad font     | —                                              |
 | `@avan-persian/travel`   | Pricing/availability helpers for booking & travel UIs           | `@avan-persian/core`                           |
 
+Packages are versioned independently — a release of `@avan-persian/react` does not bump `core`,
+`holidays`, `themes`, or `travel` unless those packages also changed. Install unpinned
+(`pnpm add @avan-persian/react`) to always get the latest of each.
+
 Most apps only need `@avan-persian/react` + `@avan-persian/themes` — the other two are pulled in automatically
 as dependencies of `@avan-persian/react` (or opt-in extras for `@avan-persian/travel`).
 

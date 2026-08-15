@@ -80,6 +80,13 @@ import { tryParseJalali } from '@avan-persian/core';
 const parsed = tryParseJalali(userInput); // AvanDate | null
 ```
 
+## Why are some packages still `0.1.1` after a `0.1.2` release?
+
+Packages are versioned independently. A patch that only changes `@avan-persian/react` publishes
+`@avan-persian/react@0.1.2` and leaves `@avan-persian/core`, `holidays`, `themes`, and `travel` at
+`0.1.1`. That is expected — those packages had no code change. See the [changelog](../CHANGELOG.md)
+and each package's npm page for the live version.
+
 ## How do I report a bug or request a feature?
 
 Please use the issue templates on GitHub — see [CONTRIBUTING.md](../CONTRIBUTING.md).

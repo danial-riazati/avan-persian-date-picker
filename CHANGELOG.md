@@ -3,10 +3,24 @@
 This file summarizes notable changes across the whole monorepo at a glance. Once packages start
 publishing releases, each package also gets its own auto-generated `CHANGELOG.md`
 (via [Changesets](https://github.com/changesets/changesets)) with per-version, per-package
-detail — this root file is a human-curated overview.
+detail — this root file is a human-curated overview. Packages are versioned independently.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/); this project
 follows [Semantic Versioning](https://semver.org/) once it reaches `1.0.0`.
+
+## [0.1.2] — `@avan-persian/react` only
+
+Published to npm as [`@avan-persian/react@0.1.2`](https://www.npmjs.com/package/@avan-persian/react/v/0.1.2).
+`core`, `holidays`, `themes`, and `travel` stay at `0.1.1` — this patch did not change them.
+
+### Fixed
+
+- Keyboard navigation in multi-month views: ArrowDown / PageDown from the last visible panel now
+  pages the calendar forward instead of moving focus into an unrendered month. Moving into a month
+  that is already on screen no longer shifts the view.
+- Uncontrolled picker wrappers (`AvanDatePicker` with `allowTextInput`, plus trigger labels on
+  every picker, and `AvanDateTimePicker`'s time picker) now reflect calendar selections when the
+  caller does not pass a `value` prop.
 
 ## [0.1.1]
 

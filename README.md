@@ -70,13 +70,15 @@ export function Example() {
 
 ## Packages
 
-| Package                  | Purpose                                              |
-| ------------------------ | ---------------------------------------------------- |
-| `@avan-persian/react`    | Calendar + every picker component                    |
-| `@avan-persian/core`     | Jalali convert, grid, digits, business days          |
-| `@avan-persian/holidays` | Iran public holidays                                 |
-| `@avan-persian/themes`   | CSS tokens, dark mode, Tailwind preset, Estedad font |
-| `@avan-persian/travel`   | Pricing/availability helpers for booking UIs         |
+Packages are versioned independently. Each badge reads the live npm version (not a hardcoded number).
+
+| Package | Purpose | npm |
+| --- | --- | --- |
+| `@avan-persian/react` | Calendar + every picker component | [![npm](https://img.shields.io/npm/v/%40avan-persian%2Freact?label=%20)](https://www.npmjs.com/package/@avan-persian/react) |
+| `@avan-persian/core` | Jalali convert, grid, digits, business days | [![npm](https://img.shields.io/npm/v/%40avan-persian%2Fcore?label=%20)](https://www.npmjs.com/package/@avan-persian/core) |
+| `@avan-persian/holidays` | Iran public holidays | [![npm](https://img.shields.io/npm/v/%40avan-persian%2Fholidays?label=%20)](https://www.npmjs.com/package/@avan-persian/holidays) |
+| `@avan-persian/themes` | CSS tokens, dark mode, Tailwind preset, Estedad font | [![npm](https://img.shields.io/npm/v/%40avan-persian%2Fthemes?label=%20)](https://www.npmjs.com/package/@avan-persian/themes) |
+| `@avan-persian/travel` | Pricing/availability helpers for booking UIs | [![npm](https://img.shields.io/npm/v/%40avan-persian%2Ftravel?label=%20)](https://www.npmjs.com/package/@avan-persian/travel) |
 
 ## Documentation
 
